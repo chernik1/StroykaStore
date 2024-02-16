@@ -1039,33 +1039,25 @@ img{
     font-size: 16px;
     line-height: 150%;
     text-decoration: none;
+    margin-bottom: 16px;
+    position: relative;
 }
 
-/* CSS for the city links with hover effect and arrow icon */
-.modal__window-link {
-  margin-bottom: 16px;
-  position: relative;
-  transition: transform 0.3s;
+.modal__window-item:hover {
+    padding-left: 15px;
 }
 
-.modal__window-link::after {
-  content: url('../img/svg/arrow-modal-window.svg');
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.3s, right 0.3s;
+
+.modal__window-link img {
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
-.modal__window-link:hover {
-  transform: translateX(15px);
+/* Изменяем селектор с .modal__window-arrow:hover на .modal__window-link:hover img, чтобы показать изображение при наведении на ссылку */
+.modal__window-link:hover img {
+    opacity: 1;
 }
 
-.modal__window-link:hover::after {
-  opacity: 1;
-  right: 0;
-}
 
 .modal-open {
   display: block;

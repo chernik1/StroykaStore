@@ -15,6 +15,7 @@
   });
 })();
 
+// Фиксированная шапка
 window.addEventListener('scroll', function() {
     const mainTools = document.querySelector('.main__tools');
     if (window.scrollY > 100) {
@@ -42,8 +43,10 @@ function openModal() {
   closeButton.addEventListener("click", function() {
   modal.classList.remove("modal-open");
   overlay.classList.remove("modal-open");
-});
+  });
 }
+
+
 
 
 

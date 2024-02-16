@@ -33,6 +33,7 @@ function openModal() {
   let btn = document.querySelector(".header__location_button");
   let modal = document.querySelector("#modal__window_city");
   let overlay = document.querySelector(".modal__window");
+  let cityNameSpan = document.getElementById("city-name");
 
   btn.addEventListener("click", function() {
     modal.classList.add("modal-open");
@@ -41,9 +42,19 @@ function openModal() {
 
   let closeButton = document.querySelector(".modal__window-close");
   closeButton.addEventListener("click", function() {
-  modal.classList.remove("modal-open");
-  overlay.classList.remove("modal-open");
+    modal.classList.remove("modal-open");
+    overlay.classList.remove("modal-open");
   });
+
+  let modalLinks = document.querySelectorAll(".modal__window-link");
+  for (let link of modalLinks) {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      let city = link.textContent.trim();
+      closeButton.click();
+      cityNameSpan.textContent = city;
+    });
+  }
 }
 
 

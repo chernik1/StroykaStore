@@ -35,6 +35,11 @@ function openModal() {
   let overlay = document.querySelector(".modal__window");
   let cityNameSpan = document.getElementById("city-name");
 
+  const storedCity = localStorage.getItem('selectedCity');
+  if (storedCity) {
+    cityNameSpan.textContent = storedCity;
+  }
+
   btn.addEventListener("click", function() {
     modal.classList.add("modal-open");
     overlay.classList.add("modal-open");
@@ -53,11 +58,34 @@ function openModal() {
       let city = link.textContent.trim();
       closeButton.click();
       cityNameSpan.textContent = city;
+      localStorage.setItem('selectedCity', city);
     });
   }
 }
 
+(function() {
+    function changeBackgroundImage(imageUrl, title, description) {
+        const tabBackground = document.querySelector('.main__tab-background');
+        tabBackground.style.backgroundImage = `url("${imageUrl}")`;
 
+        const tabTitle = document.querySelector('.main__tab_title');
+        tabTitle.textContent = title;
+
+        const tabDescription = document.querySelector('.main__tab_description');
+        tabDescription.textContent = description;
+    }
+
+    const leftArrow = document.getElementById('main__tab-left-arrow');
+    const rightArrow = document.getElementById('main__tab-right-arrow');
+
+    leftArrow.addEventListener('click', function() {
+        changeBackgroundImage("/static/img/main-tab-1.png", "Специальные предложения", "на строительные материалы и товары для ремонта");
+    });
+
+    rightArrow.addEventListener('click', function() {
+        changeBackgroundImage("/static/img/main-tab-2.png", "Распродажа инструментов", "«СтройкаСтор» стремится сделать условия покупки максимально выгодными для каждого покупателя, поэтому на сайте регулярно появляются товары со скидкой");
+    })();
+})();
 
 
 

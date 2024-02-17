@@ -256,8 +256,8 @@ img{
     position: absolute;
     top: 175px;
     left: 100px;
-    max-width: 278px;
-    max-height: 56px;
+    max-width: 570px;
+    height: auto;
     overflow: hidden;
     font-size: 20px;
     font-weight: 400;
@@ -280,7 +280,7 @@ img{
 }
 
 #main__tab-details:hover, #main__tab-details:focus, #main__tab-details:active, #main__tab-details:active {
-    opacity: 0.65;
+    background-color: rgb(47, 50, 58);
 }
 
 .main__tab-link {
@@ -288,6 +288,14 @@ img{
     color: rgb(23, 27, 36);
     line-height: 136%;
     text-decoration: none;  
+}
+
+#main__tab-details:hover .main__tab-link {
+  color: white;
+}
+
+#main__tab-details:active .main__tab-link {
+  color: rgb(209, 209, 211);
 }
 
 .main__tab_arrows .main__tab-arrow {
@@ -314,6 +322,17 @@ img{
     border: 1px solid rgb(93, 96, 102);
 }
 
+.main__tab-arrow:hover {
+    background: rgb(47, 50, 58);
+}
+
+.main__tab-arrow:hover a img {
+  filter: brightness(0) invert(1);
+}
+
+.main__tab-arrow:active a img {
+  filter: invert(100%);
+}
 
 /* Main tab end */
 

@@ -726,13 +726,22 @@ img{
 }
 
 .popular__items_basket {
-    background: rgb(252, 236, 65);
+    width: 246px;
+    height: 49px;
+    position: relative;
+}
+
+.popular__items_basket-link {
     color: rgb(23, 27, 36);
     font-size: 18px;
     line-height: 136%;
-    width: 246px;
-    height: 49px;
-    border: none;    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(252, 236, 65);
+    border: none;
 }
 
 .popular__basket-link {
@@ -741,16 +750,16 @@ img{
     line-height: 150%;
 }
 
-.popular__items_basket:hover {
+.popular__items_basket-link:hover {
     background: rgb(47, 50, 58);
 }
 
-.popular__items_basket:hover a {
+.popular__items_basket-link:hover a {
     color: white;
 }
 
 
-.popular__items_basket a:active {
+.popular__items_basket-link a:active {
     color: rgb(209, 209, 211);
 }
 

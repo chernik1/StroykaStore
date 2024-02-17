@@ -1,3 +1,4 @@
+// Каталог
 (function updateCatalogBehavior() {
   let catalogLink = document.querySelector(".header__catalog-link");
   let catalogLogo = document.querySelector(".header__catalog-logo");
@@ -16,7 +17,8 @@
 })();
 
 // Фиксированная шапка
-window.addEventListener('scroll', function() {
+(function fixedHeader() {
+    window.addEventListener('scroll', function() {
     const mainTools = document.querySelector('.main__tools');
     if (window.scrollY > 100) {
         mainTools.style.position = 'fixed';
@@ -28,7 +30,9 @@ window.addEventListener('scroll', function() {
         mainTools.style.position = 'static';
     }
 });
+})();
 
+// Модальное окно
 function openModal() {
   let btn = document.querySelector(".header__location_button");
   let modal = document.querySelector("#modal__window_city");
@@ -63,6 +67,7 @@ function openModal() {
   }
 }
 
+// Специальные предложения
 (function() {
     function changeBackgroundImage(imageUrl, title, description) {
         const tabBackground = document.querySelector('.main__tab-background');
@@ -87,6 +92,8 @@ function openModal() {
     });
 })();
 
+
+// Корзина
 (function() {
   const baskets = document.querySelectorAll(".basket-click");
   const quantities = document.querySelectorAll(".basket__quantity");

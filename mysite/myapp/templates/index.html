@@ -9,116 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <!-- Header start -->
-    <header class="header">
-        <div class="header__wrapper">
-            <div class="header__background-grey">
-                <div class="header__main_info wrapper">
-                    <div class="header__location_info">
-                        <img src="{% static 'img/svg/map-icon.svg' %}" alt="map-icon" class="header__location_icon">
-                        <button class="header__location_button">
-                            <span onclick="openModal()" class="header__city" id="city-name">Москва</span>
-                        </button>
-                    </div>
-                    <nav class="header__nav">
-                        <ul class="header__list">
-                            <li class="header__item">
-                                <a href="#!" class="header__link">Бренды</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="#!" class="header__link">Доставка</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="#!" class="header__link">Возврат</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="#!" class="header__link">Документация</a>
-                            </li>
-                            <li class="header__item">
-                                <a href="#!" class="header__link">Контакты</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="wrapper main__tools">
-                <div class="header__logo">
-                    <a href="#!" class="header__link_logo">
-                        <img src="{% static 'img/svg/header-logo.svg' %}" alt="logo">
-                    </a>
-                </div>
-                <div class="header__catalog">
-                    <a href="#!" class="header__catalog-link">
-                        <img src="{% static 'img/svg/icon-catalog.svg' %}" alt="catalog" class="header__catalog-logo">
-                        <span class="header__catalog-text">Каталог</span>
-                    </a>
-                </div>
-                <div class="header__search">
-                    <form action="/search" method="get" class="header__search">
-                        <input type="text" class="header__search-input" name="search" placeholder="Поиск">
-                        <button type="submit" class="header__search-button" aria-label="Search">
-                            <img src="{% static 'img/svg/search-icon.svg' %}" alt="Search" style="width: 20px; height: 20px;">
-                        </button>
-                    </form>
-                </div>
-                <div class="header__cards">
-                    <a href="#!" class="header__card">
-                        <div class="header__card-pic">
-                            <img src="{% static 'img/svg/header-icon-1.svg' %}" alt="Профиль" class="header__card-thumbnail">
-                        </div>
-                        <h3 class="header__card__title">Профиль</h3>
-                    </a>
-                    <a href="#!" class="header__card">
-                        <div class="header__card-pic">
-                            <img src="{% static 'img/svg/header-icon-2.svg' %}" alt="Заказы" class="header__card-thumbnail">
-                        </div>
-                        <h3 class="header__card__title">Заказы</h3>
-                    </a>
-                    <a href="#!" class="header__card">
-                        <div class="header__card-pic">
-                            <img src="{% static 'img/svg/header-icon-3.svg' %}" alt="Корзина" class="header__card-thumbnail">
-                        </div>
-                        <h3 class="header__card__title">Корзина</h3>
-                    </a>
-                </div>
-            </div>
-            <div class="header__categories">
-                <ul class="header__categories-list">
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Акции</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Строительные материалы</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Керамическая плитка</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Краски</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="" class="header_category-link">Сантехника</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Напольные покрытия</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Инструменты</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Обои</a>
-                    </li>
-                    <li class="header__categories-item">
-                        <a href="#!" class="header_category-link">Окна</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <!-- Header end -->
-    
-    <!-- Main start -->
 
+    <!-- Header start -->
+    {% include 'header.html' %}
+    <!-- Header end -->
+
+    <!-- Main start -->
     <main class="main">
 
         <!-- Main tab start -->
@@ -136,7 +32,7 @@
                     </div>
                     <div class="main__tab_more">
                         <button id="main__tab-details">
-                            <a href="#!" class="main__tab-link">Подробнее</a>
+                            <a href="#offer" class="main__tab-link js-scroll">Подробнее</a>
                         </button>
                     </div>
                     <div class="main__tab_arrows">
@@ -159,7 +55,7 @@
 
         <!-- Stocks start -->
 
-        <div class="stocks">
+        <div class="stocks" id="offer">
             <div class="wrapper stocks__wrapper">
                 <div class="stocks__stocks">
                     <h3 class="stocks__name">
@@ -388,7 +284,7 @@
 
         <!-- Popular items start -->
 
-        <div class="popular__items">
+        <div class="popular__items" id="sale">
             <div class="wrapper popular__items_wrapper">
                 <div class="popular__items_block">
                     <h3 class="popular__items_name">
@@ -782,110 +678,7 @@
     <!-- Main end -->
 
     <!-- Footer start -->
-
-    <footer class="footer">
-        <div class="wrapper footer__wrapper">
-            <div class="footer__main">
-                <div class="footer__block_info">
-                    <a href="#!" class="footer__logo-link">
-                        <img src="{% static 'img/svg/footer-logo.svg' %}" alt="logo" class="footer__logo">
-                    </a>
-                    <div class="footer__mail">
-                        <img src="{% static 'img/svg/mail-icon.svg' %}" alt="mail" class="footer__mail-icon">
-                        <h3 class="footer__mail-text footer-text">info@stroykastore.ru</h3>
-                    </div>
-                    <div class="footer__location">
-                        <img src="{% static 'img/svg/location-icon.svg' %}" alt="location" class="footer__location-icon">
-                        <h3 class="footer__location-text footer-text">Москва, ул. Камушкина 10</h3>
-                    </div>
-                </div>
-                <ul class="footer__list">
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Личный кабинет</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Заказы</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Избранное</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Корзина</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Каталог</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Акции</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Бренды</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Контакты</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Стать продавцом</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Доставка</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Возврат</a>
-                        </button>
-                    </li>
-                    <li class="footer__item">
-                        <button class="footer__btn">
-                            <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="footer__arrow">
-                            <a href="#!" class="footer-text footer__link">Документация</a>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer__info">
-                <p class="footer-text footer__info-text">© СтройкаСтор</p>
-                <div class="footer__cards">
-                    <img src="{% static 'img/svg/visa-icon.svg' %}" alt="visa" class="footer__cards-item">
-                    <img src="{% static 'img/svg/mastercard-icon.svg' %}" alt="mastercard" class="footer__cards-item">
-                    <img src="{% static 'img/svg/maestro-icon.svg' %}" alt="maestro" class="footer__cards-item">
-                    <img src="{% static 'img/svg/mir-icon.svg' %}" alt="mir" class="footer__cards-item">
-                </div>
-                <p class="footer-text footer__info-text_made">Cделано в KRUGLOV STUDIO</p>
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
     <!-- Footer end -->
 
     <!-- Modal window start -->

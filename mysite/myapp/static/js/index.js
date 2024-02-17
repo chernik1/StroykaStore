@@ -69,28 +69,37 @@ function openModal() {
 
 // Специальные предложения
 (function() {
+    const offerLink = "#offer";
+    const saleLink = "#sale";
+
+    const tabBackground = document.querySelector('.main__tab-background');
+    const tabTitle = document.querySelector('.main__tab_title');
+    const tabDescription = document.querySelector('.main__tab_description');
+    const leftArrow = document.getElementById('main__tab-left-arrow');
+    const rightArrow = document.getElementById('main__tab-right-arrow');
+    const detailsButton = document.getElementById("main__tab-details");
+
     function changeBackgroundImage(imageUrl, title, description) {
-        const tabBackground = document.querySelector('.main__tab-background');
         tabBackground.style.backgroundImage = `url("${imageUrl}")`;
-
-        const tabTitle = document.querySelector('.main__tab_title');
         tabTitle.textContent = title;
-
-        const tabDescription = document.querySelector('.main__tab_description');
         tabDescription.textContent = description;
     }
 
-    const leftArrow = document.getElementById('main__tab-left-arrow');
-    const rightArrow = document.getElementById('main__tab-right-arrow');
+    function changeLink(link) {
+        detailsButton.querySelector(".main__tab-link").href = link;
+    }
 
     leftArrow.addEventListener('click', function() {
         changeBackgroundImage("/static/img/main-tab-1.png", "Специальные предложения", "на строительные материалы и товары для ремонта");
+        changeLink(offerLink);
     });
 
     rightArrow.addEventListener('click', function() {
         changeBackgroundImage("/static/img/main-tab-2.png", "Распродажа инструментов", "«СтройкаСтор» стремится сделать условия покупки максимально выгодными для каждого покупателя, поэтому на сайте регулярно появляются товары со скидкой");
+        changeLink(saleLink);
     });
 })();
+
 
 
 // Корзина
@@ -157,3 +166,41 @@ function openModal() {
     });
   });
 })();
+
+(function () {
+
+  const smoothScroll = function (targetEl, duration) {
+      let target = document.querySelector(targetEl);
+      let targetPosition = target.getBoundingClientRect().top - 200;
+      let startPosition = window.pageYOffset;
+      let startTime = null;
+
+      const ease = function(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t + b;
+          t--;
+          return -c / 2 * (t * (t - 2) - 1) + b;
+      };
+
+      const animation = function(currentTime) {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const run = ease(timeElapsed, startPosition, targetPosition, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) requestAnimationFrame(animation);
+      };
+      requestAnimationFrame(animation);
+  };
+
+  const scrollTo = function () {
+      const links = document.querySelectorAll('.js-scroll');
+      links.forEach(each => {
+          each.addEventListener('click', function (e) {
+              e.preventDefault();
+              const currentTarget = this.getAttribute('href');
+              smoothScroll(currentTarget, 1000);
+          });
+      });
+  };
+  scrollTo();
+}());

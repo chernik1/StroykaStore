@@ -32,6 +32,53 @@ img{
     height: auto;
 }
 
+/* Basket start */
+
+.basket__quantity {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.basket__plus,
+.basket__minus {
+    width: 48px;
+    height: 48px;
+    background: white;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    border: 1px solid rgb(209, 209, 211);
+    font-size: 24px;
+}
+
+.basket__input {
+    border: 1px solid rgb(209, 209, 211);
+    flex: 1;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.basket__plus:hover,
+.basket__minus:hover {
+    background: rgb(47, 50, 58);
+    color: white;
+}
+
+.basket__plus:active,
+.basket__minus:active {
+    color: #888888;
+}
+
+/* Basket end */
 
 /* Header start */
 
@@ -369,8 +416,24 @@ img{
     background: white;
 }
 
-.stocks__all-button:hover, .stocks__all-button:focus, .stocks__all-button:active, .stocks__all-button:active {
-    border: 1px solid rgb(93, 96, 102);
+.stocks__all-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.stocks__all-button:hover a {
+    color: white;
+}
+
+.stocks__all-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.stocks__all-button:active a {
+    color: rgb(209, 209, 211);
+}
+
+.stocks__all-button:active img {
+    filter: invert(100%);
 }
 
 .stocks__all-link {
@@ -463,18 +526,36 @@ img{
     position: absolute;
     top: 144px;
     left: 16px;
+}
+
+.stock__basket-button {
     background: rgb(252, 236, 65);
     color: rgb(23, 27, 36);
     font-size: 18px;
     line-height: 136%;
+    border: none;
     width: 262px;
     height: 49px;
-    border: none;    
+    z-index: 2;
 }
 
-.stock__basket:hover, .stock__basket:focus, .stock__basket:active, .stock__basket:active {
-    opacity: 0.65;
+.stock__basket-link {
+    text-decoration: none;
 }
+
+.stock__basket-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.stock__basket-button:hover a {
+    color: white;
+}
+
+
+.stock__basket-button a:active {
+    color: rgb(209, 209, 211);
+}
+
 
 /* Stocks end */
 
@@ -508,8 +589,24 @@ img{
     background: white;
 }
 
-.popular__categories_all-button:hover, .stocks__all-button:focus, .stocks__all-button:active, .stocks__all-button:active {
-    border: 1px solid rgb(93, 96, 102);
+.popular__categories_all-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.popular__categories_all-button:hover a {
+    color: white;
+}
+
+.popular__categories_all-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.popular__categories_all-button:active a {
+    color: rgb(209, 209, 211);
+}
+
+.popular__categories_all-button:active img {
+    filter: invert(100%);
 }
 
 .popular__categories_all-link {
@@ -546,8 +643,8 @@ img{
     line-height: 136%;
 }
 
-.popular__categories-link:hover, .popular__categories-link:focus, .popular__categories-link:active, .popular__categories-link:active {
-    opacity: 0.65;
+.popular__categories_item:hover {
+    background-color: yellow;
 }
 
 .popular__categories-pic {
@@ -556,7 +653,6 @@ img{
     left: 0px;
     width: 100%;
 }
-
 
 /* Popular categories end */
 
@@ -639,8 +735,23 @@ img{
     border: none;    
 }
 
-.popular__items_basket:hover, .popular__items_basket:focus, .popular__items_basket:active, .stock__basket:active {
-    opacity: 0.65;
+.popular__basket-link {
+    text-decoration: none;
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+}
+
+.popular__items_basket:hover {
+    background: rgb(47, 50, 58);
+}
+
+.popular__items_basket:hover a {
+    color: white;
+}
+
+
+.popular__items_basket a:active {
+    color: rgb(209, 209, 211);
 }
 
 /* Popular items end */
@@ -678,8 +789,24 @@ img{
     background: white;
 }
 
-.popular__brands-button:hover, .popular__brands-button:focus, .popular__brands-button:active, .stocks__all-button:active {
-    border: 1px solid rgb(93, 96, 102);
+.popular__brands-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.popular__brands-button:hover a {
+    color: white;
+}
+
+.popular__brands-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.popular__brands-button:active a {
+    color: rgb(209, 209, 211);
+}
+
+.popular__brands-button:active img {
+    filter: invert(100%);
 }
 
 .popular__brands-link {
@@ -697,6 +824,14 @@ img{
 
 .popular__brands_item {
     border: 1px solid rgb(232, 233, 234);
+}
+
+.popular__brands_item:hover {
+    border: 1px solid rgb(93, 96, 102);
+}
+
+.popular__brands_item:active {
+    border: 1px solid rgb(209, 209, 211);
 }
 
 /* Popular brands end */
@@ -945,8 +1080,25 @@ img{
     margin-bottom: 12px;
 }
 
-.footer__link:hover, .footer__link:focus, .footer__link:active {
-    opacity: 0.65;  
+.footer__btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.footer__btn img {
+    display: none;
+}
+
+.footer__btn:hover img {
+    display: block;
+    filter: brightness(0) invert(1);
+    transform: translateY(1px);
 }
 
 .footer__info {
@@ -1063,7 +1215,7 @@ img{
 }
 
 .modal__window-item:hover {
-    padding-left: 15px;
+    padding-left: 11px;
 }
 
 
@@ -1072,7 +1224,6 @@ img{
     transition: opacity 0.3s;
 }
 
-/* Изменяем селектор с .modal__window-arrow:hover на .modal__window-link:hover img, чтобы показать изображение при наведении на ссылку */
 .modal__window-link:hover img {
     opacity: 1;
 }

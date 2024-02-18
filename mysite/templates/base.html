@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <title> {% block title %} {% endblock %}</title>
+    {% block css %} {% endblock %}
+</head>
+<body>
+
+    <!-- Header start -->
+    {% include 'header.html' %}
+    <!-- Header end -->
+
+    <!-- Main start -->
+    {% block content %} {% endblock %}
+    <!-- Main end -->
+
+    <!-- Footer start -->
+    {% include 'footer.html' %}
+    <!-- Footer end -->
+
+    {% block js %} {% endblock %}
+</body>
+</html>

@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StroykaStore</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <!-- Header start -->
-    {% include 'header.html' %}
-    <!-- Header end -->
+{% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
     <!-- Main start -->
     <main class="main">
 
@@ -677,10 +671,6 @@
     </main>
     <!-- Main end -->
 
-    <!-- Footer start -->
-    {% include 'footer.html' %}
-    <!-- Footer end -->
-
     <!-- Modal window start -->
 
     <div class="modal__window" id="modal__window_city">
@@ -774,6 +764,7 @@
     </div>
 
     <!-- Modal window end -->
+{% endblock %}
+{% block js %}
     <script src="{% static 'js/index.js' %}"></script>
-</body>
-</html>
+{% endblock %}

@@ -111,3 +111,74 @@
 
 /* Popular brands end */
 
+/* Popular questions start */
+
+.popular__questions {
+    margin-bottom: 80px;
+}
+
+.popular__questions_wrapper {
+    padding: 80px 196px;
+    border: 1px solid rgb(209, 209, 211);
+}
+
+.popular__questions-title {
+    width: 768px;
+    height: 44px;
+    margin-bottom: 20px;
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.popular__questions-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgb(246, 246, 246);
+}
+
+.popular__questions-item {
+    padding: 16px 20px;
+    border: none;
+}
+
+.popular__questions-item-visible {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.popular__questions-item-title {
+  font-size: 18px;
+  line-height: 136%;
+}
+
+.popular__questions-item-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.popular__questions-item-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.popular__questions-item-text {
+    color: rgb(47, 50, 58);
+    font-size: 16px;
+    line-height: 150%;
+    width: 687px;
+    height: auto;
+    margin-left: 16px;
+}
+
+.popular__questions-item-unvisible {
+  display: none;
+}
+
+/* Popular questions end */

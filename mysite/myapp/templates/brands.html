@@ -26,84 +26,222 @@
 
     <!-- Popular brands start -->
 
-        <section class="popular__brands">
-            <div class="wrapper popular__brands_wrapper">
-                <div class="popular__brands_block">
-                    <h3 class="popular__brands_name">
-                        Популярные бренды
-                    </h3>
-                    <button class="popular__brands-button">
-                        <a href="" class="popular__brands-link">
-                            Все бренды  <img src="{% static 'img/svg/arrow-icon-right.svg' %}" alt="Все бренды">
-                        </a>
-                    </button>
-                </div>
-                <ul class="popular__brands_list">
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-1.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-2.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-3.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-4.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-5.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-6.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-7.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-8.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-9.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-10.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-11.png' %}" alt="brand">
-                        </a>
-                    </li>
-                    <li class="popular__brands_item">
-                        <a href="#!">
-                            <img src="{% static 'img/brands/popular-brand-12.png' %}" alt="brand">
-                        </a>
-                    </li>
-                </ul>
+    <section class="popular__brands">
+        <div class="wrapper popular__brands_wrapper">
+            <div class="popular__brands_block">
+                <h3 class="popular__brands_name">
+                    Популярные бренды
+                </h3>
+                <button class="popular__brands-button">
+                    <a href="/brands/" class="popular__brands-link">
+                        Все бренды  <img src="{% static 'img/svg/arrow-icon-right.svg' %}" alt="Все бренды">
+                    </a>
+                </button>
             </div>
-        </section>
+            <ul class="popular__brands_list">
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-1.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-2.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-3.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-4.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-5.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-6.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-7.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-8.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-9.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-10.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-11.png' %}" alt="brand">
+                    </a>
+                </li>
+                <li class="popular__brands_item">
+                    <a href="#!">
+                        <img src="{% static 'img/brands/popular-brand-12.png' %}" alt="brand">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-        <!-- Popular brands end -->
+    <!-- Popular brands end -->
+
+    <!-- Popular questions start -->
+    <section class="popular__questions">
+        <div class="wrapper popular__questions_wrapper">
+            <h2 class="popular__questions-title">
+                Часто задаваемые вопросы
+            </h2>
+            <ul class="popular__questions-list">
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Водитель уведомит меня о начале доставки доставки?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Мне нужна помощь в разгрузке товара (дополнительная услуга), что делать?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Заказ доставили, что то от меня требуется?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Что делать если товар не тот, или ненадлежащего качества?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            У меня крупный заказ (5 и более тонн груза), у вас есть доставка и разгрузка манипулятором?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Сколько времени дается на самостоятельную разгрузку товара?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+                <li class="popular__questions-item">
+                    <div class="popular__questions-item-visible">
+                        <h4 class="popular__questions-item-title">
+                            Ваша доставка опоздала, как можно помочь вам улучшить свой уровень сервиса?
+                        </h4>
+                        <button class="popular__questions-item-button">
+                            <img src="{% static 'img/brands/svg/question-icon-close.svg' %}" alt="Раскрыть">
+                        </button>
+                    </div>
+                    <div class="popular__questions-item-unvisible">
+                        <p class="popular__questions-item-text">
+                            Есть товары, которые можно купить сразу на сервисе, и товары, для покупки которых нужно перейти на сайт магазина. Условия их получения отличаются.
+                            <br>
+                            <br>
+                            В этом разделе описаны условия для товаров, которые можно купить. Также некоторые товары, которые продаются на Маркете, доставляются непосредственно продавцами и имеют пометку об этом. Для таких товаров могут быть доступны не все возможности, описанные ниже.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Popular questions end -->
 </main>
 <!-- Main end -->
 

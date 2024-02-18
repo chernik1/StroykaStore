@@ -182,3 +182,80 @@
 }
 
 /* Popular questions end */
+
+/* All brands catalog start */
+
+.all__brands_catalog {
+    margin-bottom: 80px;
+}
+
+.all__brands_catalog-wrapper {
+    max-width: 1160px;
+}
+
+.all__brands_catalog-buttons {
+    width: 1160px;
+    height: 77px;
+}
+
+.all__brands_catalog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.all__brands_catalog-eng {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.all__brands_catalog-rus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.all__brands_catalog-all {
+    width: 60px;
+    height: 36px;
+    background: rgb(251, 227, 3);
+    color: rgb(23, 27, 36);
+    font-size: 15px;
+    line-height: 145%;
+    border: none;
+}
+
+.all__brands_catalog-all:hover {
+    background: rgb(47, 50, 58);
+    color: white;
+}
+
+.all__brands_catalog-all:active {
+    background: rgb(209, 209, 211);
+    color: rgb(47, 50, 58);
+}
+
+.all__brands_catalog-eng-letter {
+    border: 1px solid rgb(209, 209, 211);
+    background: rgb(255, 255, 255);
+    color: rgb(23, 27, 36);
+    font-size: 15px;
+    line-height: 145%;
+    width: 36px;
+    height: 36px;
+}
+
+.all__brands_catalog-rus-letter {
+    border: 1px solid rgb(209, 209, 211);
+    background: rgb(255, 255, 255);
+    color: rgb(23, 27, 36);
+    font-size: 15px;
+    line-height: 145%;
+    width: 36px;
+    height: 36px;
+}
+
+
+/* All brands catalog end */

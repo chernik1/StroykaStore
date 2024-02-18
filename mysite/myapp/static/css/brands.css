@@ -237,7 +237,7 @@
     color: rgb(47, 50, 58);
 }
 
-.all__brands_catalog-eng-letter {
+.all__brands_catalog-eng-letter, .all__brands_catalog-rus-letter {
     border: 1px solid rgb(209, 209, 211);
     background: rgb(255, 255, 255);
     color: rgb(23, 27, 36);
@@ -247,14 +247,14 @@
     height: 36px;
 }
 
-.all__brands_catalog-rus-letter {
-    border: 1px solid rgb(209, 209, 211);
-    background: rgb(255, 255, 255);
-    color: rgb(23, 27, 36);
-    font-size: 15px;
-    line-height: 145%;
-    width: 36px;
-    height: 36px;
+.all__brands_catalog-eng-letter:hover, .all__brands_catalog-rus-letter:hover {
+    background: rgb(47, 50, 58);
+    color: white;
+}
+
+.all__brands_catalog-eng-letter:active, .all__brands_catalog-rus-letter:active {
+    background: rgb(209, 209, 211);
+    color: rgb(47, 50, 58);
 }
 
 

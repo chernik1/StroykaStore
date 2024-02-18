@@ -199,7 +199,7 @@ img{
 }
 
 .header__card:hover, .header__card:focus, .header__card:active, .header__card:active {
-    color: rgb(47, 50, 58);
+    opacity: 0.7;
 }
 
 .header__categories-list {

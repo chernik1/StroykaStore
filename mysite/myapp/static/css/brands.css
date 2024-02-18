@@ -1,0 +1,113 @@
+/* All brands start */
+.all__brands__wrapper {
+    background: url("../img/brands/all-brands.png") no-repeat;
+    margin-bottom: 80px;
+    width: 1360px;
+    height: 232px;
+    position: relative;
+}
+
+.all__brands-desc {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    width: 1160px;
+    height: 24px;
+    color: rgb(69, 73, 80);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.all__brands-title {
+    position: absolute;
+    top: 84px;
+    left: 100px;
+    width: 570px;
+    height: 57px;
+    color: rgb(23, 27, 36);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+}
+/* All brands end */
+
+/* Popular brands start */
+
+.popular__brands {
+    margin-bottom: 80px;
+}
+
+.popular__brands_wrapper {
+    padding: 0px 140px;
+}
+
+.popular__brands_block {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 1160px;
+    height: 49px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.popular__brands_name {
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+    color: rgb(47, 50, 58);
+}
+
+.popular__brands-button {
+    border: 1px solid rgb(209, 209, 211);
+    background: white;
+}
+
+.popular__brands-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.popular__brands-button:hover a {
+    color: white;
+}
+
+.popular__brands-button:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.popular__brands-button:active a {
+    color: rgb(209, 209, 211);
+}
+
+.popular__brands-button:active img {
+    filter: invert(100%);
+}
+
+.popular__brands-link {
+    font-size: 18px;
+    line-height: 136%;
+    color: rgb(23, 27, 36);
+    text-decoration: none;
+}
+
+.popular__brands_list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.popular__brands_item {
+    border: 1px solid rgb(232, 233, 234);
+}
+
+.popular__brands_item:hover {
+    border: 1px solid rgb(93, 96, 102);
+}
+
+.popular__brands_item:active {
+    border: 1px solid rgb(209, 209, 211);
+}
+
+/* Popular brands end */
+

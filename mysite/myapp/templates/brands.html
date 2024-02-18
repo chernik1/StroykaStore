@@ -1,10 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/brands.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Main start -->
+<main class="main">
+    <!-- All brands start -->
+    <section class="all__brands">
+        <div class="wrapper all__brands__wrapper">
+            <h3 class="all__brands-desc">
+                Главная → Все продавцы
+            </h3>
+            <h1 class="all__brands-title">
+                Все бренды
+            </h1>
+        </div>
+    </section>
+    <!-- All brands end -->
+
+    <!-- Popular brands start -->
+
+        <section class="popular__brands">
+            <div class="wrapper popular__brands_wrapper">
+                <div class="popular__brands_block">
+                    <h3 class="popular__brands_name">
+                        Популярные бренды
+                    </h3>
+                    <button class="popular__brands-button">
+                        <a href="" class="popular__brands-link">
+                            Все бренды  <img src="{% static 'img/svg/arrow-icon-right.svg' %}" alt="Все бренды">
+                        </a>
+                    </button>
+                </div>
+                <ul class="popular__brands_list">
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-1.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-2.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-3.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-4.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-5.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-6.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-7.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-8.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-9.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-10.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-11.png' %}" alt="brand">
+                        </a>
+                    </li>
+                    <li class="popular__brands_item">
+                        <a href="#!">
+                            <img src="{% static 'img/brands/popular-brand-12.png' %}" alt="brand">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Popular brands end -->
+</main>
+<!-- Main end -->
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/brands.js' %}"></script>
+{% endblock %}

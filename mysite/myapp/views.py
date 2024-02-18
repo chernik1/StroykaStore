@@ -6,3 +6,6 @@ from django.http import HttpResponse, JsonResponse
 def index(request):
     return render(request, 'index.html')
 
+def brands(request):
+    return render(request, 'brands.html')
+

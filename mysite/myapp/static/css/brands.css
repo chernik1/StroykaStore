@@ -257,5 +257,36 @@
     color: rgb(47, 50, 58);
 }
 
+.all__brands_catalog-table {
+    max-width: 1160px;
+}
 
+.all__brands_catalog-tbody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.all__brands_catalog-tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.all__brands_catalog-line {
+    position: static;
+    width: 1160px;
+    height: 1px;
+    margin: 28px 0px;
+    background: rgb(232, 233, 234);
+}
+
+.all__brands_catalog-brands {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.all__brands_catalog-line:last-child {
+    display: none;
+}
 /* All brands catalog end */

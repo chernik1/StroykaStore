@@ -16,41 +16,6 @@
   });
 })();
 
-// Модальное окно
-function openModal() {
-  let btn = document.querySelector(".header__location_button");
-  let modal = document.querySelector("#modal__window_city");
-  let overlay = document.querySelector(".modal__window");
-  let cityNameSpan = document.getElementById("city-name");
-
-  const storedCity = localStorage.getItem('selectedCity');
-  if (storedCity) {
-    cityNameSpan.textContent = storedCity;
-  }
-
-  btn.addEventListener("click", function() {
-    modal.classList.add("modal-open");
-    overlay.classList.add("modal-open");
-  });
-
-  let closeButton = document.querySelector(".modal__window-close");
-  closeButton.addEventListener("click", function() {
-    modal.classList.remove("modal-open");
-    overlay.classList.remove("modal-open");
-  });
-
-  let modalLinks = document.querySelectorAll(".modal__window-link");
-  for (let link of modalLinks) {
-    link.addEventListener("click", function(event) {
-      event.preventDefault();
-      let city = link.textContent.trim();
-      closeButton.click();
-      cityNameSpan.textContent = city;
-      localStorage.setItem('selectedCity', city);
-    });
-  }
-}
-
 // Специальные предложения
 (function() {
     const offerLink = "#offer";

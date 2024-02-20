@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/delivery.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Main start -->
+<main class="main">
+    <div class="wrapper main__wrapper">
+        <div class="main-text">
+            <h3 class="main-desc">
+                Главная → Доставка
+            </h3>
+            <h1 class="main-title">
+                Доставка
+            </h1>
+            <p class="main__full-text">
+                Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от поставщика
+            </p>
+        </div>
+    </div>
+</main>
+
+<section class="make__delivery">
+    <div class="wrapper make__delivery__wrapper">
+        <h2 class="make__delivery-title">
+            Как сделать заказ: 4 простых шага
+        </h2>
+        <ul class="delivery__list">
+            <li class="delivery__item">
+                <img src="{% static 'img/delivery/svg/step-1.svg' %}" alt="Корзина" class="delivery__item-img">
+                <p class="delivery__item-desc">
+                    Добавьте нужные товары<br>в корзину и оплатите заказ
+                </p>
+            </li>
+            <li class="delivery__item">
+                <img src="{% static 'img/delivery/svg/step-2.svg' %}" alt="Корзина" class="delivery__item-img">
+                <p class="delivery__item-desc">
+                    Получите уведомления<br>о подтверждении вашего заказа
+                </p>
+            </li>
+            <li class="delivery__item">
+                <img src="{% static 'img/delivery/svg/step-3.svg' %}" alt="Корзина" class="delivery__item-img">
+                <p class="delivery__item-desc">
+                    После подтверждения<br> мы сформируем ваш заказ
+                </p>
+            </li>
+            <li class="delivery__item">
+                <img src="{% static 'img/delivery/svg/step-4.svg' %}" alt="Корзина" class="delivery__item-img">
+                <p class="delivery__item-desc">
+                    Заберите из пунктов<br>выдачи
+                </p>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- Main end -->
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/delivery.js' %}"></script>
+{% endblock %}

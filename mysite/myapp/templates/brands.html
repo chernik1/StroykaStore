@@ -261,20 +261,20 @@
                 </div>
             </div>
             <table class="all__brands_catalog-table">
-    <tbody class="all__brands_catalog-tbody">
-        {% for letter, brands in letter_brands.items %}
-            <tr class="all__brands_catalog-tr">
-                <td class="all__brands_catalog-letter">{{ letter }}</td>
-                <td class="all__brands_catalog-brands">
-                    {% for brand in brands %}
-                        <p class="brand-name">{{ brand.name }}</p>
+                <tbody class="all__brands_catalog-tbody">
+                    {% for letter, brands in letter_brands.items %}
+                        <tr class="all__brands_catalog-tr">
+                            <td class="all__brands_catalog-letter">{{ letter }}</td>
+                            <td class="all__brands_catalog-brands">
+                                {% for brand in brands %}
+                                    <p class="brand-name">{{ brand.name }}</p>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr class="all__brands_catalog-line"></tr>
                     {% endfor %}
-                </td>
-            </tr>
-            <tr class="all__brands_catalog-line"></tr>
-        {% endfor %}
-    </tbody>
-</table>
+                </tbody>
+            </table>
         </div>
     </section>
 </main>

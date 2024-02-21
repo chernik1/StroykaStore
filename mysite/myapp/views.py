@@ -37,3 +37,9 @@ def brands(request):
 
 def delivery(request):
     return render(request, 'delivery.html')
+
+def return_tab(request):
+    return render(request, 'return.html')
+
+def documentation(request):
+    return render(request, 'documentation.html')

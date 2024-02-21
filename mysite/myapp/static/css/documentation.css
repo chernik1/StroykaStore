@@ -1,0 +1,169 @@
+.header {
+    margin-bottom: 40px;
+}
+
+/* Documentation start */
+
+.documentation {
+    margin-bottom: 40px;
+}
+
+.documentation__wrapper {
+    max-width: 1160px;
+    display: flex;
+    flex-direction: column;
+}
+
+.documentation-desc {
+    width: 100%;
+    height: 24px;
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.documentation-title {
+    width: 572px;
+    height: 57px;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    color: rgb(23, 27, 36);
+    margin-bottom: 40px;
+}
+
+/* Documentation end */
+
+/* Documentation main start */
+
+.documentation__main {
+    margin-bottom: 80px;
+}
+
+.documentation__main_wrapper {
+    max-width: 1160px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.documentation__block {
+    width: 376px;
+    height: 357px;
+    margin-right: 10px;
+}
+
+.documentation-background {
+    width: 376px;
+    height: 208px;
+    position: relative;
+}
+
+.background-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 208px;
+    z-index: 1;
+    background: rgb(47, 50, 58);
+}
+
+.background-2 {
+    position: absolute;
+    top: 37px;
+    left: 50px;
+    height: 171px;
+    width: 260px;
+    background-color: white;
+    z-index: 2;
+}
+
+.background-2-title {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+    width: 220px;
+    height: 56px;
+    color: rgb(47, 50, 58);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 140%;
+    text-align: center;
+}
+
+.rectangle-1 {
+    position: absolute;
+    top: 101px;
+    left: 20px;
+    width: 175px;
+    height: 20px;
+    background: rgb(233, 233, 233);
+}
+
+.rectangle-2 {
+    position: absolute;
+    top: 136px;
+    left: 20px;
+    width: 220px;
+    height: 20px;
+    background: rgb(233, 233, 233);
+}
+
+.documentation__text {
+    width: 376px;
+    height: 149px;
+    position: relative;
+    border: 1px solid rgb(232, 233, 234);
+}
+
+.documentation__main-title {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 344px;
+    height: 24px;
+    color: rgb(47, 50, 58);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 136%;
+    text-align: left;
+}
+
+.size__and_format {
+    position: absolute;
+    top: 44px;
+    left: 16px;
+    width: 90px;
+    height: 24px;
+    color: rgb(69, 73, 80);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+}
+
+.documentation-download {
+    position: absolute;
+    top: 84px;
+    left: 16px;
+    width: 344px;
+    height: 49px;
+    color: rgb(69, 73, 80);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 136%;
+    text-align: center;
+    background: rgb(252, 236, 65);
+    border: none;
+}
+
+.documentation-download:hover {
+    background: rgb(47, 50, 58);
+    color: white;
+}
+
+.documentation-download:active {
+    color: #888888;
+}
+
+/* Documentation main end */

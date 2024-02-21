@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/documentation.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="documentation">
+    <div class="wrapper documentation__wrapper">
+        <div class="documentation-desc">
+            Главная → Документация
+        </div>
+        <div class="documentation-title">
+            Документация
+        </div>
+    </div>
+</div>
+
+<section class="documentation__main">
+    <div class="wrapper documentation__main_wrapper">
+        <div class="documentation__block">
+            <div class="documentation-background">
+                <div class="background-1"></div>
+                <div class="background-2">
+                    <div class="background-2-title">Оферта «Безопасная сделка»</div>
+                    <div class="rectangle-1"></div>
+                    <div class="rectangle-2"></div>
+                </div>
+            </div>
+            <div class="documentation__text">
+                <div class="documentation__main-title">Оферта «Безопасная сделка»</div>
+                <div class="size__and_format">PDF · 10 МБ</div>
+                <button class="documentation-download">Скачать</button>
+            </div>
+        </div>
+        <div class="documentation__block">
+            <div class="documentation-background">
+                <div class="background-1"></div>
+                <div class="background-2">
+                    <div class="background-2-title">Политика конфиденциальности</div>
+                    <div class="rectangle-1"></div>
+                    <div class="rectangle-2"></div>
+                </div>
+            </div>
+            <div class="documentation__text">
+                <div class="documentation__main-title">Политика конфиденциальности</div>
+                <div class="size__and_format">PDF · 10 МБ</div>
+                <button class="documentation-download">Скачать</button>
+            </div>
+        </div>
+        <div class="documentation__block">
+            <div class="documentation-background">
+                <div class="background-1"></div>
+                <div class="background-2">
+                    <div class="background-2-title">Оферта</div>
+                    <div class="rectangle-1"></div>
+                    <div class="rectangle-2"></div>
+                </div>
+            </div>
+            <div class="documentation__text">
+                <div class="documentation__main-title">Оферта доставки</div>
+                <div class="size__and_format">PDF · 10 МБ</div>
+                <button class="documentation-download">Скачать</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/documentation.js' %}"></script>
+{% endblock %}

@@ -43,3 +43,6 @@ def return_tab(request):
 
 def documentation(request):
     return render(request, 'documentation.html')
+
+def contacts(request):
+    return render(request, 'contacts.html')

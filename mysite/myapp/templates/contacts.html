@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Main start -->
+
+<main class="main">
+    <div class="wrapper main__wrapper">
+        <div class="main-text">
+            <h3 class="main-desc">
+                Главная → Контакты
+            </h3>
+            <h1 class="main-title">
+                Контакты
+            </h1>
+        </div>
+    </div>
+</main>
+
+<!-- Main end -->
+
+<!-- Map start -->
+
+<div class="map">
+    <div class="wrapper map__wrapper">
+        <iframe class="map__frame" src="https://yandex.by/map-widget/v1/?ll=55.904702%2C53.593063&mode=search&oid=63366963887&ol=biz&sctx=ZAAAAAgBEAAaKAoSCb6FdePdbTtAEWuZDMfz9UpAEhIJmGpmLQWknT8RpRR0e0ljhD8iBgABAgMEBSgKOABA7FZIAWIibWlkZGxlX3Bvc3RmaWx0ZXJfdGhyZXNoY2hhaW49MC40NWIgbWlkZGxlX3Bvc3RmaWx0ZXJfdGhyZXNoX2t6PTAuNDViHW1pZGRsZV9wb3N0ZmlsdGVyX3RocmVzaD0wLjQ1Yi5yZWxldl9yYW5raW5nX21zZV9mb3JtdWxhPTEuMDptc2VfZGMzODc3ODRfZXhwYilyZWxldl9pcnJlbF9maWx0ZXI9MS4wOmlycmVsX2RjMzgxNTI1X2V4cGJRcmVhcnI9c2NoZW1lX0xvY2FsL0dlby9CdXNHZW9DaG9vc2UvVGFrZVJ1YnJpY0ZpcnN0U2FtZUJ5UmVzdWx0c01zZVRocmVzaG9sZD0wLjQ1YjVyZWFycj1zY2hlbWVfTG9jYWwvR2VvL1Bvc3RmaWx0ZXIvSXJyZWxUaHJlc2hvbGQ9MC4xNWoCdWGdAc3MTD2gAQCoAQC9AXL5oADCAQavxdyH7AGCAgxTdHJveWthU3RvcmWKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=55.904702%2C53.593063&sspn=0.025199%2C0.008735&text=StroykaStore&z=16.2"></iframe>
+    </div>
+</div>
+
+<!-- Map end -->
+
+<div class="info__company">
+    <div class="wrapper info__company__wrapper">
+        <h2 class="info__company-title">ООО «СтройкаСтор»</h2>
+        <div class="info__company-text">
+            <h3 class="info__company-location">
+                115114, г. Москва, Дербеневская<br>набережная, д. 7, стр. 8<br><br>Павелецкая<br>Автобусы 13, 106, 158, 184, 632<br>Остановка «Дербеневская наб., д. 7»
+            </h3>
+            <h4 class="info__company-requisites">
+                ОГРН: 1047796688554<br>ИНН 7703528301<br>КПП 774850001<br>ОКТМО 45380000<br>ОГРН 1047796688554<br>Расчетный рублевый счет: 40702810900001403352<br>Банк: АО «Сбербанк» г. Москва<br>Корреспондентский счет: 30101810200000000700<br>БИК: 044525700
+            </h4>
+            <h5 class="info__company-mail">Поддержка клиентов<br>info@stroykastore.ru</h5>
+        </div>
+    </div>
+</div>
+
+<!-- About company start -->
+
+<div class="about__company">
+    <div class="wrapper about__company_wrapper">
+        <h2 class="about__company-title">О компании</h2>
+        <p class="about__company-desc">В СтройкаСтор вы всегда можете купить все необходимые товары для ремонта дома и дачи. Хотите сделать ремонт в квартире? Строите загородный дом? Используйте строительные и отделочные материалы из нашего каталога.
+            <br><br>Быстрая доставка строительных товаров по низким ценам сделает ваши покупки более приятными. Ремонт может стоить дешево, если делать его с нами. Для вас всегда в наличии более 30 000 товаров для строительства по низким ценам каждый день.
+            <br>СтройкаСтор — это широкий ассортимент товаров для дома и ремонта недорого; Возможность заказать строительные и отделочные материалы для дома и дачи.</p>
+    </div>
+</div>
+
+<!-- About company end -->
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/contacts.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,124 @@
+.header {
+    margin-bottom: 40px;
+}
+
+/* Main start */
+
+.main {
+    margin-bottom: 40px;
+}
+
+.main__wrapper {
+    max-width: 1160px;
+}
+
+.main-desc {
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    height: 24px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.main-title {
+    height: 57px;
+    color: rgb(23, 27, 36);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+    margin-bottom: 20px;
+}
+
+/* Main end */
+
+/* Map start */
+
+.map {
+    margin-bottom: 80px;
+}
+
+.map__wrapper {
+    max-width: 1160px;
+}
+
+.map__frame {
+    width: 100%;
+    height: 320px;
+}
+
+/* Map end */
+
+/* Info company start */
+
+.info__company {
+    margin-bottom: 80px;
+}
+
+.info__company__wrapper {
+    max-width: 1160px;
+    position: relative;
+}
+
+.info__company-title {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 20px;
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+    text-align: left;
+}
+
+.info__company-text {
+    width: 100%;
+    height: 243px;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(47, 50, 58);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: left;
+}
+
+/* Info company end */
+
+/* About company start */
+
+.about__company {
+    margin-bottom: 40px;
+}
+
+.about__company_wrapper {
+    position: relative;
+    padding: 0px 40px;
+    background: url(../img/about-company.png) no-repeat;
+    width: 1360px;
+    height: 456px;
+}
+
+.about__company-title {
+    position: absolute;
+    top: 88px;
+    left: 198px;
+    width: 670px;
+    height: 44px;
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.about__company-desc {
+    position: absolute;
+    top: 152px;
+    left: 198px;
+    width: 670px;
+    height: 216px;
+    color: rgb(47, 50, 58);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+/* About company end */

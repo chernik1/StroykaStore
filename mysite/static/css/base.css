@@ -328,7 +328,7 @@ img{
 
 /* Modal window start */
 
-.modal__window {
+.modal__window_city {
     display: none;
     position: fixed;
     left: 0;
@@ -340,12 +340,12 @@ img{
     z-index: 1001;
 }
 
-.modal__window-close {
+.modal__window_city-close {
     background: none;
     border: none;
 }
 
-.modal__window-close-icon {
+.modal__window_city-close-icon {
     position: absolute;
     padding: 0;
     top: 20px;
@@ -354,7 +354,7 @@ img{
     height: 52px;
     cursor: pointer;
 }
-.modal__window-content {
+.modal__window_city-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -365,7 +365,7 @@ img{
     border: 1px solid #888;
 }
 
-.modal__window-title {
+.modal__window_city-title {
     color: rgb(47, 50, 58);
     font-size: 34px;
     font-weight: 600;
@@ -379,7 +379,7 @@ img{
     margin-bottom: 24px;
 }
 
-.modal__window-search {
+.modal__window_city-search {
     position: absolute;
     top: 104px;
     left: 36px;
@@ -392,19 +392,19 @@ img{
     background: rgb(246, 246, 246);
 }
 
-.modal__window-input {
+.modal__window_city-input {
     background: rgb(246, 246, 246);
     width: 100%;
     height: 100%;
     border: none;
 }
-.modal__window-search-icon {
+.modal__window_city-search-icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-.modal__window-list {
+.modal__window_city-list {
     position: absolute;
     top: 177px;
     left: 36px;
@@ -413,11 +413,11 @@ img{
     column-gap: 16px;
 }
 
-.modal__window-item {
+.modal__window_city-item {
   margin-bottom: 16px;
 }
 
-.modal__window-link {
+.modal__window_city-link {
     color: rgb(47, 50, 58);
     font-size: 16px;
     line-height: 150%;
@@ -426,17 +426,17 @@ img{
     position: relative;
 }
 
-.modal__window-item:hover {
+.modal__window_city-item:hover {
     padding-left: 11px;
 }
 
 
-.modal__window-link img {
+.modal__window_city-link img {
     opacity: 0;
     transition: opacity 0.3s;
 }
 
-.modal__window-link:hover img {
+.modal__window_city-link:hover img {
     opacity: 1;
 }
 
@@ -446,3 +446,33 @@ img{
 }
 
 /* Modal window end */
+
+/* Modal window profile start */
+
+.modal__window_profile {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal__window_profile-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+
+.modal__window_profile-login,
+.modal__window_profile-register {
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+/* Modal window profile end */

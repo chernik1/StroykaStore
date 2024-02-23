@@ -53,11 +53,11 @@
   scrollTo();
 }());
 
-// Модальное окно
+// Модальное окно городов
 function openModal() {
   let btn = document.querySelector(".header__location_button");
   let modal = document.querySelector("#modal__window_city");
-  let overlay = document.querySelector(".modal__window");
+  let overlay = document.querySelector(".modal__window_city");
   let cityNameSpan = document.getElementById("city-name");
 
   const storedCity = localStorage.getItem('selectedCity');
@@ -70,13 +70,13 @@ function openModal() {
     overlay.classList.add("modal-open");
   });
 
-  let closeButton = document.querySelector(".modal__window-close");
+  let closeButton = document.querySelector(".modal__window_city-close");
   closeButton.addEventListener("click", function() {
     modal.classList.remove("modal-open");
     overlay.classList.remove("modal-open");
   });
 
-  let modalLinks = document.querySelectorAll(".modal__window-link");
+  let modalLinks = document.querySelectorAll(".modal__window_city-link");
   for (let link of modalLinks) {
     link.addEventListener("click", function(event) {
       event.preventDefault();
@@ -87,3 +87,16 @@ function openModal() {
     });
   }
 }
+
+// Модальное окно профиля
+
+$(document).ready(function(){
+    $(".header__card").on("click", function(e) {
+      e.preventDefault();
+      $("#modal__window_profile").css("display", "block");
+    });
+    $(".modal__window_profile-login").on("click", function() {
+    });
+    $(".modal__window_profile-register").on("click", function() {
+    });
+});

@@ -122,7 +122,7 @@
         <h2 class="modal__window_login-title">Вход</h2>
         <div class="modal__window_login_input_email-block">
             <h4 class="modal__window_login_input_email-text">E-mail</h4>
-            <input type="text" class="modal__window_login_input_email" placeholder="E-mail">
+            <input type="text" class="modal__window_login_input_email" placeholder="youmail@mail.com">
         </div>
         <div class="modal__window_login_input_password-block">
             <h4 class="modal__window_login_input_password-text">Пароль</h4>
@@ -149,6 +149,29 @@
 
 <div class="modal__window_register" id="modal__window_register">
     <div class="modal__window_register-content">
+        <h2 class="modal__window_register-title">Регистрация</h2>
+        <div class="modal__window_register-block">
+            <div class="modal__window_register_input_name-block">
+                <h3 class="modal__window_register_input_name-title">Имя</h3>
+                <input type="text" class="modal__window_register_input_name" placeholder="Богдан">
+            </div>
+            <div class="modal__window_register_input_email-block">
+                <h3 class="modal__window_register_input_email-title">E-mail</h3>
+                <input type="text" class="modal__window_register_input_email" placeholder="youmail@mail.com">
+            </div>
+            <div class="modal__window_register_input_new_password-block">
+                <h3 class="modal__window_register_input_new_password-title">Новый пароль</h3>
+                <input type="text" class="modal__window_register_input_new_password" placeholder="****************">
+            </div>
+            <div class="modal__window_register_input_confirm_new_password-block">
+                <h3 class="modal__window_register_input_confirm_new_password-title">Подтверждение пароля</h3>
+                <input type="text" class="modal__window_register_input_confirm_new_password" placeholder="****************">
+            </div>
+        </div>
+        <button class="modal__window_register-button">
+            <span class="modal__window_register-button-text">Зарегистрироваться</span>
+        </button>
+    </div>
     <button class="modal__window_register-close">
         <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window_register-close-icon">
     </button>

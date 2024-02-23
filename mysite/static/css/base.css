@@ -740,4 +740,128 @@ img{
 
 /* Modal window register start */
 
+#modal__window_register {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(23, 27, 36, 0.6);
+    z-index: 1001;
+}
+
+.modal__window_register-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    width: 572px;
+    height: 399px;
+    border: 1px solid #888;
+}
+
+.modal__window_register-close {
+    background: none;
+    border: none;
+}
+
+.modal__window_register-close-icon {
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+}
+
+.modal__window_register-title {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    width: 500px;
+    height: 44px;
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+    text-align: center;
+}
+
+.modal__window_register-block {
+    position: absolute;
+    top: 104px;
+    left: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+}
+
+.modal__window_register_input_name-block,
+.modal__window_register_input_email-block,
+.modal__window_register_input_new_password-block,
+.modal__window_register_input_confirm_new_password-block {
+    margin-bottom: 8px;
+    width: 242px;
+    height: 81px;
+}
+
+.modal__window_register_input_name-title,
+.modal__window_register_input_email-title,
+.modal__window_register_input_new_password-title,
+.modal__window_register_input_confirm_new_password-title {
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.modal__window_register_input_name,
+.modal__window_register_input_email,
+.modal__window_register_input_new_password,
+.modal__window_register_input_confirm_new_password {
+    position: static;
+    width: 242px;
+    height: 49px;
+    background: rgb(246, 246, 246);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    padding: 12px 16px 12px 16px;
+}
+
+.modal__window_register-button {
+    position: absolute;
+    top: 314px;
+    left: 36px;
+    width: 500px;
+    height: 49px;
+    background: rgb(252, 236, 65);
+    border: none;
+}
+
+.modal__window_register-button-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-align: center;
+}
+
+.modal__window_register-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.modal__window_register-button:hover .modal__window_register-button-text {
+    color: white;
+}
+
+.modal__window_register-button:active .modal__window_register-button-text {
+    color: rgb(209, 209, 211);
+}
+
 /* Modal window register end */

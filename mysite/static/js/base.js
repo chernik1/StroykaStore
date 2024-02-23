@@ -103,7 +103,8 @@ $(document).ready(function(){
         $("#modal__window_profile").css("display", "none");
     });
     $(".modal__window_profile-register").on("click", function() {
-        // Допишите обработчик события для кнопки "Регистрация"
+        $("#modal__window_register").css("display", "block");
+        $("#modal__window_profile").css("display", "none");
     });
 });
 
@@ -111,4 +112,10 @@ $(document).ready(function(){
 
 $(".modal__window_login-close").on("click", function() {
     $("#modal__window_login").css("display", "none");
+});
+
+// Модальное окно регистрации
+
+$(".modal__window_register-close").on("click", function() {
+    $("#modal__window_register").css("display", "none");
 });

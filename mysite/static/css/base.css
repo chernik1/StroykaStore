@@ -328,6 +328,7 @@ img{
 
 /* Modal window start */
 
+
 .modal__window_city {
     display: none;
     position: fixed;
@@ -339,6 +340,7 @@ img{
     background-color: rgba(23, 27, 36, 0.6);
     z-index: 1001;
 }
+
 
 .modal__window_city-close {
     background: none;
@@ -443,6 +445,10 @@ img{
 
 .modal-open {
   display: block;
+}
+
+.modal__window {
+    display: none;
 }
 
 /* Modal window end */

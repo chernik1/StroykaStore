@@ -98,9 +98,9 @@
 
 <div class="modal__window_profile" id="modal__window_profile">
     <div class="modal__window_profile-content">
-        <button class="modal__window-close">
-            <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window-close-icon">
-        </button>
+        <a href="/" class="modal__window_profile-link">
+            <img src="{% static 'img/svg/header-logo.svg' %}" alt="" class="logo">
+        </a>
         <button class="modal__window_profile-login">
             <span class="modal__window_profile-login-text">Вход</span>
         </button>
@@ -108,6 +108,50 @@
             <span class="modal__window_profile-register-text">Регистрация</span>
         </button>
     </div>
+    <button class="modal__window_profile-close">
+        <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window_profile-close-icon">
+    </button>
 </div>
 
 <!-- Modal window profile end -->
+
+<!-- Modal window login -->
+
+<div class="modal__window_login" id="modal__window_login">
+    <div class="modal__window_login-content">
+        <h2 class="modal__window_login-title">Вход</h2>
+        <div class="modal__window_login_input_email-block">
+            <h4 class="modal__window_login_input_email-text">E-mail</h4>
+            <input type="text" class="modal__window_login_input_email" placeholder="E-mail">
+        </div>
+        <div class="modal__window_login_input_password-block">
+            <h4 class="modal__window_login_input_password-text">Пароль</h4>
+            <input type="text" class="modal__window_login_input_password" placeholder="****************">
+        </div>
+        <a class="forget__password-link">
+            <span class="forget__password-link-text">Забыли пароль?</span>
+        </a>
+        <button class="modal__window_login-button">
+            <span class="modal__window_login-button-text">Войти</span>
+        </button>
+        <button class="modal__window_login-register">
+            <span class="modal__window_login-register-text">Создать учетную запись</span>
+        </button>
+    </div>
+    <button class="modal__window_login-close">
+        <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window_login-close-icon">
+    </button>
+</div>
+
+<!-- Modal window login end -->
+
+<!-- Modal window register start -->
+
+<div class="modal__window_register" id="modal__window_register">
+    <div class="modal__window_register-content">
+    <button class="modal__window_register-close">
+        <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window_register-close-icon">
+    </button>
+</div>
+
+<!-- Modal window register end -->

@@ -458,27 +458,286 @@ img{
 .modal__window_profile {
     display: none;
     position: fixed;
-    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(23, 27, 36, 0.6);
+    z-index: 1001;
 }
+
 .modal__window_profile-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
+    width: 250px;
+    height: 300px;
     border: 1px solid #888;
-    width: 80%;
+}
+
+
+.modal__window_profile-close {
+    background: none;
+    border: none;
+}
+
+.modal__window_profile-close-icon {
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    top: 40px;
+    left: 35px;
+}
+
+.modal__window_profile-login {
+    position: absolute;
+    top: 140px;
+    left: 25px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: yellow;
+}
+
+.modal__window_profile-login-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
     text-align: center;
 }
 
-.modal__window_profile-login,
 .modal__window_profile-register {
-    margin: 10px;
-    padding: 10px 20px;
+    position: absolute;
+    top: 190px;
+    left: 25px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: yellow;
+}
+
+.modal__window_profile-register-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-align: center;
+}
+
+.modal__window_profile-register:hover, .modal__window_profile-login:hover {
+    background: rgb(47, 50, 58);
+}
+
+.modal__window_profile-register:hover span, .modal__window_profile-login:hover span {
+    color: white;
+}
+
+.modal__window_profile-register:active span, .modal__window_profile-login:active span {
+    color: rgb(209, 209, 211);
 }
 
 /* Modal window profile end */
+
+/* Modal window login start */
+
+#modal__window_login {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(23, 27, 36, 0.6);
+    z-index: 1001;
+}
+
+.modal__window_login-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    width: 376px;
+    height: 494px;
+    border: 1px solid #888;
+}
+
+.modal__window_login-close {
+    background: none;
+    border: none;
+}
+
+.modal__window_login-close-icon {
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+}
+
+.modal__window_login-title {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    width: 304px;
+    height: 44px;
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+    text-align: center;
+}
+
+.modal__window_login_input_email-block {
+    position: absolute;
+    top: 104px;
+    left: 36px;
+    width: 304px;
+    height: 81px;
+}
+
+.modal__window_login_input_email-text {
+    width: 100%;
+    height: 24px;
+    color: rgb(47, 50, 58);
+    margin-bottom: 8px;
+}
+
+.modal__window_login_input_email {
+    position: static;
+    width: 304px;
+    height: 49px;
+    background: rgb(246, 246, 246);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    padding: 12px 16px 12px 16px;
+}
+
+.modal__window_login_input_password-block {
+    position: absolute;
+    top: 209px;
+    left: 36px;
+    width: 304px;
+    height: 81px;
+}
+
+.modal__window_login_input_password-text {
+    width: 100%;
+    height: 24px;
+    color: rgb(47, 50, 58);
+    margin-bottom: 8px;
+}
+
+.modal__window_login_input_password {
+    position: static;
+    width: 304px;
+    height: 49px;
+    background: rgb(246, 246, 246);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    padding: 12px 16px 12px 16px;
+}
+
+.forget__password-link {
+    position: absolute;
+    top: 302px;
+    left: 36px;
+    width: 120px;
+    height: 22px;
+}
+
+.forget__password-link-text {
+    color: rgb(93, 96, 102);
+    font-size: 15px;
+    line-height: 145%;
+    text-align: left;
+}
+
+.modal__window_login-button {
+    position: absolute;
+    top: 348px;
+    left: 36px;
+    background: rgb(252, 236, 65);
+    width: 304px;
+    height: 49px;
+    border: none;
+}
+
+.modal__window_login-button-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-align: center;
+}
+
+.modal__window_login-button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.modal__window_login-button:hover .modal__window_login-button-text {
+    color: white;
+}
+
+.modal__window_login-button:active .modal__window_login-button-text {
+    color: rgb(209, 209, 211);
+}
+
+.modal__window_login-register {
+    position: absolute;
+    top: 409px;
+    left: 36px;
+    width: 304px;
+    height: 49px;
+    border: 1px solid rgb(209, 209, 211);
+    background: none;
+}
+
+.modal__window_login-register-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-align: center;
+}
+
+.modal__window_login-register:hover {
+    background: rgb(47, 50, 58);
+}
+
+.modal__window_login-register:hover .modal__window_login-register-text {
+    color: white;
+}
+
+.modal__window_login-register:active .modal__window_login-register-text {
+    color: rgb(209, 209, 211);
+}
+
+/* Modal window login end */
+
+/* Modal window register start */
+
+/* Modal window register end */

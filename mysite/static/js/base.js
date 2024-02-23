@@ -95,8 +95,20 @@ $(document).ready(function(){
       e.preventDefault();
       $("#modal__window_profile").css("display", "block");
     });
+    $(".modal__window_profile-close").on("click", function() {
+        $("#modal__window_profile").css("display", "none");
+    });
     $(".modal__window_profile-login").on("click", function() {
+        $("#modal__window_login").css("display", "block");
+        $("#modal__window_profile").css("display", "none");
     });
     $(".modal__window_profile-register").on("click", function() {
+        // Допишите обработчик события для кнопки "Регистрация"
     });
+});
+
+// Модальное окно входа
+
+$(".modal__window_login-close").on("click", function() {
+    $("#modal__window_login").css("display", "none");
 });

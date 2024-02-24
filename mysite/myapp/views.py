@@ -51,4 +51,23 @@ def account(request):
     return render(request, 'account.html')
 
 def catalog(request):
-    return render(request, 'catalog.html')
+    categories = Categories.objects.all()
+
+    all_companies = set()
+    new_categories = []
+    for category in categories:
+        all_companies.update(category.companies['companies'])
+        new_categories.append({
+            'category': category.category,
+            'subcategories': category.subcategories['items'],
+            'companies': category.companies['companies'],
+            'img': category.img
+        })
+
+    all_companies = list(sorted(all_companies))
+
+    context = {
+        'categories': new_categories,
+        'companies': all_companies
+    }
+    return render(request, 'catalog.html', context=context)

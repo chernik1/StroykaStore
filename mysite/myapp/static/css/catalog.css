@@ -31,3 +31,46 @@
 }
 
 /* Catalog end */
+
+/* Companies start */
+
+.catalog__companies {
+    margin-bottom: 80px;
+}
+
+.catalog__companies-wrapper {
+    max-width: 1160px;
+}
+
+.catalog__companies-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.catalog__companies-btn {
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid rgb(209, 209, 211);
+}
+
+.catalog__companies-item {
+    color: rgb(23, 27, 36);
+    font-size: 15px;
+    line-height: 145%;
+}
+
+.catalog__companies-btn:hover {
+    background: rgb(47, 50, 58);
+}
+
+.catalog__companies-btn:hover p {
+    color: white;
+}
+
+.catalog__companies-btn:active p {
+    color: rgb(209, 209, 211);
+}
+
+/* Companies end */

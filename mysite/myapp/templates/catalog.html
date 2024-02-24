@@ -17,31 +17,35 @@
     </div>
 </main>
 
-/* Companies start */
+<!-- Companies start -->
 
 <section class="catalog__companies">
     <div class="wrapper catalog__companies-wrapper">
         <ul class="catalog__companies-list">
             {% for company in companies %}
-                <li class="catalog__companies-item">{{ company.name }}</li>
+                <li class="catalog__companies-item">
+                    <button class="catalog__companies-btn">
+                        <p class="catalog__companies-text">{{ company }}</p>
+                    </button>
+                </li>
             {% endfor %}
         </ul>
     </div>
 </section>
 
-/* Companies end */
+<!-- Companies end -->
 
-/* Categories start */
+<!-- Categories start -->
 
 <section class="catalog__categories">
     <div class="wrapper catalog__categories-wrapper">
         <ul class="catalog__categories-list">
             {% for category in categories %}
                 <li class="catalog__categories-item">
-                    {{ category.name }}
+                    {{ category.category }}
                     <ul class="sub-categories-list">
                         {% for subcategory in category.subcategories %}
-                            <li class="sub-categories-item">{{ subcategory.name }}</li>
+                            <li class="sub-categories-item">{{ subcategory }}</li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -50,7 +54,7 @@
     </div>
 </section>
 
-/* Categories end */
+<!-- Categories end -->
 
 {% endblock %}
 

@@ -9,4 +9,4 @@ class BrandsAdmin(admin.ModelAdmin):
 
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('category', 'subcategories', 'companies')
+    list_display = ('category', 'subcategories', 'companies', 'img')

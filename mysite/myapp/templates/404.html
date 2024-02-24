@@ -1,0 +1,16 @@
+{{ extends 'base.html' }}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="not-found">
+    <div class="wrapper not-found__wrapper">
+        <h1 class="not-found__title">404</h1>
+        <p class="not-found__text">Страница не найдена</p>
+    </div>
+</main>
+{% endblock %}

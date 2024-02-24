@@ -70,4 +70,5 @@ def catalog(request):
         'categories': new_categories,
         'companies': all_companies
     }
+
     return render(request, 'catalog.html', context=context)

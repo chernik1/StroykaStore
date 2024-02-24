@@ -74,3 +74,57 @@
 }
 
 /* Companies end */
+
+/* Categories start */
+
+.catalog__categories {
+    margin-bottom: 80px;
+}
+
+.catalog__categories-wrapper {
+    max-width: 1160px;
+}
+
+.catalog__categories-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.catalog__categories-block {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+    position: relative;
+    background: rgb(246, 246, 246);
+}
+
+.catalog__categories-item-title {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 156px;
+    color: rgb(47, 50, 58);
+    font-size: 18px;
+    line-height: 136%;
+    text-align: center;
+}
+
+.catalog__categories-img {
+    position: absolute;
+    top: 52px;
+}
+
+.sub-categories-item-title {
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.catalog__categories-item {
+    width: 278px;
+}
+
+/* Categories end */

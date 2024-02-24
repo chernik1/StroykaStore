@@ -49,3 +49,6 @@ def contacts(request):
 
 def account(request):
     return render(request, 'account.html')
+
+def catalog(request):
+    return render(request, 'catalog.html')

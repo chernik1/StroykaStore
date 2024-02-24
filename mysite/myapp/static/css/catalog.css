@@ -1,0 +1,33 @@
+/* Catalog start */
+
+.catalog {
+    margin-bottom: 80px;
+}
+
+.catalog__wrapper {
+    max-width: 1360px;
+    height: 232px;
+    position: relative;
+    background: url("../img/catalog/catalog-main.png") no-repeat;
+}
+
+.catalog-text {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+}
+
+.catalog-desc {
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.catalog-title {
+    color: rgb(23, 27, 36);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+/* Catalog end */

@@ -142,8 +142,16 @@ img{
   color: white;
 }
 
+.header__catalog-link:hover img {
+  filter: invert(100%);
+}
+
 .header__catalog-link:active .header__catalog-text {
   color: rgb(209, 209, 211);
+}
+
+.header__catalog-link:active img {
+  filter: invert(50%);
 }
 
 .header__search {
@@ -157,7 +165,6 @@ img{
     height: 49px;
     padding-right: 40px;
     box-sizing: border-box;
-    border-bottom: 1px solid rgb(209, 209, 211);
     background: rgb(246, 246, 246);
     border: none;
 }

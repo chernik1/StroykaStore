@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="catalog">
+    <div class="wrapper catalog__wrapper">
+        <div class="catalog-text">
+            <h3 class="catalog-desc">Главная → Каталог</h3>
+            <h1 class="catalog-title">Каталог</h1>
+        </div>
+    </div>
+</main>
+
+/* Companies start */
+
+<section class="catalog__companies">
+    <div class="wrapper catalog__companies-wrapper">
+        <ul class="catalog__companies-list">
+            {% for company in companies %}
+                <li class="catalog__companies-item">{{ company.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+/* Companies end */
+
+/* Categories start */
+
+<section class="catalog__categories">
+    <div class="wrapper catalog__categories-wrapper">
+        <ul class="catalog__categories-list">
+            {% for category in categories %}
+                <li class="catalog__categories-item">
+                    {{ category.name }}
+                    <ul class="sub-categories-list">
+                        {% for subcategory in category.subcategories %}
+                            <li class="sub-categories-item">{{ subcategory.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+/* Categories end */
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/catalog.js' %}"></script>
+{% endblock %}

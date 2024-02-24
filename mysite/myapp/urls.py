@@ -8,4 +8,5 @@ urlpatterns = [
     path('return/', views.return_tab, name='return'),
     path('documentation/', views.documentation, name='documentation'),
     path('contacts/', views.contacts, name='contacts'),
+    path('account/', views.account, name='account'),
 ]

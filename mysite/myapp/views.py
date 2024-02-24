@@ -46,3 +46,6 @@ def documentation(request):
 
 def contacts(request):
     return render(request, 'contacts.html')
+
+def account(request):
+    return render(request, 'account.html')

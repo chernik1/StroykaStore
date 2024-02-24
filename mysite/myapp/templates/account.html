@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="account__wrapper account__title">
+    Личный кабинет
+</h1>
+
+<!-- Data start -->
+
+<section class="account__wrapper account__data">
+    <h2 class="account__data-title">Личный информация</h2>
+    <div class="account__data-block1">
+        <div class="account__data-name">
+            <h3 class="account__data-name-title">Имя</h3>
+            <input type="text" class="account__data-name-input" placeholder="Богдан">
+        </div>
+        <div class="account__data-surname">
+            <h3 class="account__data-surname-title">Фамилия</h3>
+            <input type="text" class="account__data-surname-input" placeholder="Порникин">
+        </div>
+        <div class="account__data-birthday">
+            <h3 class="account__data-birthday-title">Дата рождения</h3>
+            <input type="date" class="account__data-birthday-input" placeholder="24.05.1989">
+        </div>
+        <div class="account__data-phone">
+            <h3 class="account__data-phone-title">Телефон</h3>
+            <input type="text" class="account__data-phone-input" placeholder="+7 (359) 90-38-98">
+        </div>
+    </div>
+    <div class="account__data-email">
+        <h3 class="account__data-email-title">E-mail</h3>
+        <input type="text" class="account__data-email-input" placeholder="youmail@mail.com">
+    </div>
+    <div class="account__data-block2">
+        <div class="account__data-password">
+            <h3 class="account__data-password-title">Новый пароль</h3>
+            <input type="text" class="account__data-password-input" placeholder="****************">
+        </div>
+        <div class="account__data-password-confirm">
+            <h3 class="account__data-password-title">Подтверждение пароля</h3>
+            <input type="text" class="account__data-password-input-confirm" placeholder="****************">
+        </div>
+    </div>
+    <button class="account__data-save">
+        <p class="account__data-save-text">
+            Сохранить
+        </p>
+    </button>
+</section>
+
+<!-- Data end -->
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/account.js' %}"></script>
+{% endblock %}

@@ -1,12 +1,23 @@
 from django.contrib import admin
-from .models import Brands, Categories
+from .models import *
 
 # Register your models here.
 
-@admin.register(Brands)
-class BrandsAdmin(admin.ModelAdmin):
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+@admin.register(Supplier)
+class SupplierAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-@admin.register(Categories)
-class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('category', 'subcategories', 'companies', 'img')
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+@admin.register(Subcategory)
+class SubcategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'description', 'discount')

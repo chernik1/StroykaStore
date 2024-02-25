@@ -17,15 +17,15 @@
     </div>
 </main>
 
-<!-- Companies start -->
+<!-- Suppliers start -->
 
-<section class="catalog__companies">
-    <div class="wrapper catalog__companies-wrapper">
-        <ul class="catalog__companies-list">
-            {% for company in companies %}
-                <li class="catalog__companies-item">
-                    <button class="catalog__companies-btn">
-                        <p class="catalog__companies-text">{{ company }}</p>
+<section class="catalog__suppliers">
+    <div class="wrapper catalog__suppliers-wrapper">
+        <ul class="catalog__suppliers-list">
+            {% for supplier in suppliers %}
+                <li class="catalog__suppliers-item">
+                    <button class="catalog__suppliers-btn">
+                        <p class="catalog__suppliers-text">{{ supplier.name }}</p>
                     </button>
                 </li>
             {% endfor %}
@@ -33,23 +33,23 @@
     </div>
 </section>
 
-<!-- Companies end -->
+<!-- Suppliers end -->
 
 <!-- Categories start -->
 
 <section class="catalog__categories">
     <div class="wrapper catalog__categories-wrapper">
         <ul class="catalog__categories-list">
-            {% for category in categories %}
+            {% for key, value in data.items %}
                 <li class="catalog__categories-item">
                     <div class="catalog__categories-block">
                         <h2 class="catalog__categories-item-title">
-                            {{ category.category }}
+                            {{ key }}
                         </h2>
-                        <img src="{{ category.img.url }}" alt="фото категории" class="catalog__categories-img">
+                        <img src="{{ key.photo.url }}" alt="фото категории" class="catalog__categories-img">
                     </div>
                     <ul class="sub-categories-list">
-                        {% for subcategory in category.subcategories %}
+                        {% for subcategory in value %}
                             <li class="sub-categories-item">
                                 <h3 class="sub-categories-item-title">
                                     {{ subcategory }}

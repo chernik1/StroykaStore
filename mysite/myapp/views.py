@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 import json
+from .models import *
 
 # Create your views here.
 
@@ -10,7 +11,7 @@ def index(request):
 
 def brands(request):
 
-    brands = Brands.objects.all()
+    brands = Brand.objects.all()
     letter_brands = {}
     eng_letters = []
     rus_letters = []
@@ -50,24 +51,22 @@ def account(request):
     return render(request, 'account.html')
 
 def catalog(request):
-    categories = Categories.objects.all()
+    categories = Category.objects.all()
+    suppliers = Supplier.objects.all()
+    subcategories = Subcategory.objects.all()
 
-    all_companies = set()
-    new_categories = []
-    for category in categories:
-        all_companies.update(category.companies['companies'])
-        new_categories.append({
-            'category': category.category,
-            'subcategories': category.subcategories['items'],
-            'companies': category.companies['companies'],
-            'img': category.img
-        })
+    data = {}
 
-    all_companies = list(sorted(all_companies))
+    for subcategory in subcategories:
+        if not subcategory.category in data.keys():
+            data[subcategory.category] = [subcategory.name]
+        else:
+            data[subcategory.category].append(subcategory.name)
 
     context = {
-        'categories': new_categories,
-        'companies': all_companies
+        'categories': categories,
+        'suppliers': suppliers,
+        'data': data
     }
 
     return render(request, 'catalog.html', context=context)

@@ -51,9 +51,10 @@
                     <ul class="sub-categories-list">
                         {% for subcategory in value %}
                             <li class="sub-categories-item">
-                                <h3 class="sub-categories-item-title">
+                                <img src="{% static 'img/svg/arrow-footer.svg' %}" alt="arrow" class="sub-categories-item-arrow">
+                                <a href="/catalog/{{key.name}}/{{ subcategory }}" class="sub-categories-item-title">
                                     {{ subcategory }}
-                                </h3>
+                                </a>
                             </li>
                         {% endfor %}
                     </ul>

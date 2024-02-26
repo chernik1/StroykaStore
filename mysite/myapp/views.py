@@ -70,3 +70,14 @@ def catalog(request):
     }
 
     return render(request, 'catalog.html', context=context)
+
+def category_catalog(request, category_slug):
+    category = Category.objects.get(slug=category_slug)
+    subcategories = Subcategory.objects.filter(category=category)
+
+    context = {
+        'category': category,
+        'subcategories': subcategories
+    }
+
+    return render(request, 'category_catalog.html', context=context)

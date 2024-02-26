@@ -92,6 +92,10 @@
     gap: 16px;
 }
 
+.catalog__categories-item {
+    margin-bottom: 80px;
+}
+
 .catalog__categories-block {
     height: 180px;
     width: 180px;
@@ -121,10 +125,37 @@
     line-height: 150%;
     text-align: left;
     margin-bottom: 12px;
+    text-decoration: none;
 }
 
 .catalog__categories-item {
     width: 278px;
 }
+
+.sub-categories-item-arrow {
+    display: none;
+}
+
+.sub-categories-item:hover img {
+    display: block;
+    filter: brightness(0%) contrast(100%);
+    transform: translateY(-7px);
+}
+
+.sub-categories-item:hover {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.sub-categories-item:active a{
+    color: rgb(199, 199, 199);
+}
+
+.sub-categories-item:active img {
+    filter: invert(50%);
+}
+
+
 
 /* Categories end */

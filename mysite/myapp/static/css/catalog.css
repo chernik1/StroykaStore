@@ -132,6 +132,10 @@
     width: 278px;
 }
 
+.sub-categories-item {
+    height: 30px;
+}
+
 .sub-categories-item-arrow {
     display: none;
 }

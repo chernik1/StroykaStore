@@ -119,3 +119,24 @@ $(".modal__window_login-close").on("click", function() {
 $(".modal__window_register-close").on("click", function() {
     $("#modal__window_register").css("display", "none");
 });
+
+// Модальное окно продавца
+const buttons = document.querySelectorAll('.footer__btn-seller');
+const closeButtons = document.querySelectorAll('.modal__seller_close-button');
+const modal = document.getElementById('modal__seller');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        if (modal) {
+            modal.style.display = 'block';
+        }
+    });
+});
+
+closeButtons.forEach(closeButton => {
+    closeButton.addEventListener('click', function() {
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    });
+});

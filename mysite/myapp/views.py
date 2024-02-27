@@ -71,13 +71,22 @@ def catalog(request):
 
     return render(request, 'catalog.html', context=context)
 
-def category_catalog(request, category_slug):
-    category = Category.objects.get(slug=category_slug)
-    subcategories = Subcategory.objects.filter(category=category)
+def category_subcategory_view(request, category: str, subcategory: str):
+    categories = Category.objects.all().filter(name=category)
+    subcategories = Subcategory.objects.all().filter(name=subcategory)
+    products = Product.objects.all().filter(subcategory__in=subcategories)
+
+    brands = [product.brand.all() for product in products if product.brand.all()][0]
+    suppliers = list(set([product.supplier.all() for product in products if product.supplier.all()][0]))
 
     context = {
+        'categories': categories,
+        'subcategories': subcategories,
+        'products': products,
         'category': category,
-        'subcategories': subcategories
+        'subcategory': subcategory,
+        'brands': brands,
+        'suppliers': suppliers
     }
 
     return render(request, 'category_catalog.html', context=context)

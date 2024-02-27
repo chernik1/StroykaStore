@@ -1,0 +1,24 @@
+.category {
+    max-width: 1160px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.category-desc {
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.category-title {
+    color: rgb(23, 27, 36);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.category__tools {
+    max-width: 278px;
+    max-height: 742px;
+    margin-left: 140px;
+}

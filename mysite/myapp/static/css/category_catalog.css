@@ -17,9 +17,16 @@
     line-height: 120%;
 }
 
+.category__catalog {
+    max-width: 1160px;
+    margin: 0 auto 80px auto;
+}
+
 .category__tools {
     max-width: 1160px;
     margin: 0 auto;
+    display: inline-block;
+    margin-right: 16px;
 }
 
 .category__tools_wrapper {
@@ -207,3 +214,100 @@
 .category__buttons-apply:active, .category__buttons-reset:active {
     color: rgb(209, 209, 211);
 }
+
+/* Products start */
+
+.products {
+    max-width: 866px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.products__sort {
+    max-width: 400px;
+    height: 24px;
+    margin-bottom: 16px;
+}
+
+.products__sort-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products__sort-item {
+    margin-right: 20px;
+}
+
+.products__sort-link {
+    text-decoration: none;
+    color: rgb(23, 27, 36);
+    line-height: 150%;
+}
+
+.products__products-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.products__products-item {
+    max-width: 278px;
+}
+
+.products__products-img {
+    width: 100%;
+    max-height: 208px;
+    margin-bottom: 16px;
+}
+
+.products__products-text {
+    padding: 16px;
+    width: 100%;
+    height: 209px;
+}
+
+.products__products-title {
+    max-height: 72px;
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+    margin-bottom: 12px;
+}
+
+.products__products-price {
+    max-height: 28px;
+    color: rgb(23, 27, 36);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 16px;
+}
+
+.products__products-btn {
+    padding: 12px 24px;
+    background: rgb(252, 236, 65);
+    max-height: 49px;
+    width: 100%;
+    border: none;
+}
+
+.products__products-btn-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-decoration: none;
+}
+
+.products__products-btn:hover {
+    background: rgb(47, 50, 58);
+}
+
+.products__products-btn:hover .products__products-btn-text {
+    color: white;
+}
+
+.products__products-btn:active .products__products-btn-text {
+    color: rgb(209, 209, 211);
+}
+
+
+/* Products end */

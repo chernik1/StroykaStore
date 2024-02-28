@@ -6,6 +6,15 @@
 <link rel="stylesheet" href="{% static 'css/category_catalog.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/nouislider@14.6.3/distribute/nouislider.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -15,58 +24,105 @@
     <h1 class="category-title">{{ subcategory }}</h1>
 </div>
 
-<section class="category__tools">
-    <div class="category__tools_wrapper">
-        <div class="category__price">
-            <h3 class="category__price-title">Цена</h3>
-            <input type="text" class="category__price-input-from" value="1 000">
-            <input type="text" class="category__price-input-to" value="100 000">
-            <div id="slider" class="category__price-range"></div>
-            <style>
-                .noUi-horizontal .noUi-handle {
-                    width: 20px;
-                    height: 20px;
-                    right: -17px;
-                    top: -6px;
-                }
+<main class="category__catalog">
+    <section class="category__tools">
+        <div class="category__tools_wrapper">
+            <div class="category__price">
+                <h3 class="category__price-title">Цена</h3>
+                <input type="text" class="category__price-input-from" value="1 000">
+                <input type="text" class="category__price-input-to" value="100 000">
+                <div id="slider" class="category__price-range"></div>
+                <style>
+                    .noUi-horizontal .noUi-handle {
+                        width: 20px;
+                        height: 20px;
+                        right: -17px;
+                        top: -6px;
+                    }
 
-                .noUi-connect {
-                    background: rgb(139, 141, 146);
-                }
-            </style>
-            <input type="hidden" class="category__price-range-values">
+                    .noUi-connect {
+                        background: rgb(139, 141, 146);
+                    }
+                </style>
+                <input type="hidden" class="category__price-range-values">
+            </div>
+            <div class="category__brand">
+                <h3 class="category__brand-title">Бренд</h3>
+                <form action="/search" class="category__brand-form">
+                    <input type="text" class="category__brand-input">
+                    <button class="category__brand-btn">
+                        <img src="{% static 'img/svg/search-icon.svg' %}" alt="Search" style="width: 20px; height: 20px;" class="category__brand-search">
+                    </button>
+                </form>
+                <ul class="category__brand-list">
+                    {% for brand in brands %}
+                    <li class="category__brand-item">
+                        <input type="checkbox" class="category__brand-checkbox">
+                        <p class="category__brand-item-text">{{ brand }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="category_suppliers">
+                <h3 class="category_suppliers-title">Поставщик</h3>
+                <select class="category_suppliers-select">
+                    {% for supplier in suppliers %}
+                        <option value="{{ supplier }}" class="category_suppliers-option">{{ supplier }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="category__buttons">
+                <button class="category__buttons-apply">Применить</button>
+                <button class="category__buttons-reset">Сбросить</button>
+            </div>
         </div>
-        <div class="category__brand">
-            <h3 class="category__brand-title">Бренд</h3>
-            <form action="/search" class="category__brand-form">
-                <input type="text" class="category__brand-input">
-                <button class="category__brand-btn">
-                    <img src="{% static 'img/svg/search-icon.svg' %}" alt="Search" style="width: 20px; height: 20px;" class="category__brand-search">
-                </button>
-            </form>
-            <ul class="category__brand-list">
-                {% for brand in brands %}
-                <li class="category__brand-item">
-                    <input type="checkbox" class="category__brand-checkbox">
-                    <p class="category__brand-item-text">{{ brand }}</p>
+    </section>
+    <section class="products">
+        <div class="products__sort">
+            <ul class="products__sort-list">
+                <li class="products__sort-item">
+                    <a href="#!" class="products__sort-link">Популярные</a>
                 </li>
+                <li class="products__sort-item">
+                    <a href="#!" class="products__sort-link">Дешевле</a>
+                </li>
+                <li class="products__sort-item">
+                    <a href="#!" class="products__sort-link">Дороже</a>
+                </li>
+                <li class="products__sort-item">
+                    <a href="#!" class="products__sort-link">По алфавиту</a>
+                </li>
+            </ul>
+        </div>
+        <div class="products__products">
+            <ul class="products__products-list">
+                {% for product in products %}
+                    <li class="products__products-item">
+                        <img src="{{ product.photo.url }}" alt="product" class="products__products-img">
+                        <div class="products__products-text">
+                            <p class="products__products-title">{{ product.name }}</p>
+                            <p class="products__products-price">{{ product.price }} ₽</p>
+                            <button class="products__products-btn">
+                                <a href="#!" class="products__products-btn-text">
+                                    В корзину
+                                </a>
+                            </button>
+                        </div>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
-        <div class="category_suppliers">
-            <h3 class="category_suppliers-title">Поставщик</h3>
-            <select class="category_suppliers-select">
-                {% for supplier in suppliers %}
-                    <option value="{{ supplier }}" class="category_suppliers-option">{{ supplier }}</option>
+        <div class="products__products-pagination">
+            <ul class="products__products-pagination-list">
+                {% for page in pages %}
+                    <li class="products__products-pagination-item">
+                        <a href="{{ page.url }}" class="products__products-pagination-link">{{ page.number }}</a>
+                    </li>
                 {% endfor %}
-            </select>
+            </ul>
         </div>
-        <div class="category__buttons">
-            <button class="category__buttons-apply">Применить</button>
-            <button class="category__buttons-reset">Сбросить</button>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
 {% endblock %}
 

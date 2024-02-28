@@ -15,3 +15,4 @@ noUiSlider.create(range, {
 range.noUiSlider.on('update', function (values, handle) {
     hiddenInput.value = values[handle];
 });
+

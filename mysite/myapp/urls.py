@@ -11,8 +11,5 @@ urlpatterns = [
     path('account/', views.account, name='account'),
     path('catalog/', views.catalog, name='catalog'),
     path('catalog/<str:category>/<str:subcategory>/', views.category_subcategory_view),
-    # path('categories/', views.categories, name='categories'),
-    # path('item/', views.item, name='item'),
-    # path('orders/', views.orders, name='orders'),
-    # path('basket/', views.basket, name='basket'),
+    path('catalog/<str:category>/<str:subcategory>/<str:product>/', views.product_view, name='product'),
 ]

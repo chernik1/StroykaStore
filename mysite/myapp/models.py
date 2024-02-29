@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
+from django.utils.text import slugify
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -41,6 +44,12 @@ class Product(models.Model):
     brand = models.ManyToManyField(Brand)
     supplier = models.ManyToManyField(Supplier)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.name
+
+@receiver(pre_save, sender=Product)
+def create_product_slug(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.name)

@@ -90,3 +90,16 @@ def category_subcategory_view(request, category: str, subcategory: str):
     }
 
     return render(request, 'category_catalog.html', context=context)
+
+def product_view(request, category: str, subcategory: str, product: str):
+    product = Product.objects.get(name=product)
+    supplier = ', '.join([supplier.name for supplier in product.supplier.all()])
+    category = Category.objects.get(name=category)
+
+    context = {
+        'product': product,
+        'supplier': supplier,
+        'category': category,
+    }
+
+    return render(request, 'product.html', context=context)

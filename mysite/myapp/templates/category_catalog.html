@@ -100,7 +100,7 @@
                     <li class="products__products-item">
                         <img src="{{ product.photo.url }}" alt="product" class="products__products-img">
                         <div class="products__products-text">
-                            <p class="products__products-title">{{ product.name }}</p>
+                            <a  href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="products__products-title">{{ product.name }}</a>
                             <p class="products__products-price">{{ product.price }} ₽</p>
                             <button class="products__products-btn">
                                 <a href="#!" class="products__products-btn-text">

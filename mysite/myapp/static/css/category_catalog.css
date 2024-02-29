@@ -271,6 +271,8 @@
     color: rgb(47, 50, 58);
     line-height: 150%;
     margin-bottom: 12px;
+    text-decoration: none;
+    height: 72px;
 }
 
 .products__products-price {
@@ -308,6 +310,5 @@
 .products__products-btn:active .products__products-btn-text {
     color: rgb(209, 209, 211);
 }
-
 
 /* Products end */

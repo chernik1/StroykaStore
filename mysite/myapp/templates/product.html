@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="product__main">
+    <div class="wrapper product__wrapper">
+        <h2 class="product-desc">Главная → Каталог → {{ category }} → {{ product.subcategory }} → {{ product }}</h2>
+    </div>
+</div>
+
+<div class="product">
+    <div class="wrapper product__wrapper">
+        <div class="product__block-title">
+            <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="product-img">
+            <div class="product__block-text">
+                <h1 class="product-title">{{ product.name }}</h1>
+                <div class="product-available">
+                    <img src="{% static 'img/product/available.svg' %}" alt="В наличии">
+                    <p class="product-available-text">
+                        В наличии
+                    </p>
+                </div>
+                <p class="product-price">{{ product.price }} ₽</p>
+                <div class="products__buttons">
+                    <button class="product-btn">
+                        <a href="#!" class="product-btn-text">
+                            В корзину
+                        </a>
+                    </button>
+                    <div class="product__count">
+                        <button class="product-plus">
+                            <img src="{% static 'img/product/plus.svg' %}" alt="plus">
+                        </button>
+                        <input type="number" value="1" class="product-count" min="1" max="99">
+                        <button class="product-minus">
+                            <img src="{% static 'img/product/minus.svg' %}" alt="minus">
+                        </button>
+                    </div>
+                </div>
+                <p class="product__supplier">
+                    Поставщик: {{ supplier }}
+                </p>
+                <div class="product__delivery">
+                    <img src="{% static 'img/product/truck.svg' %}" alt="Грузовик" class="product__delivery-img">
+                    <p class="product__delivery-text">
+                        Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от поставщика
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product__description">
+    <div class="wrapper product__wrapper">
+        <div class="product__description-block">
+            <h2 class="product__description-title">
+                Описание
+            </h2>
+            <p class="product__description-text">
+                {{ product.description }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="product__similar">
+    <ul class="product__similar-list">
+        {% for product in similar %}
+        <li class="product__similar-item">
+            <img src="{{ product.photo.url }}" alt="product" class="product__similar-img">
+            <div class="product__similar-text">
+                <a href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="product__similar-title">{{ product.name }}</a>
+                <p class="product__similar-price">{{ product.price }} ₽</p>
+                <button class="product__similar-btn">
+                    <a href="#!" class="product__similar-btn-text">
+                        В корзину
+                    </a>
+                </button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/product.js' %}"></script>
+{% endblock %}

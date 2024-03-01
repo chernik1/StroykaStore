@@ -31,3 +31,7 @@ class ProductAdmin(admin.ModelAdmin):
         return ", ".join([supplier.name for supplier in obj.supplier.all()])
 
     display_suppliers.short_description = 'Suppliers'
+
+@admin.register(CustomUser)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('email', 'name', 'is_staff')

@@ -91,7 +91,7 @@ function openModal() {
 // Модальное окно профиля
 
 $(document).ready(function(){
-    $(".header__card").on("click", function(e) {
+    $(".header__card-pic_profile").on("click", function(e) {
       e.preventDefault();
       $("#modal__window_profile").css("display", "block");
     });

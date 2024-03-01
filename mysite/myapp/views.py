@@ -103,3 +103,15 @@ def product_view(request, category: str, subcategory: str, product: str):
     }
 
     return render(request, 'product.html', context=context)
+
+def basket_view(request):
+    supplier = 'Gibson'
+
+    context = {
+        'supplier': supplier
+    }
+
+    return render(request, 'basket.html', context=context)
+
+def orders_view(request):
+    return render(request, 'orders.html')

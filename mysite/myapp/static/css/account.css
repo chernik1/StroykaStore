@@ -125,3 +125,8 @@
 .account__data-save:active p{
     color: rgb(209, 209, 211);
 }
+
+.account__data-error {
+    margin-bottom: 20px;
+    color: red;
+}

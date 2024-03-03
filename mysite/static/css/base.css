@@ -842,6 +842,15 @@ img{
     padding: 12px 16px 12px 16px;
 }
 
+.modal__window_register-error {
+    position: absolute;
+    top: 287px;
+    left: 36px;
+    width: 500px;
+    margin-bottom: 20px;
+    color: red;
+}
+
 .modal__window_register-button {
     position: absolute;
     top: 314px;

@@ -119,5 +119,8 @@ def orders_view(request):
 def account_register_view(request):
     if request.method == 'POST':
         CustomUser.objects.create_user(
-
+            password=request.POST.get('password'),
+            email=request.POST.get('email'),
+            name=request.POST.get('name')
         )
+        return HttpResponse('Вы успешно зарегистрировались!')

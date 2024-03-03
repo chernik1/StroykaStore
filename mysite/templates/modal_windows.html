@@ -149,6 +149,7 @@
 
 <div class="modal__window_register" id="modal__window_register">
     <div class="modal__window_register-content">
+        <input type="hidden" name="csrfregistrationtoken" value="{{ csrf_token }}">
         <h2 class="modal__window_register-title">Регистрация</h2>
         <div class="modal__window_register-block">
             <div class="modal__window_register_input_name-block">
@@ -161,13 +162,16 @@
             </div>
             <div class="modal__window_register_input_new_password-block">
                 <h3 class="modal__window_register_input_new_password-title">Новый пароль</h3>
-                <input type="text" class="modal__window_register_input_new_password" placeholder="****************">
+                <input type="password" class="modal__window_register_input_new_password" placeholder="****************">
             </div>
             <div class="modal__window_register_input_confirm_new_password-block">
                 <h3 class="modal__window_register_input_confirm_new_password-title">Подтверждение пароля</h3>
-                <input type="text" class="modal__window_register_input_confirm_new_password" placeholder="****************">
+                <input type="password" class="modal__window_register_input_confirm_new_password" placeholder="****************">
             </div>
         </div>
+        <span>
+            <p class="modal__window_register-error"></p>
+        </span>
         <button class="modal__window_register-button">
             <span class="modal__window_register-button-text">Зарегистрироваться</span>
         </button>

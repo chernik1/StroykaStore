@@ -120,6 +120,85 @@ $(".modal__window_register-close").on("click", function() {
     $("#modal__window_register").css("display", "none");
 });
 
+$(document).ready(function() {
+    $('.modal__window_register-button').on('click', function(event) {
+        event.preventDefault();
+
+        var isValid = true;
+        var errorSpan = $('.modal__window_register-error');
+        errorSpan.text('');
+
+        var fields = {
+            name: $('.modal__window_register_input_name').val(),
+            email: $('.modal__window_register_input_email').val(),
+            newPassword: $('.modal__window_register_input_new_password').val(),
+            confirmPassword: $('.modal__window_register_input_confirm_new_password').val()
+        };
+
+
+        function validateFields(fields) {
+
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            function validatePersonName(name) {
+                const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s-'`]+$/;
+                return nameRegex.test(name);
+            }
+
+
+            for (let key in fields) {
+                if (fields[key].trim() === '') {
+                    return 'Заполните все поля.';
+                }
+            }
+
+            if (!validatePersonName(fields.name.trim())) {
+                return 'Некорректное имя.';
+            }
+
+            if (fields.newPassword.trim() !== fields.confirmPassword.trim()) {
+                return 'Пароли не совпадают.';
+            }
+
+            if (fields.newPassword.trim().length < 8) {
+                return 'Пароль должен содержать не менее 8 символов.'
+            }
+
+            const email = fields.email.trim();
+            if (!validateEmail(email)) {
+                return 'Неверный формат электронной почты.';
+            }
+
+            return true;
+        }
+
+        answer = validateFields(fields);
+        if (answer !== true) {
+            errorSpan.text(answer);
+            isValid = false;
+        }
+
+
+        if (isValid) {
+            $.ajax({
+                url: '/account/account_register/',
+                type: 'POST',
+                data: Object.assign({
+                    csrfmiddlewaretoken: $('input[name="csrfregistrationtoken"]').val()
+                }, fields),
+                success: function(response) {
+                },
+                error: function(xhr, status, error) {
+                }
+            });
+        }
+    });
+});
+
+
 // Модальное окно продавца
 const buttons = document.querySelectorAll('.footer__btn-seller');
 const closeButtons = document.querySelectorAll('.modal__seller_close-button');

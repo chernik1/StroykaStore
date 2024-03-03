@@ -88,36 +88,38 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=50)
-    new_password = models.CharField(max_length=128, blank=True,
-                                    null=True)
+    new_password = models.CharField(max_length=128, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
+    basket_flag = models.BooleanField(default=False)
+    basket_items = models.JSONField(null=True, blank=True)
+    basket_history = models.JSONField(null=True, blank=True)
 
     objects = CustomUserManager()
 
     groups = models.ManyToManyField(
         Group,
-        verbose_name=('groups'),
+        verbose_name='groups',
         blank=True,
-        help_text=(
-            'The groups this user belongs to. A user will get all permissions '
-            'granted to each of their groups.'
-        ),
+        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
         related_name="customuser_groups",
         related_query_name="customuser",
     )
     user_permissions = models.ManyToManyField(
         Permission,
-        verbose_name=('user permissions'),
+        verbose_name='user permissions',
         blank=True,
-        help_text=('Specific permissions for this user.'),
+        help_text='Specific permissions for this user.',
         related_name="customuser_user_permissions",
         related_query_name="customuser",
     )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
+
+    def get_full_name(self):
+        return self.name
 
     def __str__(self):
         return self.email

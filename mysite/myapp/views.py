@@ -115,3 +115,9 @@ def basket_view(request):
 
 def orders_view(request):
     return render(request, 'orders.html')
+
+def account_register_view(request):
+    if request.method == 'POST':
+        CustomUser.objects.create_user(
+
+        )

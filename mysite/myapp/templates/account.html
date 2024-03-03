@@ -15,6 +15,7 @@
 <!-- Data start -->
 
 <section class="account__wrapper account__data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <h2 class="account__data-title">Личный информация</h2>
     <div class="account__data-block1">
         <div class="account__data-name">
@@ -27,11 +28,11 @@
         </div>
         <div class="account__data-birthday">
             <h3 class="account__data-birthday-title">Дата рождения</h3>
-            <input type="date" class="account__data-birthday-input" placeholder="24.05.1989">
+            <input type="text" class="account__data-birthday-input" placeholder="24.05.1989">
         </div>
         <div class="account__data-phone">
             <h3 class="account__data-phone-title">Телефон</h3>
-            <input type="text" class="account__data-phone-input" placeholder="+7 (359) 90-38-98">
+            <input type="text" class="account__data-phone-input" placeholder="+7 359 90 38 98">
         </div>
     </div>
     <div class="account__data-email">
@@ -41,11 +42,11 @@
     <div class="account__data-block2">
         <div class="account__data-password">
             <h3 class="account__data-password-title">Новый пароль</h3>
-            <input type="text" class="account__data-password-input" placeholder="****************">
+            <input type="password" class="account__data-password-input" placeholder="****************">
         </div>
         <div class="account__data-password-confirm">
             <h3 class="account__data-password-title">Подтверждение пароля</h3>
-            <input type="text" class="account__data-password-input-confirm" placeholder="****************">
+            <input type="password" class="account__data-password-input-confirm" placeholder="****************">
         </div>
     </div>
     <span>

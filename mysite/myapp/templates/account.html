@@ -20,24 +20,24 @@
     <div class="account__data-block1">
         <div class="account__data-name">
             <h3 class="account__data-name-title">Имя</h3>
-            <input type="text" class="account__data-name-input" placeholder="Богдан">
+            <input type="text" class="account__data-name-input" value="{{ name }}" placeholder="Иван">
         </div>
         <div class="account__data-surname">
             <h3 class="account__data-surname-title">Фамилия</h3>
-            <input type="text" class="account__data-surname-input" placeholder="Порникин">
+            <input type="text" class="account__data-surname-input" value="{{ surname }}" placeholder="Иванов">
         </div>
         <div class="account__data-birthday">
             <h3 class="account__data-birthday-title">Дата рождения</h3>
-            <input type="text" class="account__data-birthday-input" placeholder="24.05.1989">
+            <input type="text" class="account__data-birthday-input" value="{{ birthday }}" placeholder="16.16.1980">
         </div>
         <div class="account__data-phone">
             <h3 class="account__data-phone-title">Телефон</h3>
-            <input type="text" class="account__data-phone-input" placeholder="+7 359 90 38 98">
+            <input type="text" class="account__data-phone-input" value="{{ phone }}" placeholder="+375 44 444 4444">
         </div>
     </div>
     <div class="account__data-email">
         <h3 class="account__data-email-title">E-mail</h3>
-        <input type="text" class="account__data-email-input" placeholder="youmail@mail.com">
+        <input type="text" class="account__data-email-input" value="{{ email }}" readonly placeholder="youmail@mail.com">
     </div>
     <span>
         <p class="account__data-error"></p>

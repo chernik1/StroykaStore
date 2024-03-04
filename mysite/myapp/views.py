@@ -2,15 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 import json
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import get_user_model
 from .models import *
 from django.db.utils import IntegrityError
+from datetime import datetime
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'index.html', context=context)
 
 def brands(request):
 
@@ -33,40 +39,68 @@ def brands(request):
     context = {
         'letter_brands': letter_brands,
         'eng_letters': eng_letters,
-        'rus_letters': rus_letters
+        'rus_letters': rus_letters,
+        'user': request.user
     }
 
     return render(request, 'brands.html', context=context)
 
 def delivery(request):
-    return render(request, 'delivery.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'delivery.html', context=context)
 
 def return_tab(request):
-    return render(request, 'return.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'return.html', context=context)
 
 def documentation(request):
-    return render(request, 'documentation.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'documentation.html', context=context)
 
 def contacts(request):
-    return render(request, 'contacts.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'contacts.html', context=context)
 
 def account(request):
     if request.user.is_authenticated:
         user = request.user
 
-        data = {
-            'name': user.name,
-            'surname': user.surname,
-            'email': user.email,
-            'phone': user.phone,
-            'birthday': user.birthday,
-        }
+        if user.surname is None:
+            user.surname = ''
+        if user.birthday is None:
+            user.birthday = ''
+        else:
+            user.birthday = datetime.strftime(user.birthday, '%d.%m.%Y')
+        if user.phone is None:
+            user.phone = ''
+
 
         context = {
-            'data': data,
+            'name': user.name,
+            'surname': user.surname,
+            'birthday': user.birthday,
+            'phone': user.phone,
+            'email': user.email,
+            'user': request.user
         }
 
-        return render(request, 'account.html')
+        return render(request, 'account.html', context=context)
     return render(request, 'index.html')
 
 def catalog(request):
@@ -85,7 +119,8 @@ def catalog(request):
     context = {
         'categories': categories,
         'suppliers': suppliers,
-        'data': data
+        'data': data,
+        'user': request.user
     }
 
     return render(request, 'catalog.html', context=context)
@@ -105,7 +140,8 @@ def category_subcategory_view(request, category: str, subcategory: str):
         'category': category,
         'subcategory': subcategory,
         'brands': brands,
-        'suppliers': suppliers
+        'suppliers': suppliers,
+        'user': request.user
     }
 
     return render(request, 'category_catalog.html', context=context)
@@ -119,6 +155,7 @@ def product_view(request, category: str, subcategory: str, product: str):
         'product': product,
         'supplier': supplier,
         'category': category,
+        'user': request.user
     }
 
     return render(request, 'product.html', context=context)
@@ -127,13 +164,19 @@ def basket_view(request):
     supplier = 'Gibson'
 
     context = {
-        'supplier': supplier
+        'supplier': supplier,
+        'user': request.user
     }
 
     return render(request, 'basket.html', context=context)
 
 def orders_view(request):
-    return render(request, 'orders.html')
+
+    context = {
+        'user': request.user
+    }
+
+    return render(request, 'orders.html', context=context)
 
 def account_register_view(request):
     try:
@@ -164,3 +207,22 @@ def account_login_view(request):
         else:
             print('User not found')
             return JsonResponse({'success': False, 'is_authenticated': False})
+
+def account_change_view(request):
+    if request.method == 'POST':
+        date = request.POST.get('birthday')
+        date = datetime.strptime(date, '%d.%m.%Y')
+
+        user = request.user
+        user.name = request.POST.get('name')
+        user.surname = request.POST.get('surname')
+        user.birthday = date
+        user.phone = request.POST.get('phone')
+        user.email = request.POST.get('email')
+        user.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
+
+def account_logout_view(request):
+    logout(request)
+    return JsonResponse({'success': True})

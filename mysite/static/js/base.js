@@ -90,22 +90,28 @@ function openModal() {
 
 // Модальное окно профиля
 
-$(document).ready(function(){
-    $(".header__card-pic_profile").on("click", function(e) {
-      e.preventDefault();
-      $("#modal__window_profile").css("display", "block");
-    });
-    $(".modal__window_profile-close").on("click", function() {
-        $("#modal__window_profile").css("display", "none");
-    });
-    $(".modal__window_profile-login").on("click", function() {
-        $("#modal__window_login").css("display", "block");
-        $("#modal__window_profile").css("display", "none");
-    });
-    $(".modal__window_profile-register").on("click", function() {
-        $("#modal__window_register").css("display", "block");
-        $("#modal__window_profile").css("display", "none");
-    });
+$(document).ready(function(){{
+        $(".header__card-pic_profile").on("click", function(e) {
+            if (isUserAuthenticated) {
+                window.location.href = '/account';
+            }
+            else {
+                e.preventDefault();
+                $("#modal__window_profile").css("display", "block");
+            }
+        });
+        $(".modal__window_profile-close").on("click", function() {
+            $("#modal__window_profile").css("display", "none");
+        });
+        $(".modal__window_profile-login").on("click", function() {
+            $("#modal__window_login").css("display", "block");
+            $("#modal__window_profile").css("display", "none");
+        });
+        $(".modal__window_profile-register").on("click", function() {
+            $("#modal__window_register").css("display", "block");
+            $("#modal__window_profile").css("display", "none");
+        });
+    }
 });
 
 // Модальное окно входа
@@ -258,7 +264,7 @@ $(document).ready(function() {
                 }, fields),
                 success: function(response) {
                     if (response.success === true) {
-
+                        window.location.href = "/account/";
                     }
                 },
                 error: function(xhr, status, error) {

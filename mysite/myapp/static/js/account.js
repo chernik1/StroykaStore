@@ -13,8 +13,6 @@ $(document).ready(function() {
             birthday: $('.account__data-birthday-input').val(),
             phone: $('.account__data-phone-input').val(),
             email: $('.account__data-email-input').val(),
-            newPassword: $('.account__data-password-input').val(),
-            confirmPassword: $('.account__data-password-input-confirm').val()
         };
 
 
@@ -63,14 +61,6 @@ $(document).ready(function() {
                 return 'Неверный формат даты рождения.';
             }
 
-            if (fields.newPassword.trim() !== fields.confirmPassword.trim()) {
-                return 'Пароли не совпадают.';
-            }
-
-            if (fields.newPassword.trim().length < 8) {
-                return 'Пароль должен содержать не менее 8 символов.'
-            }
-
             const email = fields.email.trim();
             if (!validateEmail(email)) {
                 return 'Неверный формат электронной почты.';
@@ -88,12 +78,15 @@ $(document).ready(function() {
 
         if (isValid) {
             $.ajax({
-                url: '/account/account_register/',
+                url: '/account/account_change/',
                 type: 'POST',
                 data: Object.assign({
                     csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
                 }, fields),
                 success: function(response) {
+                    if (response.success === true) {
+                        window.location.href = "/";
+                    }
                 },
                 error: function(xhr, status, error) {
                 }

@@ -16,4 +16,6 @@ urlpatterns = [
     path('orders/', views.orders_view, name='orders'),
     path('account/account_register/', views.account_register_view, name='account_register'),
     path('account/account_login/', views.account_login_view, name='account_login'),
+    path('account/account_change/', views.account_change_view, name='account_change'),
+    path('account/account_logout/', views.account_logout_view, name='account_logout'),
 ]

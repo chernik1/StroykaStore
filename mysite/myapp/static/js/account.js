@@ -94,3 +94,25 @@ $(document).ready(function() {
         }
     });
 });
+
+
+function handleLogout() {
+    $.ajax({
+        type: 'POST',
+        data: Object.assign({
+                    csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+                }),
+        url: '/account/account_logout/',
+        success: function(response) {
+            window.location.href = '/';
+        },
+        error: function(xhr, status, error) {
+            console.error('Logout failed: ' + error);
+        }
+    });
+}
+$(document).ready(function(){
+    $(".account__logout").on("click", function() {
+        handleLogout();
+    });
+});

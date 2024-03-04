@@ -99,6 +99,32 @@
     color: rgb(209, 209, 211);
 }
 
+.account__logout {
+    margin-left: 30px;
+    width: 130px;
+    height: 49px;
+    background: rgb(252, 236, 65);
+    border: none;
+}
+
+.account__logout p {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+}
+
+.account__logout:hover {
+    background: rgb(47, 50, 58);
+}
+
+.account__logout:hover p {
+    color: white;
+}
+
+.account__logout:active p{
+    color: rgb(209, 209, 211);
+}
+
 .account__data-error {
     margin-bottom: 20px;
     color: red;

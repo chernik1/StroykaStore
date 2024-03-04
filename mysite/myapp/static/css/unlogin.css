@@ -1,0 +1,54 @@
+.header {
+    margin-bottom: 300px;
+}
+
+.unlogin {
+    margin-bottom: 100px;
+}
+
+.unlogin__wrapper {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unlogin__text {
+    align-items: center;
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    margin-bottom: 40px;
+}
+
+.unlogin__button {
+    width: 30%;
+    height: 49px;
+    background: rgb(252, 236, 65);
+    border: none;
+    justify-content: center;
+}
+
+.unlogin__link {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    line-height: 136%;
+    text-decoration: none;
+}
+
+.unlogin__button:hover {
+    background: rgb(47, 50, 58);
+}
+
+.unlogin__button:hover a {
+    color: white;
+}
+
+.unlogin__button:active a{
+    color: rgb(209, 209, 211);
+}
+
+
+.footer {
+    display: none;
+}

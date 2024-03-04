@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/unlogin.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="unlogin">
+    <div class="wrapper unlogin__wrapper">
+        <p class="unlogin__text">
+            Войдите или зарегистрируйтесь для возможности оформления заказа.
+        </p>
+        <button class="unlogin__button">
+            <a href="/" class="unlogin__link">На главную</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}
+

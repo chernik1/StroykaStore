@@ -161,22 +161,23 @@ def product_view(request, category: str, subcategory: str, product: str):
     return render(request, 'product.html', context=context)
 
 def basket_view(request):
-    supplier = 'Gibson'
-
-    context = {
-        'supplier': supplier,
-        'user': request.user
-    }
-
-    return render(request, 'basket.html', context=context)
+    if request.user.is_authenticated:
+        pass
+    else:
+        context = {
+            'user': request.user
+        }
+        return render(request, 'unlogin.html', context=context)
 
 def orders_view(request):
+    if request.user.is_authenticated:
+        pass
+    else:
+        context = {
+            'user': request.user
+        }
 
-    context = {
-        'user': request.user
-    }
-
-    return render(request, 'orders.html', context=context)
+        return render(request, 'unlogin.html', context=context)
 
 def account_register_view(request):
     try:

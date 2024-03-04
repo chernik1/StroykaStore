@@ -685,6 +685,15 @@ img{
     text-align: left;
 }
 
+.modal__window_login-error {
+    position: absolute;
+    top: 326px;
+    left: 36px;
+    width: 304px;
+    height: 22px;
+    color: red;
+}
+
 .modal__window_login-button {
     position: absolute;
     top: 348px;

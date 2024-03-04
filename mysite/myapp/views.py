@@ -2,7 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 import json
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import get_user_model
 from .models import *
+from django.db.utils import IntegrityError
 
 # Create your views here.
 
@@ -48,7 +51,23 @@ def contacts(request):
     return render(request, 'contacts.html')
 
 def account(request):
-    return render(request, 'account.html')
+    if request.user.is_authenticated:
+        user = request.user
+
+        data = {
+            'name': user.name,
+            'surname': user.surname,
+            'email': user.email,
+            'phone': user.phone,
+            'birthday': user.birthday,
+        }
+
+        context = {
+            'data': data,
+        }
+
+        return render(request, 'account.html')
+    return render(request, 'index.html')
 
 def catalog(request):
     categories = Category.objects.all()
@@ -117,10 +136,31 @@ def orders_view(request):
     return render(request, 'orders.html')
 
 def account_register_view(request):
-    if request.method == 'POST':
+    try:
         CustomUser.objects.create_user(
-            password=request.POST.get('password'),
             email=request.POST.get('email'),
-            name=request.POST.get('name')
+            name=request.POST.get('name'),
+            password=request.POST.get('newPassword')
         )
-        return HttpResponse('Вы успешно зарегистрировались!')
+
+        return JsonResponse({'success': True})
+
+    except IntegrityError as e:
+        return JsonResponse({'success': False, 'error': 'Такой пользователь уже существует'})
+    except ValueError as e:
+        return JsonResponse({'success': False, 'error': 'Некорректные данные'})
+
+
+def account_login_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        User = get_user_model()
+        user = authenticate(request, username=email, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'success': True, 'is_authenticated': user.is_authenticated})
+        else:
+            print('User not found')
+            return JsonResponse({'success': False, 'is_authenticated': False})

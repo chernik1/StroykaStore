@@ -119,6 +119,7 @@
 
 <div class="modal__window_login" id="modal__window_login">
     <div class="modal__window_login-content">
+        <input type="hidden" name="csrflogin" value="{{ csrf_token }}">
         <h2 class="modal__window_login-title">Вход</h2>
         <div class="modal__window_login_input_email-block">
             <h4 class="modal__window_login_input_email-text">E-mail</h4>
@@ -126,11 +127,14 @@
         </div>
         <div class="modal__window_login_input_password-block">
             <h4 class="modal__window_login_input_password-text">Пароль</h4>
-            <input type="text" class="modal__window_login_input_password" placeholder="****************">
+            <input type="password" class="modal__window_login_input_password" placeholder="****************">
         </div>
         <a class="forget__password-link">
             <span class="forget__password-link-text">Забыли пароль?</span>
         </a>
+        <span>
+            <p class="modal__window_login-error"></p>
+        </span>
         <button class="modal__window_login-button">
             <span class="modal__window_login-button-text">Войти</span>
         </button>

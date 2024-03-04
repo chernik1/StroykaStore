@@ -120,6 +120,11 @@ $(".modal__window_register-close").on("click", function() {
     $("#modal__window_register").css("display", "none");
 });
 
+$(".modal__window_login-register").on("click", function() {
+    $("#modal__window_register").css("display", "block");
+    $("#modal__window_login").css("display", "none");
+});
+
 $(document).ready(function() {
     $('.modal__window_register-button').on('click', function(event) {
         event.preventDefault();
@@ -190,8 +195,74 @@ $(document).ready(function() {
                     csrfmiddlewaretoken: $('input[name="csrfregistrationtoken"]').val()
                 }, fields),
                 success: function(response) {
+                    $("#modal__window_register").css("display", "none");
+                    $("#modal__window_login").css("display", "block");
                 },
                 error: function(xhr, status, error) {
+                    errorSpan.text(error);
+                }
+            });
+        }
+    });
+});
+
+// Модально окно входа
+
+$(document).ready(function() {
+    $('.modal__window_login-button').on('click', function(event) {
+        event.preventDefault();
+
+        var isValid = true;
+        var errorSpan = $('.modal__window_login-error');
+        errorSpan.text('');
+
+        var fields = {
+            email: $('.modal__window_login_input_email').val(),
+            password: $('.modal__window_login_input_password').val(),
+        };
+
+        function validateFields(fields) {
+
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            for (let key in fields) {
+                if (fields[key].trim() === '') {
+                    return 'Заполните все поля.';
+                }
+            }
+
+            const email = fields.email.trim();
+            if (!validateEmail(email)) {
+                return 'Неверный формат электронной почты.';
+            }
+
+            return true;
+        }
+
+        answer = validateFields(fields);
+        if (answer !== true) {
+            errorSpan.text(answer);
+            isValid = false;
+        }
+
+
+        if (isValid) {
+            $.ajax({
+                url: '/account/account_login/',
+                type: 'POST',
+                data: Object.assign({
+                    csrfmiddlewaretoken: $('input[name="csrflogin"]').val()
+                }, fields),
+                success: function(response) {
+                    if (response.success === true) {
+
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
                 }
             });
         }

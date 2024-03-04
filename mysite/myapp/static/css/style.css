@@ -191,6 +191,9 @@
     border: 1px solid rgb(209, 209, 211);
     background: white;
 }
+.stocks__all-link, .stocks__all-link * {
+        user-select: none;
+}
 
 .stocks__all-button:hover {
     background: rgb(47, 50, 58);
@@ -363,6 +366,10 @@
 .popular__categories_all-button {
     border: 1px solid rgb(209, 209, 211);
     background: white;
+}
+
+.popular__categories_all-link, .popular__categories_all-link * {
+        user-select: none;
 }
 
 .popular__categories_all-button:hover {
@@ -572,6 +579,10 @@
 .popular__brands-button {
     border: 1px solid rgb(209, 209, 211);
     background: white;
+}
+
+.popular__brands-link, .popular__brands-link * {
+    user-select: none;
 }
 
 .popular__brands-button:hover {

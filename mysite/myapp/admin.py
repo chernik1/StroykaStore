@@ -20,17 +20,7 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'discount', 'display_brands', 'display_suppliers')
-
-    def display_brands(self, obj):
-        return ", ".join([brand.name for brand in obj.brand.all()])
-
-    display_brands.short_description = 'Brands'
-
-    def display_suppliers(self, obj):
-        return ", ".join([supplier.name for supplier in obj.supplier.all()])
-
-    display_suppliers.short_description = 'Suppliers'
+    list_display = ('name', 'price', 'discount', 'brand', 'supplier', 'subcategory', 'view')
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):

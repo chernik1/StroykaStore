@@ -20,7 +20,7 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'discount', 'display_brands', 'display_suppliers', 'slug')
+    list_display = ('name', 'price', 'discount', 'display_brands', 'display_suppliers')
 
     def display_brands(self, obj):
         return ", ".join([brand.name for brand in obj.brand.all()])

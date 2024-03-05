@@ -162,7 +162,20 @@ def product_view(request, category: str, subcategory: str, product: str):
 
 def basket_view(request):
     if request.user.is_authenticated:
-        pass
+        supplier = request.user.basket_supllier
+        items = request.user.basket_items.all()
+
+        count = len(items)
+        price = sum([item.price for item in items])
+        context = {
+            'user': request.user,
+            'supplier': supplier,
+            'items': items,
+            'count': count,
+            'price': price
+        }
+
+        return render(request, 'basket.html', context=context)
     else:
         context = {
             'user': request.user

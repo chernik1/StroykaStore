@@ -43,19 +43,13 @@ class Product(models.Model):
     description = models.TextField()
     discount = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     photo = models.ImageField(upload_to='product_photos/', null=True, blank=True)
-    brand = models.ManyToManyField(Brand)
-    supplier = models.ManyToManyField(Supplier)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
-    slug = models.SlugField(unique=True)
+    view = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
-
-@receiver(pre_save, sender=Product)
-def create_product_slug(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = slugify(instance.name)
-
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, name, password=None):
@@ -95,7 +89,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
-    basket_flag = models.BooleanField(default=False)
+    basket_supllier = models.CharField(max_length=100, null=True, blank=True)
     basket_items = models.JSONField(null=True, blank=True)
     basket_history = models.JSONField(null=True, blank=True)
 

@@ -296,3 +296,6 @@ closeButtons.forEach(closeButton => {
         }
     });
 });
+
+// Добавление в корзину
+

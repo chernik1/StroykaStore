@@ -13,7 +13,7 @@ button:hover {
   cursor: url('../img/svg/finger.svg'), pointer;
 }
 
-button {
+button, a {
     user-select: none;
 }
 

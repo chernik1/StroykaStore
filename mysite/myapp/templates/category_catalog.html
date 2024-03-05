@@ -102,11 +102,18 @@
                         <div class="products__products-text">
                             <a  href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="products__products-title">{{ product.name }}</a>
                             <p class="products__products-price">{{ product.price }} ₽</p>
-                            <button class="products__products-btn">
-                                <a href="#!" class="products__products-btn-text">
-                                    В корзину
-                                </a>
-                            </button>
+                            <div class="button-block">
+                                <button class="products__products-btn basket-click" value="{{ product.id }}">
+                                    <p  class="products__products-btn-text">
+                                        В корзину
+                                    </p>
+                                </button>
+                                <div class="basket__quantity">
+                                    <button class="basket__plus">+</button>
+                                        <input type="number" class="basket__input" value="1" min="1">
+                                    <button class="basket__minus">-</button>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 {% endfor %}

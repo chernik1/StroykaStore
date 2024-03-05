@@ -240,3 +240,24 @@ def account_change_view(request):
 def account_logout_view(request):
     logout(request)
     return JsonResponse({'success': True})
+
+def basket_add(request):
+    if request.method == 'POST':
+        product = Product.objects.get(id=request.POST.get('product_id'))
+        product_id = request.POST.get('product_id')
+        quantity = request.POST.get('quantity')
+        supplier = request.user.basket_supllier
+
+        if supplier is None:
+            supplier = product.supplier
+
+        if supplier != product.supplier:
+            return JsonResponse({'success': False})
+        else:
+            basket_items = request.user.basket_items if request.user.basket_items else []
+            new_product_item = {"product_id": product_id, "quantity": quantity}
+            basket_items.append(new_product_item)
+            request.user.basket_items = basket_items
+            request.user.save()
+
+            return JsonResponse({'success': True})

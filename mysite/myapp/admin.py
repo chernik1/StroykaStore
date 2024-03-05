@@ -20,7 +20,7 @@ class SubcategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'discount', 'brand', 'supplier', 'subcategory', 'view')
+    list_display = ('id', 'name', 'price', 'discount', 'brand', 'supplier', 'subcategory', 'view')
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):

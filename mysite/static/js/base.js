@@ -299,3 +299,95 @@ closeButtons.forEach(closeButton => {
 
 // Добавление в корзину
 
+
+(function() {
+  const baskets = document.querySelectorAll(".basket-click");
+  const quantities = document.querySelectorAll(".basket__quantity");
+  const minuses = document.querySelectorAll(".basket__minus");
+  const pluses = document.querySelectorAll(".basket__plus");
+  const inputs = document.querySelectorAll(".basket__input");
+
+  function addProductToBasket(productId, quantity) {
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+      url: '/basket/add/',
+      type: 'POST',
+      data: {
+        'product_id': productId,
+        'quantity': quantity
+      },
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRFToken', csrfToken);
+      },
+      success: function(response) {
+        console.log(response);
+      },
+      error: function(error) {
+        console.log('Error adding product to cart:', error);
+      }
+    });
+  }
+
+  baskets.forEach((basket, index) => {
+    basket.addEventListener("click", function () {
+      basket.style.visibility = "hidden";
+      quantities[index].style.visibility = "visible";
+      inputs[index].focus();
+    });
+
+    const productId = basket.value;
+
+    minuses[index].addEventListener("click", function () {
+      let value = parseInt(inputs[index].value);
+      if (value > 1) {
+        value--;
+        inputs[index].value = value;
+      }
+    });
+
+    pluses[index].addEventListener("click", function () {
+      let value = parseInt(inputs[index].value);
+      value++;
+      inputs[index].value = value;
+    });
+
+    function returnBasketVisibility() {
+      const quantity = parseInt(inputs[index].value);
+      addProductToBasket(productId, quantity);
+      basket.style.visibility = "visible";
+      quantities[index].style.visibility = "hidden";
+    }
+
+    inputs[index].addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        returnBasketVisibility();
+        event.preventDefault();
+      }
+    });
+
+    minuses[index].addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        returnBasketVisibility();
+      }
+    });
+
+    pluses[index].addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        returnBasketVisibility();
+      }
+    });
+
+    minuses[index].addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
+
+    pluses[index].addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
+  });
+})();

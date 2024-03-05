@@ -1,0 +1,33 @@
+.basket__main {
+    margin-bottom: 40px;
+}
+
+.basket__main_wrapper {
+    max-width: 1360px;
+    margin: 0 auto;
+    height: 232px;
+    background: url("../img/basket/basket-main.png") no-repeat;
+    background-size: 100%;
+    padding: 40px 100px;
+}
+
+.basket-desc {
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.basket-title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    color: rgb(23, 27, 36);
+}
+
+.basket {
+    margin-bottom: 80px;
+}
+
+.basket__wrapper {
+
+}

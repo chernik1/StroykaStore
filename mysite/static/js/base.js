@@ -321,7 +321,9 @@ closeButtons.forEach(closeButton => {
         xhr.setRequestHeader('X-CSRFToken', csrfToken);
       },
       success: function(response) {
-        console.log(response);
+          if (response.success === true) {
+            swal("Успешно!", "Заказ был успешно добавлен", "success");
+          }
       },
       error: function(error) {
         console.log('Error adding product to cart:', error);

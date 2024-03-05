@@ -8,6 +8,72 @@
 
 {% block content %}
 
+<div class="basket__main">
+    <div class="wrapper basket__main_wrapper">
+        <h2 class="basket-desc">
+            Главная → Корзина
+        </h2>
+        <h1 class="basket-title">Корзина</h1>
+    </div>
+</div>
+
+<div class="basket">
+    <div class="wrapper basket__wrapper">
+        <div class="basket__form">
+            <div class="basket__form_info">
+                <h3 class="basket__form-title">
+                    Итого
+                </h3>
+                <div class="basket__form-count">
+                    <p class="basket__form-count-title">Товаров в корзине:</p> <span class="basket__form-count-value">{{ count_orders }}</span>
+                </div>
+                <div class="basket__form-price-all">
+                    <p class="basket__form-price-all-title">Товаров на сумму</p> <span class="basket__form-price-value">{{ sum_orders }} ₽</span>
+                </div>
+                <div class="basket__form-supplier">
+                    <p class="basket__form-supplier-title">Поставщик</p> <span class="basket__form-supplier-value">{{ supplier }}</span>
+                </div>
+            </div>
+            <div class="basket__form_btn">
+                <button class="basket__form-btn">
+                    <p class="basket__form-btn-text">
+                        Оформить заказ
+                    </p>
+                </button>
+            </div>
+            <div class="basket__form_advice">
+                <div class="basket__form_advice-first">
+                    <img src="{% static 'img/basket/svg/icon-1.svg' %}" alt="icon" class="basket__form_advice-first-img">
+                    <p class="basket__form_advice-first-text">
+                        Можно сделать заказ только от одного поставщика
+                    </p>
+                </div>
+                <div class="basket__form_advice-second">
+                    <img src="{% static 'img/basket/svg/icon-2.svg' %}" alt="icon" class="basket__form_advice-second-img">
+                    <p class="basket__form_advice-second-text">
+                        Доставка осуществляется курьерами поставщика или службой курьеров Достависта. Также товар можно забрать самостоятельно от поставщика
+                    </p>
+                </div>
+                <div class="basket__form_advice-third">
+                    <img src="{% static 'img/basket/svg/icon-3.svg' %}" alt="icon" class="basket__form_advice-third-img">
+                    <p class="basket__form_advice-third-text">
+                        Точная сумма доставки будет определена после после подтверждения заказа
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="basket__products">
+            <ul class="basket__products-list">
+                {% for order in orders %}
+                    <li class="basket__products-item">
+
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block js %}

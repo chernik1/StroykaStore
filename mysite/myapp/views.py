@@ -162,17 +162,29 @@ def product_view(request, category: str, subcategory: str, product: str):
 
 def basket_view(request):
     if request.user.is_authenticated:
-        supplier = request.user.basket_supllier
-        items = request.user.basket_items.all()
+        basket_json = request.user.basket_items
 
-        count = len(items)
-        price = sum([item.price for item in items])
+        sum_orders = 0
+        count_orders = 0
+        orders = []
+        for item in basket_json:
+            product = Product.objects.get(id=item['product_id'])
+            price = product.price
+            sum_orders += price * int(item['quantity'])
+            count_orders += 1
+            orders.append(
+                {
+                    'product': product,
+                    'quantity': item['quantity']
+                }
+            )
+
         context = {
             'user': request.user,
-            'supplier': supplier,
-            'items': items,
-            'count': count,
-            'price': price
+            'orders': orders,
+            'sum_orders': str(int(sum_orders)),
+            'count_orders': count_orders,
+            'supplier': request.user.basket_supplier
         }
 
         return render(request, 'basket.html', context=context)
@@ -243,21 +255,17 @@ def account_logout_view(request):
 
 def basket_add(request):
     if request.method == 'POST':
-        product = Product.objects.get(id=request.POST.get('product_id'))
         product_id = request.POST.get('product_id')
         quantity = request.POST.get('quantity')
-        supplier = request.user.basket_supllier
+        product = Product.objects.get(id=product_id)
+        supplier_name = product.supplier.name
 
-        if supplier is None:
-            supplier = product.supplier
-
-        if supplier != product.supplier:
+        if request.user.basket_supplier != supplier_name and request.user.basket_items is None:
             return JsonResponse({'success': False})
         else:
-            basket_items = request.user.basket_items if request.user.basket_items else []
             new_product_item = {"product_id": product_id, "quantity": quantity}
-            basket_items.append(new_product_item)
-            request.user.basket_items = basket_items
+            request.user.basket_items = request.user.basket_items + [new_product_item]
+            request.user.basket_supplier = supplier_name
             request.user.save()
 
             return JsonResponse({'success': True})

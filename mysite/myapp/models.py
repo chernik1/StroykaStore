@@ -39,6 +39,7 @@ class Subcategory(models.Model):
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
@@ -90,7 +91,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
-    basket_supllier = models.CharField(max_length=100, null=True, blank=True)
+    basket_supplier = models.CharField(max_length=100, null=True, blank=True)
     basket_items = models.JSONField(null=True, blank=True)
     basket_history = models.JSONField(null=True, blank=True)
 

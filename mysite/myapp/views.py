@@ -130,8 +130,8 @@ def category_subcategory_view(request, category: str, subcategory: str):
     subcategories = Subcategory.objects.all().filter(name=subcategory)
     products = Product.objects.all().filter(subcategory__in=subcategories)
 
-    brands = [product.brand.all() for product in products if product.brand.all()][0]
-    suppliers = list(set([product.supplier.all() for product in products if product.supplier.all()][0]))
+    brands = set([product.brand for product in products])
+    suppliers = set([product.supplier for product in products])
 
     context = {
         'categories': categories,
@@ -148,7 +148,7 @@ def category_subcategory_view(request, category: str, subcategory: str):
 
 def product_view(request, category: str, subcategory: str, product: str):
     product = Product.objects.get(name=product)
-    supplier = ', '.join([supplier.name for supplier in product.supplier.all()])
+    supplier = product.supplier
     category = Category.objects.get(name=category)
 
     context = {

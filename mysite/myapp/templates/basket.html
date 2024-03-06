@@ -74,10 +74,10 @@
                             <p class="basket__products-price">
                                 {{ order.product.price }} ₽
                             </p>
-                            <div class="basket__quantity">
-                                <button class="basket__plus">+</button>
-                                <input type="number" class="basket__input" value="1" min="1">
-                                <button class="basket__minus">-</button>
+                            <div class="basket__products_quantity">
+                                <button class="basket__products_plus">+</button>
+                                <input type="number" class="basket__products_input" value="{{ order.quantity }}" min="1">
+                                <button class="basket__products_minus">-</button>
                             </div>
                         </div>
                         <div class="product__block-2">

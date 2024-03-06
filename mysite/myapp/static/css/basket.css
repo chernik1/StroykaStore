@@ -176,15 +176,15 @@
     line-height: 140%;
 }
 
-.basket__quantity {
+.basket__products_quantity {
     display: flex;
     align-items: center;
     top: 0;
     left: 0;
 }
 
-.basket__plus,
-.basket__minus {
+.basket__products_plus,
+.basket__products_minus {
     width: 48px;
     height: 48px;
     background: white;
@@ -195,7 +195,7 @@
     font-size: 24px;
 }
 
-.basket__input {
+.basket__products_input {
     border: 1px solid rgb(209, 209, 211);
     flex: 1;
     width: 100%;
@@ -207,14 +207,14 @@
     cursor: pointer;
 }
 
-.basket__plus:hover,
-.basket__minus:hover {
+.basket__products_plus:hover,
+.basket__products_minus:hover {
     background: rgb(47, 50, 58);
     color: white;
 }
 
-.basket__plus:active,
-.basket__minus:active {
+.basket__products_plus:active,
+.basket__products_minus:active {
     color: #888888;
 }
 

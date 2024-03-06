@@ -24,8 +24,8 @@
                 <h3 class="basket__form-title">
                     Итого
                 </h3>
-                <div class="basket__form-count">
-                    <p class="basket__form-count-title">Товаров в корзине:</p> <span class="basket__form-count-value">{{ count_orders }}</span>
+                    <div class="basket__form-count">
+                    <p class="basket__form-count-title">Количество товара</p> <span class="basket__form-count-value">{{ count_orders }} шт.</span>
                 </div>
                 <div class="basket__form-price-all">
                     <p class="basket__form-price-all-title">Товаров на сумму</p> <span class="basket__form-price-value">{{ sum_orders }} ₽</span>
@@ -66,7 +66,31 @@
             <ul class="basket__products-list">
                 {% for order in orders %}
                     <li class="basket__products-item">
-
+                        <img src="{{ order.product.photo.url }}" alt="{{ order.product.name }}" class="basket__products-img">
+                        <div class="product__block-1">
+                            <h2 class="basket__products-title">
+                                {{ order.product.name }}
+                            </h2>
+                            <p class="basket__products-price">
+                                {{ order.product.price }} ₽
+                            </p>
+                            <div class="basket__quantity">
+                                <button class="basket__plus">+</button>
+                                <input type="number" class="basket__input" value="1" min="1">
+                                <button class="basket__minus">-</button>
+                            </div>
+                        </div>
+                        <div class="product__block-2">
+                            <p class="basket__products-code">
+                                Код товара:<br>
+                                {{ order.product.code }}
+                            </p>
+                            <button class="basket__products-btn">
+                                <p class="basket__products-btn-text">
+                                    Удалить товар
+                                </p>
+                            </button>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>

@@ -29,5 +29,225 @@
 }
 
 .basket__wrapper {
+    max-width: 1160px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.basket__form {
+    max-width: 278px;
+}
+
+.basket__form_info {
+    max-width: 278px;
+    max-height: 164px;
+    padding: 16px;
+    border: 1px solid rgb(246, 246, 246);
+}
+
+.basket__form-title {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 136%;
+    margin-bottom: 12px;
+}
+
+.basket__form-count {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.basket__form-price-all {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.basket__form-supplier {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(51, 51, 51);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.basket__form_btn {
+    max-width: 100%;
+    max-height: 81px;
+    padding: 16px;
+    border-top: 1px solid rgb(232, 233, 234);
+    margin-bottom: 16px;
+}
+
+.basket__form-btn {
+    width: 246px;
+    height: 49px;
+    border: none;
+    background: rgb(252, 236, 65);
+}
+
+.basket__form-btn-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 136%;
+}
+
+.basket__form-btn:hover {
+    background: rgb(47, 50, 58);
+}
+
+.basket__form-btn:hover .basket__form-btn-text {
+    color: white;
+}
+
+.basket__form-btn:active .basket__form-btn-text {
+    color: rgb(209, 209, 211);
+}
+
+.basket__form_advice-first, .basket__form_advice-second, .basket__form_advice-third {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.basket__form_advice-first-text, .basket__form_advice-second-text, .basket__form_advice-third-text {
+    max-width: 244px;
+    color: rgb(69, 73, 80);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 145%;
+}
+
+.basket__form_advice-first-img {
+    max-height: 20px;
+}
+
+.basket__products {
+    width: 866px;
+}
+
+.basket__products-item {
+    max-height: 208px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    border: 1px solid rgb(232, 233, 234);
+}
+
+.product__block-2, .product__block-1 {
+    width: 294px;
+    padding: 16px;
+}
+
+.product__block-1 {
+    border-left: 1px solid rgb(232, 233, 234);
+}
+
+.basket__products-img {
+    max-width: 278px;
+    max-height: 208px;
+}
+
+.basket__products-title {
+    width: 100%;
+    height: 72px;
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+    margin-bottom: 12px;
+}
+
+.basket__products-price {
+    width: 100%;
+    height: 28px;
+    margin-bottom: 16px;
+    color: rgb(23, 27, 36);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%;
+}
+
+.basket__quantity {
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.basket__plus,
+.basket__minus {
+    width: 48px;
+    height: 48px;
+    background: white;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    border: 1px solid rgb(209, 209, 211);
+    font-size: 24px;
+}
+
+.basket__input {
+    border: 1px solid rgb(209, 209, 211);
+    flex: 1;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.basket__plus:hover,
+.basket__minus:hover {
+    background: rgb(47, 50, 58);
+    color: white;
+}
+
+.basket__plus:active,
+.basket__minus:active {
+    color: #888888;
+}
+
+.basket__products-code {
+    width: 100%;
+    height: 72px;
+    color: rgb(47, 50, 58);
+    line-height: 150%;
+    margin-bottom: 56px;
+}
+
+.basket__products-btn {
+    width: 262px;
+    height: 49px;
+    background: white;
+    border: 1px solid rgb(209, 209, 211);
+}
+
+.basket__products-btn-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 136%;
+}
+
+.basket__products-btn:hover {
+    background: rgb(47, 50, 58);
+}
+
+.basket__products-btn:hover .basket__products-btn-text {
+    color: white;
+}
+
+.basket__products-btn:active .basket__products-btn-text {
+    color: rgb(209, 209, 211);
 }

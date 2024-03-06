@@ -269,3 +269,21 @@ def basket_add(request):
             request.user.save()
 
             return JsonResponse({'success': True})
+
+def basket_delete(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        product_index = data['product_index']
+
+        request.user.basket_items.pop(product_index)
+        request.user.save()
+
+        total_price = 0
+        count = 0
+        for item in request.user.basket_items:
+            count += 1
+            product = Product.objects.get(id=item['product_id'])
+            price = product.price
+            total_price += price * int(item['quantity'])
+
+        return JsonResponse({'success': True, 'total_price': total_price, 'count': count})

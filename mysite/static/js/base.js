@@ -321,9 +321,9 @@ closeButtons.forEach(closeButton => {
         xhr.setRequestHeader('X-CSRFToken', csrfToken);
       },
       success: function(response) {
-          if (response.success === true) {
-            swal("Успешно!", "Заказ был успешно добавлен", "success");
-          }
+        if (response.success === true) {
+          swal("Успешно!", "Заказ был успешно добавлен", "success");
+        }
       },
       error: function(error) {
         console.log('Error adding product to cart:', error);
@@ -350,21 +350,34 @@ closeButtons.forEach(closeButton => {
 
     pluses[index].addEventListener("click", function () {
       let value = parseInt(inputs[index].value);
-      value++;
-      inputs[index].value = value;
+      if (value < 99) {
+        value++;
+        inputs[index].value = value;
+      }
+    });
+
+    inputs[index].addEventListener("change", function () {
+      let value = parseInt(inputs[index].value);
+      if (!isNaN(value)) {
+        inputs[index].value = Math.min(value, 99);
+      }
     });
 
     function returnBasketVisibility() {
       const quantity = parseInt(inputs[index].value);
-      addProductToBasket(productId, quantity);
+      addProductToBasket(productId, Math.min(quantity, 99));
       basket.style.visibility = "visible";
       quantities[index].style.visibility = "hidden";
     }
 
     inputs[index].addEventListener("keyup", function(event) {
       if (event.key === "Enter") {
-        returnBasketVisibility();
-        event.preventDefault();
+        let value = parseInt(inputs[index].value);
+        if (!isNaN(value)) {
+          inputs[index].value = Math.min(value, 99);
+          returnBasketVisibility();
+          event.preventDefault();
+        }
       }
     });
 

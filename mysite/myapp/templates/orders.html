@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main__orders">
+    <div class="wrapper main__orders_wrapper">
+        <h2 class="main__orders-desc">
+            Главная → Заказы
+        </h2>
+        <h1 class="main__orders-title">Заказы</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/orders.js' %}"></script>
+{% endblock %}

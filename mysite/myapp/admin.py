@@ -25,3 +25,5 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('email', 'name', 'is_staff')
+
+

@@ -196,7 +196,12 @@ def basket_view(request):
 
 def orders_view(request):
     if request.user.is_authenticated:
-        pass
+
+        context = {
+            'user': request.user
+        }
+
+        return render(request, 'orders.html', context=context)
     else:
         context = {
             'user': request.user

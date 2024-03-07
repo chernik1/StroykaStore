@@ -126,3 +126,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'myapp.CustomUser'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51OriUYG6Pu3iSEbBappeeOqWruHA5sIP2YeJUVncKeD4sn68jq35qnnCTUpFsNfLA52mJCtgyvqIW4zVWDn3qVO700pzNEdsXj'
+STRIPE_SECRET_KEY = 'sk_test_51OriUYG6Pu3iSEbBi5Vg6R6qIRudokJTZwUASaOx3Eyv0XaMfhnm6YAlXW7AP0xmVnVEE2lTkQBchs5jWZUjtfiC00RTH6o4lD'

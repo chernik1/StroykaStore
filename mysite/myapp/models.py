@@ -5,6 +5,9 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from django.utils import timezone
+import uuid
+import random
+import json
 
 # Create your models here.
 
@@ -93,7 +96,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(default=timezone.now)
     basket_supplier = models.CharField(max_length=100, null=True, blank=True)
     basket_items = models.JSONField(null=True, blank=True)
-    basket_history = models.JSONField(null=True, blank=True)
 
     objects = CustomUserManager()
 
@@ -122,3 +124,24 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+def generate_unique_code():
+    code = str(random.randint(10000000, 99999999)) + '-' + str(random.randint(1000, 9999))
+    return code
+
+class Transaction(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True)
+    unique_id = models.CharField(max_length=13, unique=True, default=generate_unique_code)
+    products_json = models.TextField()
+    date = models.DateField(default=timezone.now)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    status = models.CharField(max_length=20, choices=[('Оплачен', 'Оплачен'), ('Не оплачен', 'Не оплачен')])
+
+    def __str__(self):
+        return self.unique_id
+
+    def set_products(self, products):
+        self.products_json = json.dumps(products)
+
+    def get_products(self):
+        return json.loads(self.products_json)

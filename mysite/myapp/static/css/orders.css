@@ -1,0 +1,25 @@
+.main__orders {
+    margin-bottom: 40px;
+}
+
+.main__orders_wrapper {
+    max-width: 1360px;
+    height: 232px;
+    background: url("../img/orders/orders-background.png") no-repeat;
+    background-size: cover;
+    padding: 40px 100px;
+}
+
+.main__orders-desc {
+    height: 24px;
+    color: rgb(69, 73, 80);
+    line-height: 150%;
+    margin-bottom: 20px;
+}
+
+.main__orders-title {
+    color: rgb(23, 27, 36);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 120%;
+}

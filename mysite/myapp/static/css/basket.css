@@ -251,3 +251,106 @@
 .basket__products-btn:active .basket__products-btn-text {
     color: rgb(209, 209, 211);
 }
+
+/* Modal window */
+
+#modal__window_pay {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__window_pay_wrapper {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%;
+}
+
+.modal__window_pay_close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal__window_pay_close-button {
+    background: none;
+    border: none;
+}
+
+.modal__window_pay_close-icon {
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+}
+
+.modal__window_pay-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal__window_pay-item input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 136%;
+    margin-bottom: 20px;
+}
+
+.modal__window_pay-item {
+    display: flex;
+}
+
+.modal__window_pay-title {
+    margin-right: 20px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 136%;
+}
+
+.modal__window_pay-btn {
+    background: rgb(252, 236, 65);
+    border: none;
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__window_pay-btn-text {
+    color: rgb(23, 27, 36);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 136%;
+}
+
+.modal__window_pay-btn:hover {
+    background-color: rgb(47, 50, 58);
+}
+
+.modal__window_pay-btn:hover .modal__window_pay-btn-text {
+    color: white;
+}
+
+.modal__window_pay-btn:active .modal__window_pay-btn-text {
+    color: rgb(209, 209, 211);
+}

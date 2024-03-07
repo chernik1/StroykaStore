@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="basket__form_btn">
-                <button class="basket__form-btn">
+                <button class="basket__form-btn" id="basket__form-btn">
                     <p class="basket__form-btn-text">
                         Оформить заказ
                     </p>
@@ -98,8 +98,51 @@
     </div>
 </div>
 
+// Modal window
+
+<div class="modal__window_pay" id="modal__window_pay">
+    <div class="modal__window_pay_wrapper">
+        <ul class="modal__window_pay-list">
+            <li class="modal__window_pay-item" style="display: none;">
+                <div id="card-element">
+                    <input type="hidden" id="stripeToken" name="stripeToken">
+                </div>
+            </li>
+            <li class="modal__window_pay-item">
+                <h3 class="modal__window_pay-title">Номер карты: </h3>
+                <input type="text" class="modal__window_pay-input-card" placeholder="4444 4444 4444 4444">
+            </li>
+            <li class="modal__window_pay-item">
+                <h3 class="modal__window_pay-title">Срок действия(месяц): </h3>
+                <input type="text" class="modal__window_pay-input-card" placeholder="01">
+            </li>
+            <li class="modal__window_pay-item">
+                <h3 class="modal__window_pay-title">Срок действия(год): </h3>
+                <input type="text" class="modal__window_pay-input-card" placeholder="22">
+            </li>
+            <li class="modal__window_pay-item">
+                <h3 class="modal__window_pay-title">CVC: </h3>
+                <input type="text" class="modal__window_pay-input-card" placeholder="CVC">
+            </li>
+        </ul>
+        <div class="modal__window_pay-btn">
+            <button class="modal__window_pay-btn">
+                <p class="modal__window_pay-btn-text">
+                    Оплатить
+                </p>
+            </button>
+            <button class="modal__window_pay_close-button">
+                <img src="{% static 'img/svg/close-icon.svg' %}" alt="close" class="modal__window_pay_close-icon">
+            </button>
+        </div>
+    </div>
+</div>
+
+//
+
 {% endblock %}
 
 {% block js %}
+<script src="https://js.stripe.com/v3/"></script>
 <script src="{% static 'js/basket.js' %}"></script>
 {% endblock %}

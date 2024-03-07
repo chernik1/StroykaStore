@@ -20,4 +20,5 @@ urlpatterns = [
     path('account/account_logout/', views.account_logout_view, name='account_logout'),
     path('basket/add/', views.basket_add, name='basket_add'),
     path('basket/delete/', views.basket_delete, name='basket_delete'),
+    path('basket/payment/', views.basket_payment, name='basket_payment'),
 ]

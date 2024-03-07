@@ -27,3 +27,6 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('email', 'name', 'is_staff')
 
 
+@admin.register(Transaction)
+class TransactionAdmin(admin.ModelAdmin):
+    list_display = ('user', )

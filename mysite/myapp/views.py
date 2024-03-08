@@ -7,10 +7,6 @@ from django.contrib.auth import get_user_model
 from .models import *
 from django.db.utils import IntegrityError
 from datetime import datetime
-import stripe
-from django.views.decorators.csrf import csrf_exempt
-
-stripe.api_key = "sk_test_51OriUYG6Pu3iSEbBi5Vg6R6qIRudokJTZwUASaOx3Eyv0XaMfhnm6YAlXW7AP0xmVnVEE2lTkQBchs5jWZUjtfiC00RTH6o4lD"
 
 
 # Create your views here.
@@ -172,6 +168,15 @@ def basket_view(request):
         sum_orders = 0
         count_orders = 0
         orders = []
+
+        if basket_json is None:
+
+            context = {
+                'user': request.user
+            }
+
+            return render(request, 'basket.html', context=context)
+
         for item in basket_json:
             product = Product.objects.get(id=item['product_id'])
             price = product.price
@@ -184,12 +189,17 @@ def basket_view(request):
                 }
             )
 
+        if request.user.basket_supplier is None:
+            supplier = ''
+        else:
+            supplier = request.user.basket_supplier
+
         context = {
             'user': request.user,
             'orders': orders,
             'sum_orders': str(int(sum_orders)),
             'count_orders': count_orders,
-            'supplier': request.user.basket_supplier
+            'supplier': supplier
         }
 
         return render(request, 'basket.html', context=context)
@@ -270,15 +280,17 @@ def basket_add(request):
         product = Product.objects.get(id=product_id)
         supplier_name = product.supplier.name
 
-        if request.user.basket_supplier != supplier_name and request.user.basket_items is None:
-            return JsonResponse({'success': False})
-        else:
+        if request.user.basket_supplier == supplier_name or request.user.basket_supplier is None:
             new_product_item = {"product_id": product_id, "quantity": quantity}
-            request.user.basket_items = request.user.basket_items + [new_product_item]
             request.user.basket_supplier = supplier_name
+            if request.user.basket_items is None:
+                request.user.basket_items = [new_product_item]
+            else:
+                request.user.basket_items = request.user.basket_items + [new_product_item]
             request.user.save()
-
             return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False})
 
 def basket_delete(request):
     if request.method == 'POST':
@@ -286,6 +298,10 @@ def basket_delete(request):
         product_index = data['product_index']
 
         request.user.basket_items.pop(product_index)
+
+        if request.user.basket_items == []:
+            request.user.basket_supplier = None
+
         request.user.save()
 
         total_price = 0
@@ -298,36 +314,5 @@ def basket_delete(request):
 
         return JsonResponse({'success': True, 'total_price': total_price, 'count': count})
 
-@csrf_exempt
 def basket_payment(request):
-    if request.method == 'POST':
-        try:
-            token_id = request.POST.get('stripeToken')  # Получаем токен, созданный на клиенте
-            all_price = int(request.POST.get('price_all')[:-2]) * 100  # Умножаем на 100, так как Stripe использует центы
-            supplier = request.POST.get('supplier')
-            quantity = request.POST.get('quantity')
-            products = json.loads(request.POST.get('products'))
-
-            # Создание платёжного намерения
-            payment_intent = stripe.PaymentIntent.create(
-                amount=all_price,
-                currency="rub",
-                payment_method_types=["card"],
-                payment_method_data={
-                    "type": "card",
-                    "card": {"token": token_id}
-                },
-                confirm=True,  # Автоматически подтверждаем платёжное намерение
-            )
-
-            # TODO: Добавить логику обработки успешного платежа (например, обновление статуса заказа)
-
-            return JsonResponse({'status': 'success', 'message': 'Payment processed successfully', 'payment_intent_id': payment_intent.id})
-        except stripe.error.StripeError as e:
-            # Обработка ошибок связанных со Stripe
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
-        except Exception as e:
-            # Обработка прочих ошибок
-            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
-    else:
-        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+    return JsonResponse({'success': True})

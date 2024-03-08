@@ -72,8 +72,8 @@ productList.addEventListener('click', function(event) {
             success: function(data) {
                 if (data.success) {
                     productItem.remove();
-                    countElement.textContent = data.count;
-                    priceElement.textContent = data.total_price;
+                    countElement.textContent = data.count + ' шт.';
+                    priceElement.textContent = data.total_price + ' ₽';
                 }
             },
             error: function(xhr, status, error) {
@@ -97,43 +97,4 @@ closeButton.addEventListener('click', () => {
   paymentModal.style.display = 'none';
 });
 
-$('.modal__window_pay-btn').on('click', function(e) {
-    e.preventDefault();
 
-    const price_all = $('.basket__form-price-value').text();
-    const supplier = $('.basket__form-supplier-value').text();
-    const quantity = $('.basket__form-count-value').text();
-    const products = document.querySelectorAll('.basket__products-item');
-    const dataProduct = [];
-
-    products.forEach(product => {
-        var name = product.querySelector('.basket__products-title').textContent.trim();
-        var price = product.querySelector('.basket__products-price').textContent.trim();
-        var code = product.querySelector('.basket__products-code').textContent.trim();
-
-        dataProduct.push({ name, price, code });
-    });
-
-    const month = $('.modal__window_pay-month').val();
-    const year = $('.modal__window_pay-year').val();
-    const cvc = $('.modal__window_pay-cvc').val();
-    const card = $('.modal__window_pay-input-card-card').val();
-    console.log(month, year, cvc, card);
-    $.post('/basket/payment/', {
-        products: JSON.stringify(dataProduct),
-        price_all: price_all,
-        supplier: supplier,
-        quantity: quantity,
-        month: month,
-        year: year,
-        cvc: cvc,
-        card: card,
-        csrfmiddlewaretoken: csrfToken
-    })
-    .done(function(data) {
-        console.log('Success:', data);
-    })
-    .fail(function(xhr, status, error) {
-        console.error('Error:', error);
-    });
-});

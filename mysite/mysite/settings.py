@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'corsheaders',
-    'django.contrib.sites',
-    "djstripe",
 ]
 
 MIDDLEWARE = [
@@ -127,9 +125,3 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'myapp.CustomUser'
-
-STRIPE_TEST_PUBLIC_KEY = os.environ.get("STRIPE_TEST_PUBLIC_KEY", "pk_test_51OriUYG6Pu3iSEbBappeeOqWruHA5sIP2YeJUVncKeD4sn68jq35qnnCTUpFsNfLA52mJCtgyvqIW4zVWDn3qVO700pzNEdsXj")
-STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY", "sk_test_51OriUYG6Pu3iSEbBi5Vg6R6qIRudokJTZwUASaOx3Eyv0XaMfhnm6YAlXW7AP0xmVnVEE2lTkQBchs5jWZUjtfiC00RTH6o4lD")
-STRIPE_LIVE_MODE = os.environ.get("STRIPE_LIVE_MODE", False)
-DJSTRIPE_FOREIGN_KEY_TO_FIELD = os.environ.get("DJSTRIPE_FOREIGN_KEY_TO_FIELD", "id")
-DJSTRIPE_WEBHOOK_VALIDATION = os.environ.get("DJSTRIPE_WEBHOOK_VALIDATION", "retrieve_event")

@@ -7,6 +7,12 @@ from django.contrib.auth import get_user_model
 from .models import *
 from django.db.utils import IntegrityError
 from datetime import datetime
+import stripe
+from django.views.decorators.csrf import csrf_exempt
+
+stripe.api_key = "sk_test_51OriUYG6Pu3iSEbBi5Vg6R6qIRudokJTZwUASaOx3Eyv0XaMfhnm6YAlXW7AP0xmVnVEE2lTkQBchs5jWZUjtfiC00RTH6o4lD"
+
+
 # Create your views here.
 
 def index(request):
@@ -292,11 +298,36 @@ def basket_delete(request):
 
         return JsonResponse({'success': True, 'total_price': total_price, 'count': count})
 
+@csrf_exempt
 def basket_payment(request):
-    all_price = request.POST.get('price_all')
-    supplier = request.POST.get('supplier')
-    quantity = request.POST.get('quantity')
-    products = request.POST.get('products')
-    products = json.loads(products)
+    if request.method == 'POST':
+        try:
+            token_id = request.POST.get('stripeToken')  # Получаем токен, созданный на клиенте
+            all_price = int(request.POST.get('price_all')[:-2]) * 100  # Умножаем на 100, так как Stripe использует центы
+            supplier = request.POST.get('supplier')
+            quantity = request.POST.get('quantity')
+            products = json.loads(request.POST.get('products'))
 
-    return JsonResponse(request)
+            # Создание платёжного намерения
+            payment_intent = stripe.PaymentIntent.create(
+                amount=all_price,
+                currency="rub",
+                payment_method_types=["card"],
+                payment_method_data={
+                    "type": "card",
+                    "card": {"token": token_id}
+                },
+                confirm=True,  # Автоматически подтверждаем платёжное намерение
+            )
+
+            # TODO: Добавить логику обработки успешного платежа (например, обновление статуса заказа)
+
+            return JsonResponse({'status': 'success', 'message': 'Payment processed successfully', 'payment_intent_id': payment_intent.id})
+        except stripe.error.StripeError as e:
+            # Обработка ошибок связанных со Stripe
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
+        except Exception as e:
+            # Обработка прочих ошибок
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)

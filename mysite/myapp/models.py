@@ -129,19 +129,12 @@ def generate_unique_code():
     code = str(random.randint(10000000, 99999999)) + '-' + str(random.randint(1000, 9999))
     return code
 
-class Transaction(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True)
-    unique_id = models.CharField(max_length=13, unique=True, default=generate_unique_code)
-    products_json = models.TextField()
-    date = models.DateField(default=timezone.now)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20, choices=[('Оплачен', 'Оплачен'), ('Не оплачен', 'Не оплачен')])
+class Payment(models.Model):
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    status = models.CharField(max_length=20)
+    payment_id = models.CharField(max_length=50)
+    date = models.DateTimeField(default=timezone.now)
+    products = models.JSONField()
 
     def __str__(self):
-        return self.unique_id
-
-    def set_products(self, products):
-        self.products_json = json.dumps(products)
-
-    def get_products(self):
-        return json.loads(self.products_json)
+        return self.payment_id

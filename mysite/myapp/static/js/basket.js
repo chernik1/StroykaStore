@@ -98,3 +98,24 @@ closeButton.addEventListener('click', () => {
 });
 
 
+$('.modal__window_pay-btn').click(function() {
+    var amount = parseFloat($('.basket__form-price-value').text().replace(' ₽', ''));
+
+    $.ajax({
+        type: 'POST',
+        data: {
+            csrfmiddlewaretoken: $('meta[name="csrf-token"]').attr('content'),
+            amount: amount
+        },
+        url: '/basket/payment/',
+        success: function(response) {
+            if (response.success) {
+                window.location.href = response.url;
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Payment failed: ' + error);
+        }
+    });
+});
+

@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.views.decorators.http import require_POST
 import json
 from django.contrib.auth import authenticate, login, logout
@@ -7,7 +7,11 @@ from django.contrib.auth import get_user_model
 from .models import *
 from django.db.utils import IntegrityError
 from datetime import datetime
-
+from django.conf import settings
+import webbrowser
+from django.views.decorators.csrf import csrf_exempt
+from yookassa import Configuration, Payment
+from django.urls import reverse
 
 # Create your views here.
 
@@ -315,4 +319,31 @@ def basket_delete(request):
         return JsonResponse({'success': True, 'total_price': total_price, 'count': count})
 
 def basket_payment(request):
-    return JsonResponse({'success': True})
+    amount = float(request.POST.get('amount'))
+    products = request.user.basket_items
+
+    Configuration.account_id = settings.YOOKASSA_SHOP_ID
+    Configuration.secret_key = settings.YOOKASSA_SECRET_KEY
+
+    payment = Payment.create({
+        "amount": {
+            "value": amount,
+            "currency": "RUB"
+        },
+        "confirmation": {
+            "type": "redirect",
+            "return_url": "http://127.0.0.1:8000/basket/payment/success/",
+        },
+        "capture": True,
+        "description": "Заказ №1"
+    }, uuid.uuid4())
+    url = payment.confirmation.confirmation_url
+
+    return JsonResponse({'url': url, 'success': True})
+
+def basket_payment_success(request):
+
+    request.user.basket_items = []
+    request.user.basket_supplier = None
+    request.user.save()
+    return render(request, 'basket_payment_success.html')

@@ -85,20 +85,7 @@ productList.addEventListener('click', function(event) {
 
 // Modal window
 
-const paymentModal = document.getElementById('modal__window_pay');
-const openButton = document.getElementById('basket__form-btn');
-
-openButton.addEventListener('click', () => {
-  paymentModal.style.display = 'block';
-});
-
-const closeButton = document.querySelector('.modal__window_pay_close-button');
-closeButton.addEventListener('click', () => {
-  paymentModal.style.display = 'none';
-});
-
-
-$('.modal__window_pay-btn').click(function() {
+$('.basket__form-btn').click(function() {
     var amount = parseFloat($('.basket__form-price-value').text().replace(' ₽', ''));
 
     $.ajax({
@@ -112,6 +99,10 @@ $('.modal__window_pay-btn').click(function() {
             if (response.success) {
                 window.location.href = response.url;
             }
+            else {
+                const errorModal = document.getElementById('modal__window_error');
+                errorModal.style.display = 'block';
+            }
         },
         error: function(xhr, status, error) {
             console.error('Payment failed: ' + error);
@@ -119,3 +110,16 @@ $('.modal__window_pay-btn').click(function() {
     });
 });
 
+
+// Error window
+const returnButton = document.querySelector('.modal__window_error-btn');
+returnButton.addEventListener('click', () => {
+  const errorModal = document.getElementById('modal__window_error');
+  errorModal.style.display = 'none';
+});
+
+const closeButtonError = document.querySelector('.modal__window_error_close-button');
+closeButtonError.addEventListener('click', () => {
+  const errorModal = document.getElementById('modal__window_error');
+  errorModal.style.display = 'none';
+});

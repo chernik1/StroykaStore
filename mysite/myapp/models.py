@@ -130,9 +130,9 @@ def generate_unique_code():
     return code
 
 class Payment(models.Model):
+    id = models.AutoField(primary_key=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=20)
-    payment_id = models.CharField(max_length=50)
     date = models.DateTimeField(default=timezone.now)
     products = models.JSONField()
 

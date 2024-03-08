@@ -28,4 +28,4 @@ class CustomUserAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ('payment_id', 'date')
+    list_display = ('id',)

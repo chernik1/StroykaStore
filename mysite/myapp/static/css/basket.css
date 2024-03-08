@@ -252,9 +252,9 @@
     color: rgb(209, 209, 211);
 }
 
-/* Modal window */
+/* Modal window error */
 
-#modal__window_pay {
+.modal__window_error {
     display: none;
     position: fixed;
     z-index: 10000;
@@ -266,15 +266,17 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal__window_pay_form {
+
+.modal__window_error_wrapper {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
     border: 1px solid #888;
-    width: 25%;
+    width: 572px;
+    height: 250px;
+    padding: 36px;
 }
 
-.modal__window_pay_close-button {
+.modal__window_error_close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -282,12 +284,12 @@
     cursor: pointer;
 }
 
-.modal__window_pay_close-button {
+.modal__window_error_close-button {
     background: none;
     border: none;
 }
 
-.modal__window_pay_close-icon {
+.modal__window_error_close-icon {
     position: absolute;
     padding: 0;
     top: 20px;
@@ -297,60 +299,50 @@
     cursor: pointer;
 }
 
-.modal__window_pay-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.modal__window_error-title {
+    color: rgb(47, 50, 58);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 130%;
+    text-align: center;
+    height: 44px;
+    margin-bottom: 12px;
 }
 
-.modal__window_pay-item input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 400;
+.modal__window_error-text {
+    color: rgb(47, 50, 58);
+    font-size: 18px;
     line-height: 136%;
-    margin-bottom: 20px;
+    text-align: center;
+    height: 49px;
+    margin-bottom: 24px;
 }
 
-.modal__window_pay-item {
-    display: flex;
-}
-
-.modal__window_pay-title {
-    margin-right: 20px;
-    color: #333;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 136%;
-}
-
-.modal__window_pay-btn {
+.modal__window_error-btn {
     background: rgb(252, 236, 65);
     border: none;
-    width: 200px;
-    height: 40px;
+    width: 212px;
+    height: 49px;
+    display: flex;
+    margin: 0 auto;
     justify-content: center;
     align-items: center;
 }
 
-.modal__window_pay-btn-text {
+.modal__window_error-btn-text {
     color: rgb(23, 27, 36);
     font-size: 18px;
-    font-weight: 400;
     line-height: 136%;
 }
 
-.modal__window_pay-btn:hover {
+.modal__window_error-btn:hover {
     background-color: rgb(47, 50, 58);
 }
 
-.modal__window_pay-btn:hover .modal__window_pay-btn-text {
+.modal__window_error-btn:hover .modal__window_error-btn-text {
     color: white;
 }
 
-.modal__window_pay-btn:active .modal__window_pay-btn-text {
+.modal__window_error-btn:active .modal__window_error-btn-text {
     color: rgb(209, 209, 211);
 }

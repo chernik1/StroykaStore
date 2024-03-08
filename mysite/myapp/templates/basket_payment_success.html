@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/basket_payment_success.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <div class="wrapper main-wrapper">
+        <img src="{% static 'img/svg/check-circle.svg' %}" alt="Принято" class="main-img">
+        <h1 class="main-title">Cпасибо!</h1>
+        <p class="main-text">Ваша оплата прошла успешно. В ближайшее время с вами свяжется наш менеджер.</p>
+        <button class="main-btn"><a href="{% url 'index' %}" class="main-link">На главную</a></button>
+    </div>
+</div>
+
+{% endblock %}

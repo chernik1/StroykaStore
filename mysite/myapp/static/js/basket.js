@@ -97,49 +97,34 @@ closeButton.addEventListener('click', () => {
   paymentModal.style.display = 'none';
 });
 
-var stripe = Stripe('pk_test_51OriUYG6Pu3iSEbBappeeOqWruHA5sIP2YeJUVncKeD4sn68jq35qnnCTUpFsNfLA52mJCtgyvqIW4zVWDn3qVO700pzNEdsXj');
-
-var elements = stripe.elements();
-
-var card = elements.create('card');
-card.mount('#card-element');
-
 $('.modal__window_pay-btn').on('click', function(e) {
     e.preventDefault();
-    stripe.createToken(card).then(function(result) {
-        if (result.error) {
-            console.error(result.error.message);
-        } else {
-            var token = result.token.id;
 
-            const price_all = $('.basket__form-price-value').val();
-            const supplier = $('.basket__form-supplier-value').val();
-            const quantity = $('.basket__form-count-value').val();
-            const products = document.querySelectorAll('.basket__products-item');
-            const dataProduct = [];
+    const price_all = $('.basket__form-price-value').val();
+    const supplier = $('.basket__form-supplier-value').val();
+    const quantity = $('.basket__form-count-value').val();
+    const products = document.querySelectorAll('.basket__products-item');
+    const dataProduct = [];
 
-            products.forEach(product => {
-                var name = product.querySelector('.basket__products-title').textContent.trim();
-                var price = product.querySelector('.basket__products-price').textContent.trim();
-                var code = product.querySelector('.basket__products-code').textContent.trim();
+    products.forEach(product => {
+        var name = product.querySelector('.basket__products-title').textContent.trim();
+        var price = product.querySelector('.basket__products-price').textContent.trim();
+        var code = product.querySelector('.basket__products-code').textContent.trim();
 
-                dataProduct.push({ name, price, code });
-            });
+        dataProduct.push({ name, price, code });
+    });
 
-            $.post('/basket/payment/', {
-                stripeToken: token,
-                products: JSON.stringify(dataProduct),
-                price_all: price_all,
-                supplier: supplier,
-                quantity: quantity,
-                csrfmiddlewaretoken: csrfToken
-            })
-            .done(function(data) {
-                console.log(data);
-            })
-            .fail(function(xhr, status, error) {
-                console.error('Error:', error);
-            });
-        }
+    $.post('/basket/payment/', {
+        products: JSON.stringify(dataProduct),
+        price_all: price_all,
+        supplier: supplier,
+        quantity: quantity,
+        csrfmiddlewaretoken: csrfToken
+    })
+    .done(function(data) {
+        console.log('Success:', data);
+    })
+    .fail(function(xhr, status, error) {
+        console.error('Error:', error);
     });
 });

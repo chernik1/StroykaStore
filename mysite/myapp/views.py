@@ -7,11 +7,7 @@ from django.contrib.auth import get_user_model
 from .models import *
 from django.db.utils import IntegrityError
 from datetime import datetime
-import stripe
-
 # Create your views here.
-
-stripe.api_key = 'sk_test_51OriUYG6Pu3iSEbBi5Vg6R6qIRudokJTZwUASaOx3Eyv0XaMfhnm6YAlXW7AP0xmVnVEE2lTkQBchs5jWZUjtfiC00RTH6o4lD'
 
 def index(request):
 
@@ -297,33 +293,10 @@ def basket_delete(request):
         return JsonResponse({'success': True, 'total_price': total_price, 'count': count})
 
 def basket_payment(request):
-    token_id = request.POST.get('stripeToken')
     all_price = request.POST.get('price_all')
     supplier = request.POST.get('supplier')
     quantity = request.POST.get('quantity')
     products = request.POST.get('products')
     products = json.loads(products)
 
-    try:
-        charge = stripe.Charge.create(
-            amount=all_price,
-            currency="rub",
-            source=token_id,
-            description="Charge for " + request.user.email
-        )
-        Transaction.objects.create(
-            user=request.user,
-            supplier=supplier,
-            quantity=quantity,
-            products=products,
-            date=datetime.now(),
-            price=all_price,
-            status='Оплачен',
-        )
-        data = {'message': 'Payment successful'}
-    except stripe.error.CardError as e:
-        body = e.json_body
-        err = body.get('error', {})
-        data = {'message': f"Payment failed: {err.get('message')}"}
-
-    return JsonResponse(data)
+    return JsonResponse(request)

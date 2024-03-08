@@ -103,11 +103,6 @@
 <div class="modal__window_pay" id="modal__window_pay">
     <div class="modal__window_pay_wrapper">
         <ul class="modal__window_pay-list">
-            <li class="modal__window_pay-item" style="display: none;">
-                <div id="card-element">
-                    <input type="hidden" id="stripeToken" name="stripeToken">
-                </div>
-            </li>
             <li class="modal__window_pay-item">
                 <h3 class="modal__window_pay-title">Номер карты: </h3>
                 <input type="text" class="modal__window_pay-input-card" placeholder="4444 4444 4444 4444">
@@ -143,6 +138,5 @@
 {% endblock %}
 
 {% block js %}
-<script src="https://js.stripe.com/v3/"></script>
 <script src="{% static 'js/basket.js' %}"></script>
 {% endblock %}

@@ -26,15 +26,6 @@ SECRET_KEY = 'django-insecure-3cwzv_l+kuei+@^c1^^#mmyv8hs+11^y-65v-%f6_osmsskuy$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
-    "http://127.0.0.1:9000",
-    "https://js.stripe.com",
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [

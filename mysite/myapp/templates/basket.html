@@ -68,7 +68,7 @@
                     <li class="basket__products-item">
                         <img src="{{ order.product.photo.url }}" alt="{{ order.product.name }}" class="basket__products-img">
                         <div class="product__block-1">
-                            <h2 class="basket__products-title">
+                            <h2 class="basket__products-title" data-value="{{ order.product.id}}">
                                 {{ order.product.name }}
                             </h2>
                             <p class="basket__products-price">

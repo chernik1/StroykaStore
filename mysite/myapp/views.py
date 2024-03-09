@@ -220,12 +220,12 @@ def orders_view(request):
         payments = Payment.objects.all().filter(user=request.user)
         products = [
             {
-                'product':Product.objects.get(id=payment.products[0]['product_id']),
+                'product': Product.objects.get(id=payment.products[0]['id']),
                 'quantity': payment.products[0]['quantity'],
                 'date': payment.date.strftime('%d.%m.%Y'),
                 'status': payment.status,
                 'id': payment.id
-             } for payment in payments
+            } for payment in payments
         ]
 
 
@@ -333,8 +333,10 @@ def basket_delete(request):
         return JsonResponse({'success': True, 'total_price': total_price, 'count': count})
 
 def basket_payment(request):
-    amount = float(request.POST.get('amount'))
-    products = request.user.basket_items
+    data = json.loads(request.body)
+    products = data['products']
+    amount = data['amount']
+
     status = 'Не оплачен'
 
     buffer = Payment.objects.create(

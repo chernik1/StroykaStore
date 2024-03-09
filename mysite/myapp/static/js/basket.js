@@ -88,13 +88,34 @@ productList.addEventListener('click', function(event) {
 $('.basket__form-btn').click(function() {
     var amount = parseFloat($('.basket__form-price-value').text().replace(' ₽', ''));
 
+    if (amount === '0.00 ₽') {
+        const errorModal = document.getElementById('modal__window_error');
+        errorModal.style.display = 'block';
+        return;
+    }
+
+    var productItems = document.querySelectorAll('.basket__products-item');
+    var productsFinal = [];
+
+    productItems.forEach(function(item) {
+        var product = {
+            id: item.querySelector('.basket__products-title').getAttribute('data-value'),
+            quantity: parseInt(item.querySelector('.basket__products_input').value, 10),
+        };
+        productsFinal.push(product);
+    });
+
     $.ajax({
         type: 'POST',
-        data: {
-            csrfmiddlewaretoken: $('meta[name="csrf-token"]').attr('content'),
-            amount: amount
-        },
+        data: JSON.stringify({
+            amount: amount,
+            products: productsFinal
+        }),
         url: '/basket/payment/',
+        contentType: 'application/json',
+        headers: {
+            'X-CSRFToken': $('meta[name="csrf-token"]').attr('content')
+        },
         success: function(response) {
             if (response.success) {
                 window.location.href = response.url;

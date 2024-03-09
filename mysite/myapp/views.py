@@ -217,21 +217,21 @@ def basket_view(request):
 def orders_view(request):
     if request.user.is_authenticated:
 
-        basket_items = request.user.basket_items
-        orders = []
+        payments = Payment.objects.all().filter(user=request.user)
+        products = [
+            {
+                'product':Product.objects.get(id=payment.products[0]['product_id']),
+                'quantity': payment.products[0]['quantity'],
+                'date': payment.date.strftime('%d.%m.%Y'),
+                'status': payment.status,
+                'id': payment.id
+             } for payment in payments
+        ]
 
-        for item in basket_items:
-            product = Product.objects.get(id=item['product_id'])
-            orders.append(
-                {
-                    'product': product,
-                    'quantity': item['quantity']
-                }
-            )
 
         context = {
             'user': request.user,
-            'orders': orders
+            'products': products
         }
 
         return render(request, 'orders.html', context=context)

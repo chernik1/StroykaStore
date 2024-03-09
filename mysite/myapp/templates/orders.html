@@ -19,10 +19,29 @@
 
 <div class="orders">
     <div class="wrapper orders__wrapper">
-        {% if orders %}
-            {% for order in orders %}
-
+        {% if products %}
+        <ul class="orders__list">
+            {% for product in products %}
+            <li class="orders__item">
+                <img src="{{ product.product.photo.url }}" alt="{{ product.product.name }}" class="order__info-img">
+                <div class="order__info_1">
+                    <h3 class="order__info-name">{{ product.product.name }}</h3>
+                    <p class="order__info-price">{{ product.product.price }} ₽</p>
+                    <p class="order__info-quantity">{{ product.quantity }} шт.</p>
+                </div>
+                <div class="order__info_2">
+                    <div class="order__info_2-left">
+                        <p class="order__info-date">Заказ от {{ product.date}}</p>
+                        <p class="order__info-id">ID {{ product.id }}</p>
+                    </div>
+                    <div class="order__info_2-right">
+                        <p class="order__info-status-1">Статус </p>
+                        <p class="order__info-status-2">{{ product.status }}</p>
+                    </div>
+                </div>
+            </li>
             {% endfor %}
+        </ul>
         {% else %}
             <div class="orders_0">
                 <div class="order__info">

@@ -10,8 +10,9 @@ from datetime import datetime
 from django.conf import settings
 import webbrowser
 from django.views.decorators.csrf import csrf_exempt
-from yookassa import Configuration, Payment
+import yookassa as yo
 from django.urls import reverse
+import decimal
 
 # Create your views here.
 
@@ -321,42 +322,37 @@ def basket_delete(request):
 def basket_payment(request):
     amount = float(request.POST.get('amount'))
     products = request.user.basket_items
-    date = datetime.now().strftime("%d.%m.%Y")
     status = 'Не оплачен'
-    id = uuid.uuid4()
+    buffer = Payment.objects.create(
+        amount=amount,
+        status=status,
+        products=products,
+    )
+    id = buffer.id
     try:
-        Payment.objects.create(
-            id=id,
-            amount=amount,
-            status=status,
-            date=date,
-            products=products
-        )
-
-        Configuration.account_id = settings.YOOKASSA_SHOP_ID
-        Configuration.secret_key = settings.YOOKASSA_SECRET_KEY
-
-        payment = Payment.create({
+        yo.Configuration.account_id = settings.YOOKASSA_SHOP_ID
+        yo.Configuration.secret_key = settings.YOOKASSA_SECRET_KEY
+        payment = yo.Payment.create({
             "amount": {
                 "value": amount,
                 "currency": "RUB"
             },
             "confirmation": {
                 "type": "redirect",
-                "return_url": "http://127.0.0.1:8000/basket/payment/success/" + str(id) + "/",
+                "return_url": f"http://127.0.0.1:8000/basket/payment/success/{id}",
             },
             "capture": True,
             "description": "Заказ №1"
-        }, uuid.uuid4())
+        }, str(uuid.uuid4()))
         url = payment.confirmation.confirmation_url
         return JsonResponse({'url': url, 'success': True})
     except Exception as e:
-        delete_payment = Payment.objects.get(id=id)
-        delete_payment.delete()
-        return JsonResponse({'url': None, 'success': False})
+        buffer.delete()
+        buffer.save()
+        return JsonResponse({'success': False})
 
-def basket_payment_success(request):
-    id = request.GET.get('id')
+def basket_payment_success(request, order_id):
+    id = order_id
     payment = Payment.objects.get(id=id)
     payment.status = 'Оплачен'
     payment.save()

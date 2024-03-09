@@ -16,6 +16,25 @@
         <h1 class="main__orders-title">Заказы</h1>
     </div>
 </div>
+
+<div class="orders">
+    <div class="wrapper orders__wrapper">
+        {% if orders %}
+            {% for order in orders %}
+
+            {% endfor %}
+        {% else %}
+            <div class="orders_0">
+                <div class="order__info">
+                    <h3 class="order__info-title">Заказов нет</h3>
+                </div>
+                <button class="order__btn">
+                    <a href="/" class="order__btn-link">На главную</a>
+                </button>
+            </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
 
 {% block js %}

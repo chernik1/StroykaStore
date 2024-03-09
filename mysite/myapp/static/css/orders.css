@@ -23,3 +23,57 @@
     font-weight: 700;
     line-height: 120%;
 }
+
+.orders {
+    margin-bottom: 80px;
+}
+
+.orders__wrapper {
+    max-width: 1160px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders_0 {
+    width: 100%;
+}
+
+.order__info-title {
+    color: rgb(23, 27, 36);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order__btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    background: rgb(252, 236, 65);
+    border: none;
+    width: 213px;
+    height: 49px;
+    padding: 12px 24px;
+}
+
+.order__btn-link {
+    color: rgb(47, 50, 58);
+    font-size: 18px;
+    line-height: 136%;
+    text-decoration: none;
+}
+
+.order__btn:hover {
+    background: rgb(47, 50, 58);
+}
+
+.order__btn:hover .order__btn-link {
+    color: white;
+}
+
+.order__btn:active .order__btn-link {
+    color: rgb(209, 209, 211);
+}

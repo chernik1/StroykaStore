@@ -83,7 +83,6 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=50)
@@ -96,6 +95,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateTimeField(default=timezone.now)
     basket_supplier = models.CharField(max_length=100, null=True, blank=True)
     basket_items = models.JSONField(null=True, blank=True)
+
 
     objects = CustomUserManager()
 
@@ -125,6 +125,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
+
 def generate_unique_code():
     code = str(random.randint(10000000, 99999999)) + '-' + str(random.randint(1000, 9999))
     return code
@@ -135,6 +136,8 @@ class Payment(models.Model):
     status = models.CharField(max_length=20)
     date = models.DateTimeField(default=timezone.now)
     products = models.JSONField()
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='payments', null=True)
 
     def __str__(self):
-        return self.payment_id
+        return str(self.id)
+

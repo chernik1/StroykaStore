@@ -217,8 +217,21 @@ def basket_view(request):
 def orders_view(request):
     if request.user.is_authenticated:
 
+        basket_items = request.user.basket_items
+        orders = []
+
+        for item in basket_items:
+            product = Product.objects.get(id=item['product_id'])
+            orders.append(
+                {
+                    'product': product,
+                    'quantity': item['quantity']
+                }
+            )
+
         context = {
-            'user': request.user
+            'user': request.user,
+            'orders': orders
         }
 
         return render(request, 'orders.html', context=context)
@@ -323,12 +336,16 @@ def basket_payment(request):
     amount = float(request.POST.get('amount'))
     products = request.user.basket_items
     status = 'Не оплачен'
+
     buffer = Payment.objects.create(
+        user=request.user,
         amount=amount,
         status=status,
         products=products,
     )
+
     id = buffer.id
+
     try:
         yo.Configuration.account_id = settings.YOOKASSA_SHOP_ID
         yo.Configuration.secret_key = settings.YOOKASSA_SECRET_KEY
@@ -357,7 +374,9 @@ def basket_payment_success(request, order_id):
     payment.status = 'Оплачен'
     payment.save()
 
-    request.user.basket_items = []
-    request.user.basket_supplier = None
-    request.user.save()
+    user = request.user
+    user.basket_items = []
+    user.basket_supplier = None
+    user.save()
+
     return render(request, 'basket_payment_success.html')

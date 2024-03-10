@@ -805,3 +805,18 @@
 }
 
 /* About company end */
+
+.popular__items_old_price {
+    text-decoration: line-through;
+    color: rgb(139, 141, 146);
+    font-size: 15px;
+    line-height: 150%;
+}
+
+.popular__items_new_price {
+    color: rgb(23, 27, 36);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%;
+    margin-bottom: 3px;
+}

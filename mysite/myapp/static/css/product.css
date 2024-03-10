@@ -32,7 +32,7 @@
     max-width: 588px;
     padding: 24px 24px 48px 24px;
     border-left: 1px solid rgb(232, 233, 234);
-    height: 428px;
+    min-height: 428px;
 }
 
 .product-title {
@@ -41,7 +41,7 @@
     font-weight: 600;
     line-height: 130%;
     margin-bottom: 12px;
-    height: 88px;
+    min-height: 88px;
 }
 
 .product-available {

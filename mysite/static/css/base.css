@@ -961,14 +961,6 @@ img{
 
 /* Modal window seller end */
 
-
-/* Media start */
-
-@media (min-width: 1200px) {
-    .header__wrapper {
-        width: 1200px;
-        margin: 0 auto;
-    }
+.popular__items-title {
+    text-decoration: none;
 }
-
-/* Media end */

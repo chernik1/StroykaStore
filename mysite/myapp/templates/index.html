@@ -62,18 +62,19 @@
                     </button>
                 </div>
                 <ul class="stock__list">
+                    {% for product in stock_products %}
                     <li class="stock__item">
                         <div class="stocks__pic_and_stock">
-                            <img src="{% static 'img/stock-1.png' %}" alt="Рубероид" class="stock__pic">
-                            <p class="stock">-25%</p>
+                            <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="stock__pic">
+                            <p class="stock">{{ product.discount }}%</p>
                         </div>
                         <div class="stock__desc">
-                            <h4 class="stock__title">Рубероид РКП-350 ТУ, размер материала 1 х 10 м (10м2, 1 рулон)</h4>
-                            <p class="stock__new_price">449 ₽</p>
-                            <p class="stock__old_price">499 ₽</p>
+                            <a class="stock__title" href="/catalog/{{ product.category.name }}/{{ product.subcategory.name }}/{{ product.name }}">{{ product.name }}</a>
+                            <p class="stock__new_price">{{ product.new_price }} ₽</p>
+                            <p class="stock__old_price">{{ product.price }} ₽</p>
                             <div class="basket__container">
                                 <div class="stock__basket">
-                                    <button  class="stock__basket-button basket-click">
+                                    <button  class="stock__basket-button basket-click" value="{{ product.id }}">
                                       <a href="#!" class="stock__basket-link">В корзину</a>
                                     </button>
                                     <div class="basket__quantity" hidden>
@@ -85,75 +86,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="stock__item">
-                        <div class="stocks__pic_and_stock">
-                            <img src="{% static 'img/stock-2.png' %}" alt="Пена монтажная" class="stock__pic">
-                            <p class="stock">-25%</p>
-                        </div>
-                        <div class="stock__desc">
-                            <h4 class="stock__title">Пена монтажная ТЕХНОНИКОЛЬ MASTER 65 профессиональная всесезонная</h4>
-                            <p class="stock__new_price">495 ₽</p>
-                            <p class="stock__old_price">660 ₽</p>
-                            <div class="basket__container">
-                                <div class="stock__basket">
-                                    <button  class="stock__basket-button basket-click">
-                                      <a href="#!" class="stock__basket-link">В корзину</a>
-                                    </button>
-                                    <div class="basket__quantity" hidden>
-                                        <button class="basket__plus">+</button>
-                                            <input type="number" class="basket__input" value="1" min="1">
-                                        <button class="basket__minus">-</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stock__item">
-                        <div class="stocks__pic_and_stock">
-                            <img src="{% static 'img/stock-3.png' %}" alt="Сетка Рабица" class="stock__pic">
-                            <p class="stock">-25%</p>
-                        </div>
-                        <div class="stock__desc">
-                            <h4 class="stock__title">Сетка "Рабица" яч. 50х50/1,5х10 м-ОЦ</h4>
-                            <p class="stock__new_price">1499 ₽</p>
-                            <p class="stock__old_price">1890 ₽</p>
-                            <div class="basket__container">
-                                <div class="stock__basket">
-                                    <button  class="stock__basket-button basket-click">
-                                      <a href="#!" class="stock__basket-link">В корзину</a>
-                                    </button>
-                                    <div class="basket__quantity" hidden>
-                                        <button class="basket__plus">+</button>
-                                            <input type="number" class="basket__input" value="1" min="1">
-                                        <button class="basket__minus">-</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="stock__item">
-                        <div class="stocks__pic_and_stock">
-                            <img src="{% static 'img/stock-4.png' %}" alt="Металлочерепица" class="stock__pic">
-                            <p class="stock">-25%</p>
-                        </div>
-                        <div class="stock__desc">
-                            <h4 class="stock__title">Металлочерепица, цвет коричневый, 1.18 х 1.15 м</h4>
-                            <p class="stock__new_price">769 ₽</p>
-                            <p class="stock__old_price">999 ₽</p>
-                            <div class="basket__container">
-                                <div class="stock__basket">
-                                    <button  class="stock__basket-button basket-click">
-                                      <a href="#!" class="stock__basket-link">В корзину</a>
-                                    </button>
-                                    <div class="basket__quantity" hidden>
-                                        <button class="basket__plus">+</button>
-                                            <input type="number" class="basket__input" value="1" min="1">
-                                        <button class="basket__minus">-</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -286,234 +219,53 @@
                     </h3>
                 </div>
                 <ul class="popular__items_list">
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-1.png' %}" alt="Керамогранит Yasmin 598х185 коричневый C-YA4M112D" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Керамогранит Yasmin 598х185 коричневый C-YA4M112D</h6>
-                            <p class="popular__items-price">899 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
+                    {% for product in popular_products  %}
+                        {%  if product.new_price == 0 or product.new_price is None %}
+                            <li class="popular__items_item">
+                                <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="popular__items-pic">
+                                <div class="popular__items-text">
+                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category }}/{{ product.subcategory }}/{{ product.name }}">{{ product.name }}</a>
+                                    <p class="popular__items-price">{{ product.price }} ₽</p>
+                                    <div class="popular__items_basket">
+                                        <button class="popular__items_basket-link basket-click" value="{{ product.id }}">
+                                            <a href="#!" class="popular__basket-link">
+                                                В корзину
+                                            </a>
+                                        </button>
+                                        <div class="basket__quantity" hidden>
+                                            <button class="basket__plus">+</button>
+                                            <input type="number" class="basket__input" value="1" min="1">
+                                            <button class="basket__minus">-</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-2.png' %}" alt="Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг</h6>
-                            <p class="popular__items-price">275 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
+                            </li>
+                        {% else %}
+                            <li class="popular__items_item">
+                                <div class="stocks__pic_and_stock">
+                                    <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="popular__items-pic">
+                                    <p class="stock">{{ product.discount }}%</p>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-3.png' %}" alt="Грунтовка Старатели 10л глубокого проникновения" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Грунтовка Старатели 10л глубокого проникновения</h6>
-                            <p class="popular__items-price">839 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
+                                <div class="popular__items-text">
+                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category }}/{{ product.subcategory }}/{{ product.name }}">{{ product.name }}</a>
+                                    <p class="popular__items_new_price">{{ product.new_price }} ₽</p>
+                                    <p class="popular__items_old_price">{{ product.price }} ₽</p>
+                                    <div class="popular__items_basket">
+                                        <button class="popular__items_basket-link basket-click" value="{{ product.id }}">
+                                            <a href="#!" class="popular__basket-link">
+                                                В корзину
+                                            </a>
+                                        </button>
+                                        <div class="basket__quantity" hidden>
+                                            <button class="basket__plus">+</button>
+                                            <input type="number" class="basket__input" value="1" min="1">
+                                            <button class="basket__minus">-</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-4.png' %}" alt="Гипсокартон Волма, 2500 х 1200 х 12,5 мм" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Гипсокартон Волма, 2500 х 1200 х 12,5 мм</h6>
-                            <p class="popular__items-price">335 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-1.png' %}" alt="Керамогранит Yasmin 598х185 коричневый C-YA4M112D" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Керамогранит Yasmin 598х185 коричневый C-YA4M112D</h6>
-                            <p class="popular__items-price">899 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-2.png' %}" alt="Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг</h6>
-                            <p class="popular__items-price">275 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-3.png' %}" alt="Грунтовка Старатели 10л глубокого проникновения" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Грунтовка Старатели 10л глубокого проникновения</h6>
-                            <p class="popular__items-price">839 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-4.png' %}" alt="Гипсокартон Волма, 2500 х 1200 х 12,5 мм" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Гипсокартон Волма, 2500 х 1200 х 12,5 мм</h6>
-                            <p class="popular__items-price">335 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-1.png' %}" alt="Керамогранит Yasmin 598х185 коричневый C-YA4M112D" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Керамогранит Yasmin 598х185 коричневый C-YA4M112D</h6>
-                            <p class="popular__items-price">899 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-2.png' %}" alt="Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Затирка для узких швов Ceresit СЕ 33, цвет белый, 2 кг</h6>
-                            <p class="popular__items-price">275 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-3.png' %}" alt="Грунтовка Старатели 10л глубокого проникновения" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Грунтовка Старатели 10л глубокого проникновения</h6>
-                            <p class="popular__items-price">839 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="popular__items_item">
-                        <img src="{% static 'img/popular-items-4.png' %}" alt="Гипсокартон Волма, 2500 х 1200 х 12,5 мм" class="popular__items-pic">
-                        <div class="popular__items-text">
-                            <h6 class="popular__items-title">Гипсокартон Волма, 2500 х 1200 х 12,5 мм</h6>
-                            <p class="popular__items-price">335 ₽</p>
-                            <div class="popular__items_basket">
-                                <button class="popular__items_basket-link basket-click">
-                                    <a href="#!" class="popular__basket-link">
-                                        В корзину
-                                    </a>
-                                </button>
-                                <div class="basket__quantity" hidden>
-                                    <button class="basket__plus">+</button>
-                                    <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -529,7 +281,7 @@
                         Популярные бренды
                     </h3>
                     <button class="popular__brands-button">
-                        <a href="#!" class="popular__brands-link">
+                        <a href="/brands/" class="popular__brands-link">
                             Все бренды  <img src="{% static 'img/svg/arrow-icon-right.svg' %}" alt="Все бренды">
                         </a>
                     </button>

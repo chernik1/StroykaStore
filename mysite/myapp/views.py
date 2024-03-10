@@ -17,9 +17,30 @@ import decimal
 # Create your views here.
 
 def index(request):
+    products = Product.objects.all()
+    popular_products = []
+    stock_products = []
+
+    for product in products:
+        if product.discount:
+            product.new_price = int(product.price -(product.price * (product.discount / 100)))
+            stock_products.append(product)
+        if len(popular_products) == 4:
+            break
+
+    if len(products) > 12:
+        for i in range(12):
+            product = products[i]
+            if not product.discount:
+                product.new_price = int(product.price - (product.price * (product.discount / 100)))
+            popular_products.append(product)
+    else:
+        popular_products = products
 
     context = {
-        'user': request.user
+        'user': request.user,
+        'popular_products': popular_products,
+        'stock_products': stock_products,
     }
 
     return render(request, 'index.html', context=context)

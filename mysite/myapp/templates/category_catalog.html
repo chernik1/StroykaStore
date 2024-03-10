@@ -97,25 +97,53 @@
         <div class="products__products">
             <ul class="products__products-list">
                 {% for product in products %}
-                    <li class="products__products-item">
-                        <img src="{{ product.photo.url }}" alt="product" class="products__products-img">
-                        <div class="products__products-text">
-                            <a  href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="products__products-title">{{ product.name }}</a>
-                            <p class="products__products-price">{{ product.price }} ₽</p>
-                            <div class="button-block">
-                                <button class="products__products-btn basket-click" value="{{ product.id }}">
-                                    <p  class="products__products-btn-text">
-                                        В корзину
-                                    </p>
-                                </button>
-                                <div class="basket__quantity">
-                                    <button class="basket__plus">+</button>
-                                        <input type="number" class="basket__input" value="1" min="1">
-                                    <button class="basket__minus">-</button>
+                    {% if not product.discount  %}
+                        <li class="products__products-item">
+                            <img src="{{ product.photo.url }}" alt="product" class="products__products-img">
+                            <div class="products__products-text">
+                                <a  href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="products__products-title">{{ product.name }}</a>
+                                <p class="products__products-price">{{ product.price }} ₽</p>
+                                <div class="button-block">
+                                    <button class="products__products-btn basket-click" value="{{ product.id }}">
+                                        <p  class="products__products-btn-text">
+                                            В корзину
+                                        </p>
+                                    </button>
+                                    <div class="basket__quantity">
+                                        <button class="basket__plus">+</button>
+                                            <input type="number" class="basket__input" value="1" min="1">
+                                        <button class="basket__minus">-</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    {% else %}
+                        <li class="products__products-item">
+                           <div class="stocks__pic_and_stock block_bottom_16px">
+                                <img src="{{ product.photo.url }}" alt="product" class="stock__pic border">
+                                <p class="stock">{{ product.discount }}%</p>
+                           </div>
+                            <div class="products__products-text">
+                                <a  href="/catalog/{{ category }}/{{ product.subcategory }}/{{ product.name }}/" class="products__products-title">{{ product.name }}</a>
+                                <div class="block-price">
+                                    <p class="product__new-price">{{ product.new_price }} ₽</p>
+                                    <p class="product__old-price">{{ product.price }} ₽</p>
+                                </div>
+                                <div class="button-block">
+                                    <button class="products__products-btn basket-click" value="{{ product.id }}">
+                                        <p  class="products__products-btn-text">
+                                            В корзину
+                                        </p>
+                                    </button>
+                                    <div class="basket__quantity">
+                                        <button class="basket__plus">+</button>
+                                            <input type="number" class="basket__input" value="1" min="1">
+                                        <button class="basket__minus">-</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>

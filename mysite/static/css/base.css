@@ -964,3 +964,57 @@ img{
 .popular__items-title {
     text-decoration: none;
 }
+
+.stocks__pic_and_stock {
+    position: relative;
+    width: 278px;
+    height: 208px;
+}
+
+.stock__pic {
+    z-index: 3;
+    border: 1px solid rgb(232, 233, 234);
+}
+
+.stock {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 4;
+    color: rgb(23, 27, 36);
+    font-size: 15px;
+    line-height: 145%;
+    box-sizing: border-box;
+    border: 2px solid rgb(251, 227, 3);
+    background: rgb(255, 255, 255);
+}
+
+.border {
+    border: none;
+}
+
+.block_bottom_16px {
+    margin-bottom: 16px;
+}
+
+.block-price {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+
+.product__new-price {
+    color: rgb(23, 27, 36);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 140%;
+}
+
+.product__old-price {
+    margin: 5px 0 0 15px;
+    text-decoration: line-through;
+    color: rgb(139, 141, 146);
+    font-size: 15px;
+    line-height: 150%;
+}
+

@@ -26,9 +26,16 @@
                         В наличии
                     </p>
                 </div>
-                <p class="product-price">{{ product.price }} ₽</p>
+                {% if not product.discount %}
+                    <p class="product-price">{{ product.price }} ₽</p>
+                {% else %}
+                    <div class="block-price">
+                        <p class="product-price">{{ product.new_price }} ₽</p>
+                        <p class="product__old-price">{{ product.price }} ₽</p>
+                    </div>
+                {% endif %}
                 <div class="products__buttons">
-                    <button class="product-btn">
+                    <button class="product-btn" value="{{ product.id }}">
                         <a href="#!" class="product-btn-text">
                             В корзину
                         </a>

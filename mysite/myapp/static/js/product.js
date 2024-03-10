@@ -31,3 +31,31 @@ document.addEventListener('DOMContentLoaded', function() {
     var descriptionText = document.querySelector('.product__description-text');
     descriptionText.textContent = descriptionText.textContent.trim();
 });
+
+$(document).ready(function() {
+    $('.product-btn').click(function() {
+        var productId = $(this).val();
+        var quantity = $(this).closest('.products__buttons').find('.product-count').val();
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: '/basket/add/',
+            type: 'POST',
+            data: {
+                'product_id': productId,
+                'quantity': quantity
+            },
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRFToken', csrfToken);
+            },
+            success: function(response) {
+                if (response.success === true) {
+                    swal("Успешно!", "Товар был успешно добавлен в корзину", "success");
+                }
+            },
+            error: function(error) {
+                console.log('Error adding product to cart:', error);
+            }
+        });
+    });
+});

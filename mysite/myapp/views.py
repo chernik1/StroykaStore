@@ -157,13 +157,19 @@ def category_subcategory_view(request, category: str, subcategory: str):
     subcategories = Subcategory.objects.all().filter(name=subcategory)
     products = Product.objects.all().filter(subcategory__in=subcategories)
 
+    new_products = []
+    for product in products:
+        if not product.discount is None:
+            product.new_price = int(product.price - (product.price * (product.discount / 100)))
+        new_products.append(product)
+
     brands = set([product.brand for product in products])
     suppliers = set([product.supplier for product in products])
 
     context = {
         'categories': categories,
         'subcategories': subcategories,
-        'products': products,
+        'products': new_products,
         'category': category,
         'subcategory': subcategory,
         'brands': brands,
@@ -177,6 +183,9 @@ def product_view(request, category: str, subcategory: str, product: str):
     product = Product.objects.get(name=product)
     supplier = product.supplier
     category = Category.objects.get(name=category)
+
+    if not product.discount is None:
+        product.new_price = int(product.price - (product.price * (product.discount / 100)))
 
     context = {
         'product': product,

@@ -217,6 +217,9 @@ def basket_view(request):
             price = product.price
             sum_orders += price * int(item['quantity'])
             count_orders += 1
+
+            if not product.discount is None:
+                product.new_price = int(product.price - (product.price * (product.discount / 100)))
             orders.append(
                 {
                     'product': product,

@@ -65,33 +65,73 @@
         <div class="basket__products">
             <ul class="basket__products-list">
                 {% for order in orders %}
-                    <li class="basket__products-item">
-                        <img src="{{ order.product.photo.url }}" alt="{{ order.product.name }}" class="basket__products-img">
-                        <div class="product__block-1">
-                            <h2 class="basket__products-title" data-value="{{ order.product.id}}">
-                                {{ order.product.name }}
-                            </h2>
-                            <p class="basket__products-price">
-                                {{ order.product.price }} ₽
-                            </p>
-                            <div class="basket__products_quantity">
-                                <button class="basket__products_plus">+</button>
-                                <input type="number" class="basket__products_input" value="{{ order.quantity }}" min="1">
-                                <button class="basket__products_minus">-</button>
-                            </div>
-                        </div>
-                        <div class="product__block-2">
-                            <p class="basket__products-code">
-                                Код товара:<br>
-                                {{ order.product.code }}
-                            </p>
-                            <button class="basket__products-btn">
-                                <p class="basket__products-btn-text">
-                                    Удалить товар
+                    {% if not order.product.discount %}
+                        <li class="basket__products-item">
+                            <img src="{{ order.product.photo.url }}" alt="{{ order.product.name }}" class="basket__products-img">
+                            <div class="product__block-1">
+                                <h2 class="basket__products-title" data-value="{{ order.product.id}}">
+                                    {{ order.product.name }}
+                                </h2>
+                                <p class="basket__products-price">
+                                    {{ order.product.price }} ₽
                                 </p>
-                            </button>
-                        </div>
-                    </li>
+                                <div class="basket__products_quantity">
+                                    <button class="basket__products_plus">+</button>
+                                    <input type="number" class="basket__products_input" value="{{ order.quantity }}" min="1">
+                                    <button class="basket__products_minus">-</button>
+                                </div>
+                            </div>
+                            <div class="product__block-2">
+                                <p class="basket__products-code">
+                                    Код товара:<br>
+                                    {{ order.product.code }}
+                                </p>
+                                <button class="basket__products-btn">
+                                    <p class="basket__products-btn-text">
+                                        Удалить товар
+                                    </p>
+                                </button>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="basket__products-item">
+                            <div class="stocks__pic_and_stock">
+                                <img src="{{ order.product.photo.url }}" alt="{{ order.product.name }}" class="stock__pic">
+                                <div class="stock">
+                                    {{ order.product.discount }} %
+                                </div>
+                            </div>
+                            <div class="product__block-1">
+                                <h2 class="basket__products-title" data-value="{{ order.product.id}}">
+                                    {{ order.product.name }}
+                                </h2>
+                                <div class="block__prices">
+                                    <p class="basket__products-price">
+                                        {{ order.product.new_price }} ₽
+                                    </p>
+                                    <p class="product__old-price">
+                                        {{ order.product.price }} ₽
+                                    </p>
+                                </div>
+                                <div class="basket__products_quantity">
+                                    <button class="basket__products_plus">+</button>
+                                    <input type="number" class="basket__products_input" value="{{ order.quantity }}" min="1">
+                                    <button class="basket__products_minus">-</button>
+                                </div>
+                            </div>
+                            <div class="product__block-2">
+                                <p class="basket__products-code">
+                                    Код товара:<br>
+                                    {{ order.product.code }}
+                                </p>
+                                <button class="basket__products-btn">
+                                    <p class="basket__products-btn-text">
+                                        Удалить товар
+                                    </p>
+                                </button>
+                            </div>
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>

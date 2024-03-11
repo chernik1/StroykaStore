@@ -346,3 +346,8 @@
 .modal__window_error-btn:active .modal__window_error-btn-text {
     color: rgb(209, 209, 211);
 }
+
+.block__prices {
+    display: flex;
+    justify-content: left;
+}

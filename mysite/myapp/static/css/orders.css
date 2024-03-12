@@ -166,3 +166,15 @@
 .order__btn:active .order__btn-link {
     color: rgb(209, 209, 211);
 }
+
+.stock {
+    z-index: 2;
+}
+
+.order__info-img {
+    z-index: 1;
+}
+
+.block-pic {
+    position: relative;
+}

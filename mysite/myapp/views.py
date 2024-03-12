@@ -251,20 +251,28 @@ def orders_view(request):
     if request.user.is_authenticated:
 
         payments = Payment.objects.all().filter(user=request.user)
-        products = [
-            {
-                'product': Product.objects.get(id=payment.products[0]['id']),
-                'quantity': payment.products[0]['quantity'],
-                'date': payment.date.strftime('%d.%m.%Y'),
-                'status': payment.status,
-                'id': payment.id
-            } for payment in payments
-        ]
+        products = []
+        final_products = []
 
+        for payment in payments:
+            for product in payment.products:
+                pr = Product.objects.get(id=product['id'])
+                if not pr.discount is None:
+                    pr.new_price = int(pr.price - (pr.price * (pr.discount / 100)))
+
+                final_products.append({
+                    'product': pr,
+                    'quantity': product['quantity'],
+                    'price': pr.new_price,
+                    'old_price': pr.price,
+                    'date': payment.date.strftime('%d.%m.%Y'),
+                    'status': payment.status,
+                    'id': payment.id,
+                })
 
         context = {
             'user': request.user,
-            'products': products
+            'products': final_products
         }
 
         return render(request, 'orders.html', context=context)

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="finish orders">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +65,12 @@
   <component name="RunManager">
     <configuration name="run" type="PythonConfigurationType" factoryName="Python">
       <module name="verstka_2" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.11 (verstka_2)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -87,7 +89,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -204,14 +206,10 @@
       <workItem from="1710336184505" duration="3251000" />
       <workItem from="1710346586509" duration="1201000" />
       <workItem from="1710352587582" duration="1827000" />
-    </task>
-    <task id="LOCAL-00029" summary="add postgressql">
-      <option name="closed" value="true" />
-      <created>1708857847360</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1708857847360</updated>
+      <workItem from="1710355386225" duration="607000" />
+      <workItem from="1710358211698" duration="599000" />
+      <workItem from="1710394167423" duration="49000" />
+      <workItem from="1710394680434" duration="1802000" />
     </task>
     <task id="LOCAL-00030" summary="add new bd">
       <option name="closed" value="true" />
@@ -597,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710259847126</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="finish orders">
+      <option name="closed" value="true" />
+      <created>1710355393484</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1710355393484</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,22 +636,6 @@
     <MESSAGE value="fix basket" />
     <MESSAGE value="finish orders" />
     <option name="LAST_COMMIT_MESSAGE" value="finish orders" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mysite/myapp/views.py</url>
-          <line>162</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mysite/myapp/views.py</url>
-          <line>277</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710257626798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

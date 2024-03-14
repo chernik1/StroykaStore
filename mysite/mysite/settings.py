@@ -26,8 +26,6 @@ SECRET_KEY = 'django-insecure-3cwzv_l+kuei+@^c1^^#mmyv8hs+11^y-65v-%f6_osmsskuy$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ORIGIN_ALLOW_ALL = True
-
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -41,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'yookassa',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +49,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="finish orders">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="finish orders" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,14 +204,6 @@
       <workItem from="1710358211698" duration="599000" />
       <workItem from="1710394167423" duration="49000" />
       <workItem from="1710394680434" duration="1802000" />
-    </task>
-    <task id="LOCAL-00031" summary="add bd for catalog">
-      <option name="closed" value="true" />
-      <created>1708897361786</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1708897361786</updated>
     </task>
     <task id="LOCAL-00032" summary="fix pick in catalog">
       <option name="closed" value="true" />
@@ -600,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710430812317</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="finish orders">
+      <created>1710526963888</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1710526963889</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +634,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mysite/myapp/views.py</url>
-          <line>175</line>
+          <line>176</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

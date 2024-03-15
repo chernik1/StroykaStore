@@ -16,6 +16,13 @@ import decimal
 
 # Create your views here.
 
+from django.template.defaultfilters import stringfilter
+from urllib.parse import unquote, quote
+
+@stringfilter
+def unquote_raw(value):
+    return unquote(value)
+
 def index(request):
     products = Product.objects.all()
     popular_products = []
@@ -156,15 +163,16 @@ def category_subcategory_view(request, category: str, subcategory: str):
     categories = Category.objects.all().filter(name=category)
     subcategories = Subcategory.objects.all().filter(name=subcategory)
     products = Product.objects.all().filter(subcategory__in=subcategories)
-
+    category = unquote(category)
+    subcategory = unquote(subcategory)
     new_products = []
     for product in products:
         if not product.discount is None:
             product.new_price = int(product.price - (product.price * (product.discount / 100)))
         new_products.append(product)
 
-    brands = set([product.brand for product in products])
-    suppliers = set([product.supplier for product in products])
+    brands = list(set(product.brand for product in products))
+    suppliers = list(set(product.supplier for product in products))
 
     context = {
         'categories': categories,

@@ -22,4 +22,5 @@ urlpatterns = [
     path('basket/delete/', views.basket_delete, name='basket_delete'),
     path('basket/payment/', views.basket_payment, name='basket_payment'),
     path('basket/payment/success/<str:order_id>', views.basket_payment_success, name='basket_payment_success'),
+    path('category_subcategory_sort/', views.category_subcategory_sort),
 ]

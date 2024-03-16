@@ -13,6 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 import yookassa as yo
 from django.urls import reverse
 import decimal
+from django.forms.models import model_to_dict
 
 # Create your views here.
 
@@ -187,10 +188,51 @@ def category_subcategory_view(request, category: str, subcategory: str):
 
     return render(request, 'category_catalog.html', context=context)
 
+def category_subcategory_sort(request):
+    if request.method == 'POST':
+        products = request.POST.getlist('product_names[]')
+        method = request.POST.get('sort_method')
+
+        products_list = [Product.objects.get(name=product) for product in products]
+
+        if products_list:
+            subcategory = products_list[0].subcategory
+            category = subcategory.category.name
+        else:
+            category = ''
+
+        for product in products_list:
+            if not product.discount is None:
+                product.new_price = int(product.price - (product.price * (product.discount / 100)))
+
+        if method == 'expensive':
+            products_list = sorted(products_list, key=lambda product: product.price, reverse=True)
+        elif method == 'cheap':
+            products_list = sorted(products_list, key=lambda product: product.price)
+        elif method == 'alphabet':
+            products_list = sorted(products_list, key=lambda product: product.name)
+        elif method == 'popular':
+            products_list = sorted(products_list, key=lambda product: product.view, reverse=True)
+
+        products_list_new = []
+        for product in products_list:
+            product_dict = model_to_dict(product)
+            if product.photo:
+                product_dict['photo'] = product.photo.url
+            else:
+                product_dict['photo'] = None
+            product_dict['subcategory'] = product.subcategory.name
+            products_list_new.append(product_dict)
+
+        return JsonResponse({'success': True, 'products': products_list_new, 'category': category})
+
 def product_view(request, category: str, subcategory: str, product: str):
     product = Product.objects.get(name=product)
     supplier = product.supplier
     category = Category.objects.get(name=category)
+
+    product.view += 1
+    product.save()
 
     if not product.discount is None:
         product.new_price = int(product.price - (product.price * (product.discount / 100)))

@@ -60,6 +60,7 @@ function sortProducts(sortMethod) {
                     var productImage = document.createElement('img');
                     productImage.src = product.photo;
                     productImage.className = 'product-image';
+                    productImage.style.marginBottom = '16px';
                     productContainer.appendChild(productImage);
                 }
                 var productText = document.createElement('div');
@@ -69,6 +70,8 @@ function sortProducts(sortMethod) {
                 productName.href = '/catalog/' + response.category + '/' + product.subcategory + '/' + product.name + '/';
                 productName.textContent = product.name;
                 if (product.discount) {
+                    priceDiv = document.createElement('div');
+                    priceDiv.classList.add('block-price');
                     var newPrice = document.createElement('p');
                     newPrice.classList.add('product__new-price');
                     newPrice.textContent = product.new_price + ' ₽';
@@ -76,8 +79,9 @@ function sortProducts(sortMethod) {
                     oldPrice.classList.add('product__old-price');
                     oldPrice.textContent = product.price + ' ₽';
                     productText.appendChild(productName);
-                    productText.appendChild(newPrice);
-                    productText.appendChild(oldPrice);
+                    priceDiv.appendChild(newPrice);
+                    priceDiv.appendChild(oldPrice);
+                    productText.appendChild(priceDiv);
                 }
                 else {
                     var productPrice = document.createElement('p');
@@ -122,6 +126,114 @@ function sortProducts(sortMethod) {
 
 
                 productList.appendChild(productContainer);
+                (function() {
+
+                      function addProductToBasket(productId, quantity) {
+                        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+                        $.ajax({
+                          url: '/basket/add/',
+                          type: 'POST',
+                          data: {
+                            'product_id': productId,
+                            'quantity': quantity
+                          },
+                          beforeSend: function(xhr) {
+                            xhr.setRequestHeader('X-CSRFToken', csrfToken);
+                          },
+                          success: function(response) {
+                            if (response.success === true) {
+                              swal("Успешно!", "Заказ был успешно добавлен", "success");
+                            }
+                          },
+                          error: function(error) {
+                            console.log('Error adding product to cart:', error);
+                          }
+                        });
+                      }
+
+                        var baskets = document.querySelectorAll(".basket-click");
+                        var quantities = document.querySelectorAll(".basket__quantity");
+                        var minuses = document.querySelectorAll(".basket__minus");
+                        var pluses = document.querySelectorAll(".basket__plus");
+                        var inputs = document.querySelectorAll(".basket__input");
+
+
+                      baskets.forEach((basket, index) => {
+                        basket.addEventListener("click", function () {
+                            basket.style.visibility = "hidden";
+                            quantities[index].style.visibility = "visible";
+                            inputs[index].focus();
+                        });
+
+                        const productId = basket.value;
+
+                        minuses[index].addEventListener("click", function () {
+                          let value = parseInt(inputs[index].value);
+                          if (value > 1) {
+                            value--;
+                            inputs[index].value = value;
+                          }
+                        });
+
+                        pluses[index].addEventListener("click", function () {
+                          let value = parseInt(inputs[index].value);
+                          if (value < 99) {
+                            value++;
+                            inputs[index].value = value;
+                          }
+                        });
+
+                        inputs[index].addEventListener("change", function () {
+                          let value = parseInt(inputs[index].value);
+                          if (!isNaN(value)) {
+                            inputs[index].value = Math.min(value, 99);
+                          }
+                        });
+
+                        function returnBasketVisibility() {
+                          const quantity = parseInt(inputs[index].value);
+                          addProductToBasket(productId, Math.min(quantity, 99));
+                          basket.style.visibility = "visible";
+                          quantities[index].style.visibility = "hidden";
+                        }
+
+                        inputs[index].addEventListener("keyup", function(event) {
+                          if (event.key === "Enter") {
+                            let value = parseInt(inputs[index].value);
+                            if (!isNaN(value)) {
+                              inputs[index].value = Math.min(value, 99);
+                              returnBasketVisibility();
+                              event.preventDefault();
+                            }
+                          }
+                        });
+
+                        minuses[index].addEventListener("keyup", function(event) {
+                          if (event.key === "Enter") {
+                            returnBasketVisibility();
+                          }
+                        });
+
+                        pluses[index].addEventListener("keyup", function(event) {
+                          if (event.key === "Enter") {
+                            returnBasketVisibility();
+                          }
+                        });
+
+                        minuses[index].addEventListener("keydown", function(event) {
+                          if (event.key === "Enter") {
+                            event.preventDefault();
+                          }
+                        });
+
+                        pluses[index].addEventListener("keydown", function(event) {
+                          if (event.key === "Enter") {
+                            event.preventDefault();
+                          }
+                        });
+                      });
+                    })();
             });
         },
         error: function(error) {

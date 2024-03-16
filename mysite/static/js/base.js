@@ -301,11 +301,6 @@ closeButtons.forEach(closeButton => {
 
 
 (function() {
-  const baskets = document.querySelectorAll(".basket-click");
-  const quantities = document.querySelectorAll(".basket__quantity");
-  const minuses = document.querySelectorAll(".basket__minus");
-  const pluses = document.querySelectorAll(".basket__plus");
-  const inputs = document.querySelectorAll(".basket__input");
 
   function addProductToBasket(productId, quantity) {
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -331,11 +326,18 @@ closeButtons.forEach(closeButton => {
     });
   }
 
+    var baskets = document.querySelectorAll(".basket-click");
+    var quantities = document.querySelectorAll(".basket__quantity");
+    var minuses = document.querySelectorAll(".basket__minus");
+    var pluses = document.querySelectorAll(".basket__plus");
+    var inputs = document.querySelectorAll(".basket__input");
+
+
   baskets.forEach((basket, index) => {
     basket.addEventListener("click", function () {
-      basket.style.visibility = "hidden";
-      quantities[index].style.visibility = "visible";
-      inputs[index].focus();
+        basket.style.visibility = "hidden";
+        quantities[index].style.visibility = "visible";
+        inputs[index].focus();
     });
 
     const productId = basket.value;

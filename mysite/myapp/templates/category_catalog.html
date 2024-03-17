@@ -21,7 +21,7 @@
 
 <div class="category">
     <h2 class="category-desc">Главная → Каталог → {{ category }} → {{ subcategory }}</h2>
-    <h1 class="category-title">{{ subcategory }}</h1>
+    <h1 class="category-title" data-category="{{ category }}">{{ subcategory }}</h1>
 </div>
 
 <main class="category__catalog">
@@ -29,8 +29,8 @@
         <div class="category__tools_wrapper">
             <div class="category__price">
                 <h3 class="category__price-title">Цена</h3>
-                <input type="text" class="category__price-input-from" value="1 000">
-                <input type="text" class="category__price-input-to" value="100 000">
+                <input type="text" class="category__price-input-from">
+                <input type="text" class="category__price-input-to">
                 <div id="slider" class="category__price-range"></div>
                 <style>
                     .noUi-horizontal .noUi-handle {
@@ -44,7 +44,6 @@
                         background: rgb(139, 141, 146);
                     }
                 </style>
-                <input type="hidden" class="category__price-range-values">
             </div>
             <div class="category__brand">
                 <h3 class="category__brand-title">Бренд</h3>

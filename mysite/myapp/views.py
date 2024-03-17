@@ -226,6 +226,81 @@ def category_subcategory_sort(request):
 
         return JsonResponse({'success': True, 'products': products_list_new, 'category': category})
 
+def category_subcategory_apply(request):
+    if request.method == 'POST':
+        list_brands = request.POST.getlist('checked_brands[]')
+        from_value_str = request.POST.get('from_value')
+        to_value_str = request.POST.get('to_value')
+        category = request.POST.get('category')
+
+        if not from_value_str is None and not to_value_str is None:
+            from_value = int(from_value_str.replace('\xa0', ''))
+            to_value = int(to_value_str.replace('\xa0', ''))
+        else:
+            return JsonResponse({'success': False, 'message': 'Необходимо ввести диапазон цен'})
+        products_list = Product.objects.all()
+
+        for product in products_list:
+            if not product.discount is None:
+                product.new_price = int(product.price - (product.price * (product.discount / 100)))
+
+        for product in products_list:
+            if product.discount is None:
+                if product.price < from_value:
+                    products_list = products_list.exclude(name=product.name)
+                elif product.price > to_value:
+                    products_list = products_list.exclude(name=product.name)
+            else:
+                if product.new_price < from_value:
+                    products_list = products_list.exclude(name=product.name)
+                elif product.new_price > to_value:
+                    products_list = products_list.exclude(name=product.name)
+
+        products_list_clear = []
+
+        for product in products_list:
+            if product.brand.name in list_brands and product.subcategory.category.name == category:
+                products_list_clear.append(product)
+
+        if products_list_clear:
+            subcategory = products_list[0].subcategory
+            category = subcategory.category.name
+        else:
+            category = ''
+
+        products_list_new = []
+        for product in products_list_clear:
+            product_dict = model_to_dict(product)
+            if product.photo:
+                product_dict['photo'] = product.photo.url
+            else:
+                product_dict['photo'] = None
+            product_dict['subcategory'] = product.subcategory.name
+            products_list_new.append(product_dict)
+
+        return JsonResponse({'success': True, 'products': products_list_new, 'category': category})
+
+def category_subcategory_reset(request):
+    if request.method == 'POST':
+        category = request.POST.get('category')
+        products = Product.objects.all().filter(subcategory__category__name=category)
+
+        for product in products:
+            if not product.discount is None:
+                product.new_price = int(product.price - (product.price * (product.discount / 100)))
+
+        products_list_new = []
+        for product in products:
+            product_dict = model_to_dict(product)
+            if product.photo:
+                product_dict['photo'] = product.photo.url
+            else:
+                product_dict['photo'] = None
+            product_dict['subcategory'] = product.subcategory.name
+            products_list_new.append(product_dict)
+
+        return JsonResponse({'success': True, 'products': products_list_new, 'category': category})
+
 def product_view(request, category: str, subcategory: str, product: str):
     product = Product.objects.get(name=product)
     supplier = product.supplier

@@ -69,7 +69,7 @@
                             <p class="stock">{{ product.discount }}%</p>
                         </div>
                         <div class="stock__desc">
-                            <a class="stock__title" href="/catalog/{{ product.category.name }}/{{ product.subcategory.name }}/{{ product.name }}">{{ product.name }}</a>
+                            <a class="stock__title" href="/catalog/{{ product.subcategory.category.name }}/{{ product.subcategory.name }}/{{ product.name }}/">{{ product.name }}</a>
                             <p class="stock__new_price">{{ product.new_price }} ₽</p>
                             <p class="stock__old_price">{{ product.price }} ₽</p>
                             <div class="basket__container">
@@ -224,7 +224,7 @@
                             <li class="popular__items_item">
                                 <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="popular__items-pic">
                                 <div class="popular__items-text">
-                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category }}/{{ product.subcategory }}/{{ product.name }}">{{ product.name }}</a>
+                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category.name }}/{{ product.subcategory }}/{{ product.name }}/">{{ product.name }}</a>
                                     <p class="popular__items-price">{{ product.price }} ₽</p>
                                     <div class="popular__items_basket">
                                         <button class="popular__items_basket-link basket-click" value="{{ product.id }}">
@@ -247,7 +247,7 @@
                                     <p class="stock">{{ product.discount }}%</p>
                                 </div>
                                 <div class="popular__items-text">
-                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category }}/{{ product.subcategory }}/{{ product.name }}">{{ product.name }}</a>
+                                    <a class="popular__items-title" href="/catalog/{{ product.subcategory.category.name }}/{{ product.subcategory }}/{{ product.name }}/">{{ product.name }}</a>
                                     <p class="popular__items_new_price">{{ product.new_price }} ₽</p>
                                     <p class="popular__items_old_price">{{ product.price }} ₽</p>
                                     <div class="popular__items_basket">

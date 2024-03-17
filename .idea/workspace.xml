@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add sort but have mistake">
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/js/category_catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/js/category_catalog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/templates/category_catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/templates/category_catalog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/js/base.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,14 +215,6 @@
       <workItem from="1710580209850" duration="45000" />
       <workItem from="1710580273878" duration="99000" />
       <workItem from="1710597315193" duration="3868000" />
-    </task>
-    <task id="LOCAL-00035" summary="add catalog">
-      <option name="closed" value="true" />
-      <created>1709064398898</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1709064398898</updated>
     </task>
     <task id="LOCAL-00036" summary="add menu">
       <option name="closed" value="true" />
@@ -601,14 +595,20 @@
       <option name="project" value="LOCAL" />
       <updated>1710615445340</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="add filter">
+      <created>1710625134152</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1710625134152</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add login" />
     <MESSAGE value="add logout" />
     <MESSAGE value="add unlogin" />
     <MESSAGE value="add style" />
@@ -633,7 +633,8 @@
     <MESSAGE value="fix basket" />
     <MESSAGE value="finish orders" />
     <MESSAGE value="add sort but have mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sort but have mistake" />
+    <MESSAGE value="add filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="add filter" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710604553703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

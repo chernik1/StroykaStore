@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="fix bags">
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add logic for category_catalog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/js/category_catalog.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/js/category_catalog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/templates/category_catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/templates/category_catalog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/js/base.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,14 +213,6 @@
       <workItem from="1710580209850" duration="45000" />
       <workItem from="1710580273878" duration="99000" />
       <workItem from="1710597315193" duration="3868000" />
-    </task>
-    <task id="LOCAL-00037" summary="add category_catalog">
-      <option name="closed" value="true" />
-      <created>1709146553576</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1709146553576</updated>
     </task>
     <task id="LOCAL-00038" summary="add product">
       <option name="closed" value="true" />
@@ -601,14 +591,20 @@
       <option name="project" value="LOCAL" />
       <updated>1710663988305</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="add logic for category_catalog">
+      <created>1710669959816</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1710669959816</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add logout" />
     <MESSAGE value="add unlogin" />
     <MESSAGE value="add style" />
     <MESSAGE value="clear model" />
@@ -633,7 +629,8 @@
     <MESSAGE value="add sort but have mistake" />
     <MESSAGE value="add filter" />
     <MESSAGE value="fix bags" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bags" />
+    <MESSAGE value="add logic for category_catalog" />
+    <option name="LAST_COMMIT_MESSAGE" value="add logic for category_catalog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,5 +1,5 @@
 // Каталог
-(function updateCatalogBehavior() {
+(function() {
   let catalogLink = document.querySelector(".header__catalog-link");
   let catalogLogo = document.querySelector(".header__catalog-logo");
 

@@ -410,3 +410,24 @@ closeButtons.forEach(closeButton => {
   });
 })();
 
+// Мобильный хедер
+document.addEventListener('DOMContentLoaded', function() {
+    var mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    var mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuToggle.addEventListener('click', function() {
+        mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    });
+});
+
+(function() {
+    window.addEventListener('scroll', function() {
+        const mainTools = document.querySelector('.header__wrapper-mobile');
+        if (window.scrollY > 20) {
+            mainTools.style.position = 'fixed';
+            mainTools.style.zIndex = '10000';
+        } else {
+            mainTools.style.position = 'static';
+        }
+    });
+})();

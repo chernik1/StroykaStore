@@ -52,7 +52,7 @@
                     </form>
                 </div>
                 <div class="header__cards">
-                    <a href="#!" class="header__card">
+                    <a href="/account/" class="header__card">
                         <div class="header__card-pic header__card-pic_profile">
                             <img src="{% static 'img/svg/header-icon-1.svg' %}" alt="Профиль" class="header__card-thumbnail">
                         </div>
@@ -103,6 +103,25 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="header__wrapper-mobile">
+            <div class="mobile-header">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    ☰
+                </button>
+                <a href="/">
+                    <img src="{% static 'img/svg/footer-logo.svg' %}" alt="logo">
+                </a>
+            </div>
+            <nav class="mobile-nav" id="mobileNav">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/account/">Аккаунт</a></li>
+                    <li><a href="/orders/">Корзина</a></li>
+                    <li><a href="/catalog/">Каталог</a></li>
+                    <li><a href="/basket/">Корзина</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
     <!-- Header end -->

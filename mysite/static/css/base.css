@@ -168,7 +168,7 @@ img{
 .header__search-input {
     width: 444px;
     height: 49px;
-    padding-right: 40px;
+    padding-right: 35px;
     box-sizing: border-box;
     background: rgb(246, 246, 246);
     border: none;
@@ -1065,8 +1065,16 @@ img{
     padding: 0.5em 0;
 }
 
+.mobile-header__logo {
+    position: static;
+}
+
 @media (max-width: 1440px) {
+    body {
+        width: 1440px;
+    }
     .header__wrapper-mobile {
+        position: static;
         display: block;
         width: 100%;
     }
@@ -1091,18 +1099,28 @@ img{
 }
 
 @media (max-width: 750px) {
+
     .footer__info {
         display: grid;
         grid-column-gap: 15px;
         grid-row-gap: 15px;
     }
     .footer {
-        height: 520px;
+        height: 570px;
     }
     .footer__btn:hover img{
         display: none;
         filter: none;
         transform: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer__list {
+        column-count: 2;
+    }
+    .footer {
+        height: 640px;
     }
 }
 

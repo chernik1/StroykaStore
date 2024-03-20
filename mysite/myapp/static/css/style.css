@@ -821,3 +821,9 @@
     line-height: 140%;
     margin-bottom: 3px;
 }
+
+@media (max-width: 1440px) {
+    .main__tab {
+        padding-left: 30px;
+    }
+}

@@ -88,3 +88,11 @@
 
 
 /* Make delivery end */
+
+@media (max-width: 1101px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}

@@ -95,3 +95,11 @@
 
 
 /* Return sections end */
+
+@media (max-width: 666px) {
+    .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}

@@ -96,8 +96,8 @@
 
 /* Return sections end */
 
-@media (max-width: 666px) {
-    .footer {
+@media (max-width: 650px) {
+    footer {
         position: fixed;
         bottom: 0;
         width: 100%;

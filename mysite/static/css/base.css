@@ -1089,3 +1089,11 @@ img{
         display: none;
     }
 }
+
+@media (max-width: 750px) {
+    .footer__btn:hover img{
+        display: none;
+        filter: none;
+        transform: none;
+    }
+}

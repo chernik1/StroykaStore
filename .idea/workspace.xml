@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add index">
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="need fix delivery">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/delivery.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/delivery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/documentation.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/documentation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/return.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/return.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,15 +223,8 @@
       <workItem from="1710866618534" duration="4549000" />
       <workItem from="1710947704553" duration="2813000" />
       <workItem from="1710959185969" duration="1159000" />
-      <workItem from="1710966065579" duration="2373000" />
-    </task>
-    <task id="LOCAL-00041" summary="need change account">
-      <option name="closed" value="true" />
-      <created>1709502017301</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1709502017301</updated>
+      <workItem from="1710966065579" duration="2516000" />
+      <workItem from="1710998447989" duration="1468000" />
     </task>
     <task id="LOCAL-00042" summary="need change account">
       <option name="closed" value="true" />
@@ -608,7 +601,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710960335176</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="need fix delivery">
+      <option name="closed" value="true" />
+      <created>1710970044241</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1710970044242</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add model" />
     <MESSAGE value="add basket" />
     <MESSAGE value="add html and css for basket" />
     <MESSAGE value="final basket" />
@@ -651,10 +651,11 @@
     <MESSAGE value="fix header bag" />
     <MESSAGE value="adapted header and 50% footer" />
     <MESSAGE value="add index" />
-    <option name="LAST_COMMIT_MESSAGE" value="add index" />
+    <MESSAGE value="need fix delivery" />
+    <option name="LAST_COMMIT_MESSAGE" value="need fix delivery" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710969700586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710998469269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/manage_py$run.coverage" NAME="run Coverage Results" MODIFIED="1710057207732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite" />
   </component>
 </project>

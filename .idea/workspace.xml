@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="need fix delivery">
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add adaptive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/documentation.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/documentation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/return.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/return.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,23 +218,7 @@
       <workItem from="1710947704553" duration="2813000" />
       <workItem from="1710959185969" duration="1159000" />
       <workItem from="1710966065579" duration="2516000" />
-      <workItem from="1710998447989" duration="1468000" />
-    </task>
-    <task id="LOCAL-00042" summary="need change account">
-      <option name="closed" value="true" />
-      <created>1709502966306</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1709502966306</updated>
-    </task>
-    <task id="LOCAL-00043" summary="add registration">
-      <option name="closed" value="true" />
-      <created>1709579261665</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1709579261665</updated>
+      <workItem from="1710998447989" duration="2202000" />
     </task>
     <task id="LOCAL-00044" summary="add login">
       <option name="closed" value="true" />
@@ -609,7 +587,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710970044242</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="add adaptive">
+      <option name="closed" value="true" />
+      <created>1711002085605</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1711002085605</updated>
+    </task>
+    <task id="LOCAL-00092" summary="add adaptive">
+      <option name="closed" value="true" />
+      <created>1711002163414</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1711002163414</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +621,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add basket" />
     <MESSAGE value="add html and css for basket" />
     <MESSAGE value="final basket" />
     <MESSAGE value="add transaction model" />
@@ -652,7 +645,8 @@
     <MESSAGE value="adapted header and 50% footer" />
     <MESSAGE value="add index" />
     <MESSAGE value="need fix delivery" />
-    <option name="LAST_COMMIT_MESSAGE" value="need fix delivery" />
+    <MESSAGE value="add adaptive" />
+    <option name="LAST_COMMIT_MESSAGE" value="add adaptive" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710998469269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

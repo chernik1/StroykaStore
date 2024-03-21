@@ -169,7 +169,7 @@
 /* Documentation main end */
 
 @media (max-width: 947px) {
-    .footer {
+    footer {
         position: fixed;
         bottom: 0;
         width: 100%;

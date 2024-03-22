@@ -219,15 +219,9 @@
       <workItem from="1710959185969" duration="1159000" />
       <workItem from="1710966065579" duration="2516000" />
       <workItem from="1710998447989" duration="2202000" />
-      <workItem from="1711054938423" duration="343000" />
-    </task>
-    <task id="LOCAL-00045" summary="add logout">
-      <option name="closed" value="true" />
-      <created>1709586736747</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1709586736747</updated>
+      <workItem from="1711054938423" duration="380000" />
+      <workItem from="1711056659577" duration="628000" />
+      <workItem from="1711113345910" duration="388000" />
     </task>
     <task id="LOCAL-00046" summary="add unlogin">
       <option name="closed" value="true" />
@@ -604,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711055277152</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="add adaptive">
+      <option name="closed" value="true" />
+      <created>1711055310801</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1711055310801</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +652,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="add adaptive" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1710998469269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/verstka_2$run.coverage" NAME="run Coverage Results" MODIFIED="1711058546330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/manage_py$run.coverage" NAME="run Coverage Results" MODIFIED="1710057207732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mysite" />
   </component>
 </project>

@@ -8,11 +8,6 @@ html {
             box-sizing: inherit;
     }
 
-a:hover,
-button:hover {
-  cursor: url('../img/svg/finger.svg'), pointer;
-}
-
 button, a {
     user-select: none;
 }
@@ -23,6 +18,7 @@ body {
     font-weight: 400;
     line-height: 1.2;
     color: rgb(47, 50, 58);
+    width: 100%;
 }
 
 .wrapper {
@@ -1073,27 +1069,4 @@ img{
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-}
-
-@media (max-width: 1440px) {
-    body {
-        width: 1440px;
-    }
-    .header__wrapper-mobile {
-        position: static;
-        display: block;
-        width: 100%;
-    }
-    .header__wrapper {
-        visibility: hidden;
-        display: none;
-    }
-}
-
-@media (max-width: 750px) {
-    .footer__btn:hover img{
-        display: none;
-        filter: none;
-        transform: none;
-    }
 }

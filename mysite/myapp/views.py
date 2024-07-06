@@ -39,7 +39,7 @@ def index(request):
     if len(products) > 12:
         for i in range(12):
             product = products[i]
-            if not product.discount:
+            if not product.discount and product.discount is not None:
                 product.new_price = int(product.price - (product.price * (product.discount / 100)))
             popular_products.append(product)
     else:

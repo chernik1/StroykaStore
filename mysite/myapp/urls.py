@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+from . import views, api
+from mysite.settings import API_VERSION
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -25,4 +26,9 @@ urlpatterns = [
     path('category_subcategory_sort/', views.category_subcategory_sort),
     path('category_subcategory_apply/', views.category_subcategory_apply),
     path('category_subcategory_reset/', views.category_subcategory_reset),
+
+
+    # API urls
+    path(f'api/{API_VERSION}/products/', api.ProductAPIView.as_view()),
+    path(f'api/{API_VERSION}/products/create-random-products/', api.CreateRandomProductsAPI.as_view()),
 ]

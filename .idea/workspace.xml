@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add gitignore">
-      <change afterPath="$PROJECT_DIR$/mysite/myapp/api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/myapp/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysite/myapp/static/img/api/api-img.png" afterDir="false" />
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/category_catalog.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/category_catalog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,15 +296,9 @@
       <workItem from="1720272037095" duration="2237000" />
       <workItem from="1720278366781" duration="219000" />
       <workItem from="1720278595963" duration="1574000" />
-      <workItem from="1720280198053" duration="7971000" />
-    </task>
-    <task id="LOCAL-00048" summary="add style">
-      <option name="closed" value="true" />
-      <created>1709617415879</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1709617415879</updated>
+      <workItem from="1720280198053" duration="8251000" />
+      <workItem from="1720291776374" duration="16000" />
+      <workItem from="1720335842007" duration="5021000" />
     </task>
     <task id="LOCAL-00049" summary="clear model">
       <option name="closed" value="true" />
@@ -682,7 +675,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718191693849</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="add api">
+      <option name="closed" value="true" />
+      <created>1720291700691</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1720291700691</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +701,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="final basket" />
     <MESSAGE value="add transaction model" />
     <MESSAGE value="add transaction" />
     <MESSAGE value="delete stripe" />
@@ -725,9 +725,10 @@
     <MESSAGE value="need fix delivery" />
     <MESSAGE value="add adaptive" />
     <MESSAGE value="add gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore" />
+    <MESSAGE value="add api" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StroykaStore$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1720290172828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/StroykaStore$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1720340848740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

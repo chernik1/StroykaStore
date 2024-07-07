@@ -512,8 +512,10 @@
 .popular__items_basket {
     width: 246px;
     height: 49px;
-    position: relative;
+    position: absolute;
+    bottom: 15px;
 }
+
 
 .popular__items_basket-link {
     color: rgb(23, 27, 36);

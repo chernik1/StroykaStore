@@ -39,3 +39,34 @@ class CreateRandomProductsAPI(generics.CreateAPIView):
 
         serializer = self.get_serializer(products_created, many=True)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class CreateProductAPI(generics.CreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    def create(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            code = request.POST['code']
+            name = request.POST['name']
+            price = request.POST['price']
+            description = request.POST['description']
+            discount = request.POST['discount']
+            photo = request.FILES.get('photo')
+            brand = Brand.objects.get(id=request.POST['brand'])
+            supplier = Supplier.objects.get(id=request.POST['supplier'])
+            subcategory = Subcategory.objects.get(id=request.POST['subcategory'])
+
+            product = Product.objects.create(
+                code=code,
+                name=name,
+                price=price,
+                description=description,
+                discount=discount,
+                photo=photo,
+                brand=brand,
+                supplier=supplier,
+                subcategory=subcategory
+            )
+
+            serializer = self.get_serializer(product)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)

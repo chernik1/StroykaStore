@@ -33,7 +33,7 @@ def index(request):
         if product.discount:
             product.new_price = int(product.price -(product.price * (product.discount / 100)))
             stock_products.append(product)
-        if len(popular_products) == 4:
+        if len(stock_products) == 4:
             break
 
     if len(products) > 12:

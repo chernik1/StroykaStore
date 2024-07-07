@@ -33,5 +33,10 @@ urlpatterns = [
     path(f'api/{API_VERSION}/products/create-random-products/', api.CreateRandomProductsAPI.as_view()),
     path(f'api/{API_VERSION}/products/create/', api.CreateProductAPI.as_view()),
     path(f'api/{API_VERSION}/categories/', api.CategoryAPIView.as_view()),
-path(f'api/{API_VERSION}/categories/create/', api.CreateCategoryAPI.as_view()),
+    path(f'api/{API_VERSION}/categories/create/', api.CreateCategoryAPI.as_view()),
+    path(f'api/{API_VERSION}/subcategories/', api.SubcategoryAPIView.as_view()),
+    path(f'api/{API_VERSION}/subcategories/create/', api.CreateSubcategoryAPI.as_view()),
+    path(f'api/{API_VERSION}/brands/', api.BrandListCreateAPIView.as_view()),
+    path(f'api/{API_VERSION}/suppliers/', api.SupplierListCreateAPIView.as_view()),
+    path(f'api/{API_VERSION}/payments/', api.PaymentAPIView.as_view()),
 ]

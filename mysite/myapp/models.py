@@ -6,9 +6,6 @@ from django.utils import timezone
 import uuid
 import random
 import json
-
-# Create your models here.
-
 from django.db import models
 
 class Brand(models.Model):
@@ -36,7 +33,6 @@ class Subcategory(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
@@ -139,4 +135,3 @@ class Payment(models.Model):
 
     def __str__(self):
         return str(self.id)
-

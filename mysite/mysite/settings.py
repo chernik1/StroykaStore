@@ -114,3 +114,18 @@ YOOKASSA_SECRET_KEY = 'test_BP9qNqpEjdxivctr0lDIHC5SLD3xfwpyw8fA3ocEiR0'
 # My API
 
 API_VERSION = 'v1'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
+
+    'DEFAULT_PERMISSION_CLASSES': [
+      'rest_framework.permissions.AllowAny',
+    ],
+
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.BaseAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    # ],
+
+}

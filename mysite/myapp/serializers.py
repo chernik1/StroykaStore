@@ -10,4 +10,24 @@ class ProductSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta(serializers.ModelSerializer):
         model = Category
-        fields = ('name', 'photo')
+        fields = '__all__'
+
+class SubcategorySerializer(serializers.ModelSerializer):
+    class Meta(serializers.ModelSerializer):
+        model = Subcategory
+        fields = '__all__'
+
+class SupplierSerializer(serializers.ModelSerializer):
+    class Meta(serializers.ModelSerializer):
+        model = Supplier
+        fields = '__all__'
+
+class BrandSerializer(serializers.ModelSerializer):
+    class Meta(serializers.ModelSerializer):
+        model = Brand
+        fields = '__all__'
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta(serializers.ModelSerializer):
+        model = Payment
+        fields = '__all__'

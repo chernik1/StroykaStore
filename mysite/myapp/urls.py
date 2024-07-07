@@ -32,4 +32,6 @@ urlpatterns = [
     path(f'api/{API_VERSION}/products/', api.ProductAPIView.as_view()),
     path(f'api/{API_VERSION}/products/create-random-products/', api.CreateRandomProductsAPI.as_view()),
     path(f'api/{API_VERSION}/products/create/', api.CreateProductAPI.as_view()),
+    path(f'api/{API_VERSION}/categories/', api.CategoryAPIView.as_view()),
+path(f'api/{API_VERSION}/categories/create/', api.CreateCategoryAPI.as_view()),
 ]

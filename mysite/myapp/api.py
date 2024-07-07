@@ -5,7 +5,7 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 
 from .models import *
-from .serializers import ProductSerializer
+from .serializers import *
 from mysite.settings import HOST
 
 class ProductAPIView(generics.ListAPIView):
@@ -20,25 +20,28 @@ class CreateRandomProductsAPI(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         products_created = []
         faker = Faker()
-        for _ in range(10):
-            brand = Brand.objects.all()[random.randint(0, Brand.objects.count() - 1)]
-            supplier = Supplier.objects.all()[random.randint(0, Supplier.objects.count() - 1)]
-            subcategory = Subcategory.objects.all()[random.randint(0, Subcategory.objects.count() - 1)]
-            product = Product.objects.create(
-                name=faker.word().title(),
-                price=random.randint(100, 1000),
-                description=faker.text(),
-                discount=random.randint(0, 100),
-                code=random.randint(100000, 99999999),
-                photo='/static/img/api/api-img.png',
-                brand= brand,
-                supplier=supplier,
-                subcategory=subcategory
-            )
-            products_created.append(product)
+        try:
+            for _ in range(10):
+                brand = Brand.objects.all()[random.randint(0, Brand.objects.count() - 1)]
+                supplier = Supplier.objects.all()[random.randint(0, Supplier.objects.count() - 1)]
+                subcategory = Subcategory.objects.all()[random.randint(0, Subcategory.objects.count() - 1)]
+                product = Product.objects.create(
+                    name=faker.word().title(),
+                    price=random.randint(100, 1000),
+                    description=faker.text(),
+                    discount=random.randint(0, 100),
+                    code=random.randint(100000, 99999999),
+                    photo='/static/img/api/api-img.png',
+                    brand= brand,
+                    supplier=supplier,
+                    subcategory=subcategory
+                )
+                products_created.append(product)
 
-        serializer = self.get_serializer(products_created, many=True)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+            serializer = self.get_serializer(products_created, many=True)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except:
+            return Response({'success': False}, status=status.HTTP_400_BAD_REQUEST)
 
 class CreateProductAPI(generics.CreateAPIView):
     queryset = Product.objects.all()
@@ -55,18 +58,32 @@ class CreateProductAPI(generics.CreateAPIView):
             brand = Brand.objects.get(id=request.POST['brand'])
             supplier = Supplier.objects.get(id=request.POST['supplier'])
             subcategory = Subcategory.objects.get(id=request.POST['subcategory'])
-
-            product = Product.objects.create(
-                code=code,
-                name=name,
-                price=price,
-                description=description,
-                discount=discount,
-                photo=photo,
-                brand=brand,
-                supplier=supplier,
-                subcategory=subcategory
-            )
+            try:
+                product = Product.objects.create(
+                    code=code,
+                    name=name,
+                    price=price,
+                    description=description,
+                    discount=discount,
+                    photo=photo,
+                    brand=brand,
+                    supplier=supplier,
+                    subcategory=subcategory
+                )
+            except:
+                return Response({'success': False}, status=status.HTTP_400_BAD_REQUEST)
 
             serializer = self.get_serializer(product)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class CategoryAPIView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+class CreateCategoryAPI(generics.CreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+    def create(self, request, *args, **kwargs):
+        if request.method == 'POST':
+            pass

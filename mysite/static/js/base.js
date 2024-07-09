@@ -55,15 +55,42 @@
 }());
 
 // Модальное окно городов
-function openModal() {
+
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  var cookieString = name + "=" + (value || "")  + expires + "; path=/; SameSite=Lax";
+  document.cookie = cookieString;
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+function setCityName(city) {
+  let cityNameSpan = document.getElementById("city-name");
+  cityNameSpan.textContent = city;
+  setCookie('selectedCity', city, 365);
+}
+
+function initPage() {
   let btn = document.querySelector(".header__location_button");
   let modal = document.querySelector("#modal__window_city");
   let overlay = document.querySelector(".modal__window_city");
-  let cityNameSpan = document.getElementById("city-name");
 
-  const storedCity = localStorage.getItem('selectedCity');
+  const storedCity = getCookie('selectedCity');
   if (storedCity) {
-    cityNameSpan.textContent = storedCity;
+    setCityName(storedCity);
   }
 
   btn.addEventListener("click", function() {
@@ -82,12 +109,13 @@ function openModal() {
     link.addEventListener("click", function(event) {
       event.preventDefault();
       let city = link.textContent.trim();
+      setCityName(city);
       closeButton.click();
-      cityNameSpan.textContent = city;
-      localStorage.setItem('selectedCity', city);
     });
   }
 }
+
+document.addEventListener('DOMContentLoaded', initPage);
 
 // Модальное окно профиля
 

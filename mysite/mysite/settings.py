@@ -1,15 +1,14 @@
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-3cwzv_l+kuei+@^c1^^#mmyv8hs+11^y-65v-%f6_osmsskuy$'
+SECRET_KEY = os.getenv('DJANGO_KEY', 'Optional default value')
 
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-HOST = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -108,8 +107,8 @@ AUTH_USER_MODEL = 'myapp.CustomUser'
 
 
 # Yookassa
-YOOKASSA_SHOP_ID = '347507'
-YOOKASSA_SECRET_KEY = 'test_BP9qNqpEjdxivctr0lDIHC5SLD3xfwpyw8fA3ocEiR0'
+YOOKASSA_SHOP_ID = os.getenv('YOOKASSA_SHOP_ID', 'Optional default value')
+YOOKASSA_SECRET_KEY = os.getenv('YOOKASSA_SECRET_KEY', 'Optional default value')
 
 # My API
 

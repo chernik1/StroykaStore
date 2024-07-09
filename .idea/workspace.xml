@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="add api create">
-      <change afterPath="$PROJECT_DIR$/mysite/myapp/permissions.py" afterDir="false" />
+    <list default="true" id="3cc285e6-4125-408c-a2a5-d044827ae07e" name="Changes" comment="finish api">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/static/js/base.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +37,12 @@
     &quot;assignee&quot;: &quot;chernik1&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/chernik1/StroykaStore.git",
-    "accountId": "18372453-0951-4341-b3c9-7fbf7c95dc5a"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/chernik1/StroykaStore.git&quot;,
+    &quot;accountId&quot;: &quot;18372453-0951-4341-b3c9-7fbf7c95dc5a&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -299,15 +295,11 @@
       <workItem from="1720280198053" duration="8251000" />
       <workItem from="1720291776374" duration="16000" />
       <workItem from="1720335842007" duration="5252000" />
-      <workItem from="1720350774488" duration="12455000" />
-    </task>
-    <task id="LOCAL-00051" summary="fix bags">
-      <option name="closed" value="true" />
-      <created>1709656424856</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1709656424857</updated>
+      <workItem from="1720350774488" duration="13158000" />
+      <workItem from="1720422439924" duration="6074000" />
+      <workItem from="1720459384298" duration="2335000" />
+      <workItem from="1720510875491" duration="595000" />
+      <workItem from="1720538412881" duration="876000" />
     </task>
     <task id="LOCAL-00052" summary="add basket">
       <option name="closed" value="true" />
@@ -684,11 +676,22 @@
       <option name="project" value="LOCAL" />
       <updated>1720353572720</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="finish api">
+      <option name="closed" value="true" />
+      <created>1720379141697</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1720379141697</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -702,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add transaction" />
     <MESSAGE value="delete stripe" />
     <MESSAGE value="add base stripe" />
     <MESSAGE value="before djnago paypal" />
@@ -727,9 +729,10 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="add api" />
     <MESSAGE value="add api create" />
-    <option name="LAST_COMMIT_MESSAGE" value="add api create" />
+    <MESSAGE value="finish api" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish api" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StroykaStore$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1720379022617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/StroykaStore$runserver.coverage" NAME="runserver Coverage Results" MODIFIED="1720441126663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

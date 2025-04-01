@@ -2,9 +2,11 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_KEY', 'Optional default value')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
 
@@ -65,8 +67,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
     }
 }
 
@@ -97,9 +103,12 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files
-STATIC_URL = 'static/'
+STATIC_URL = '/mysite/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Autorization
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -107,8 +116,8 @@ AUTH_USER_MODEL = 'myapp.CustomUser'
 
 
 # Yookassa
-YOOKASSA_SHOP_ID = os.getenv('YOOKASSA_SHOP_ID', 'Optional default value')
-YOOKASSA_SECRET_KEY = os.getenv('YOOKASSA_SECRET_KEY', 'Optional default value')
+YOOKASSA_SHOP_ID = os.getenv('YOOKASSA_SHOP_ID')
+YOOKASSA_SECRET_KEY = os.getenv('YOOKASSA_SECRET_KEY')
 
 # My API
 
@@ -128,3 +137,6 @@ REST_FRAMEWORK = {
     # ],
 
 }
+
+# Host constants
+BASE_URL = 'http://127.0.0.1:8000'

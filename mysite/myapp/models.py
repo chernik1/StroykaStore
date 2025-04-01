@@ -22,7 +22,7 @@ class Supplier(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='category_photos/', null=True, blank=True)
+    photo = models.ImageField(upload_to='categories/', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -38,15 +38,21 @@ class Product(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=0)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
-    discount = models.DecimalField(max_digits=5, decimal_places=0, null=True, blank=True)
-    photo = models.ImageField(upload_to='product_photos/', null=True, blank=True)
+    discount = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    photo = models.ImageField(upload_to='products/')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     view = models.IntegerField(default=0)
     new_price = models.DecimalField(max_digits=10, decimal_places=0, null=True, blank=True)
+
+    def delete(self, *args, **kwargs):
+        if self.photo:
+            self.photo.delete()
+        super().delete(*args, **kwargs)
+
 
     def __str__(self):
         return self.name
@@ -135,3 +141,19 @@ class Payment(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+class Documentation(models.Model):
+    fullname = models.CharField(max_length=40)
+    shortname = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    file = models.FileField(upload_to='documents/')
+
+class Comment(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    avatar = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.user.name, self.product.name, self.text, self.date

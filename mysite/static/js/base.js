@@ -7,8 +7,8 @@
             mainTools.style.top = '0';
             mainTools.style.left = '0';
             mainTools.style.right = '0';
-            mainTools.style.maxWidth = '2000px';
-            mainTools.style.padding = '10px 340px'
+            mainTools.style.maxWidth = '1920px';
+            mainTools.style.padding = '10px 372px'
         } else {
             mainTools.style.position = 'static';
         }

@@ -95,30 +95,44 @@
 }
 
 #main__tab-details {
-    padding: 12px 24px;
-    background: rgb(252, 236, 65);
-    display: inline-block;
-    cursor: pointer;
-    border: none;
+  padding: 12px 24px;
+  background: rgb(252, 236, 65);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(23, 27, 36);
+  line-height: 136%;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-#main__tab-details:hover, #main__tab-details:focus, #main__tab-details:active, #main__tab-details:active {
-    background-color: rgb(47, 50, 58);
-}
-
-.main__tab-link {
-    font-size: 18px;
-    color: rgb(23, 27, 36);
-    line-height: 136%;
-    text-decoration: none;  
-}
-
-#main__tab-details:hover .main__tab-link {
+#main__tab-details:hover {
+  background-color: rgb(47, 50, 58);
   color: white;
 }
 
-#main__tab-details:active .main__tab-link {
-  color: rgb(209, 209, 211);
+#main__tab-details.active {
+  background-color: rgb(47, 50, 58);
+  color: white;
+  transform: translateY(1px);
+}
+
+#main__tab-details:active {
+  background-color: rgb(47, 50, 58);
+  color: white;
+  transform: translateY(1px);
+}
+
+#main__tab-details:focus-visible {
+  outline: 2px solid rgb(47, 50, 58);
+  outline-offset: 2px;
+}
+
+#main__tab-details:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.main__tab_arrows .main__tab-arrow {
+  border: 1px solid rgb(209, 209, 211);
 }
 
 .main__tab_arrows .main__tab-arrow {
@@ -435,7 +449,9 @@
     position: absolute;
     top: 52px;
     left: 0px;
-    width: 100%;
+    width: 180px;
+    height: 128px;
+    object-fit: contain;
 }
 
 /* Popular categories end */

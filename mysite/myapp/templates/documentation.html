@@ -22,51 +22,27 @@
 
 <section class="documentation__main">
     <div class="wrapper documentation__main_wrapper">
+        {% for document in documents %}
         <div class="documentation__block">
             <div class="documentation-background">
                 <div class="background-1"></div>
                 <div class="background-2">
-                    <div class="background-2-title">Оферта «Безопасная сделка»</div>
+                    <div class="background-2-title">{{ document.shortname|default:"Название" }}</div>
                     <div class="rectangle-1"></div>
                     <div class="rectangle-2"></div>
                 </div>
             </div>
             <div class="documentation__text">
-                <div class="documentation__main-title">Оферта «Безопасная сделка»</div>
-                <div class="size__and_format">PDF · 10 МБ</div>
-                <button class="documentation-download">Скачать</button>
-            </div>
-        </div>
-        <div class="documentation__block">
-            <div class="documentation-background">
-                <div class="background-1"></div>
-                <div class="background-2">
-                    <div class="background-2-title">Политика конфиденциальности</div>
-                    <div class="rectangle-1"></div>
-                    <div class="rectangle-2"></div>
+                <div class="documentation__main-title">{{ document.fullname|default:"Полное название" }}</div>
+                <div class="size__and_format">
+                    {{ document.file.name|slice:'-4:'|upper }} {{ document.file.size|filesizeformat }}
                 </div>
-            </div>
-            <div class="documentation__text">
-                <div class="documentation__main-title">Политика конфиденциальности</div>
-                <div class="size__and_format">PDF · 10 МБ</div>
-                <button class="documentation-download">Скачать</button>
+                <a href="{{ document.file.url }}" class="documentation-download" download>Скачать</a>
             </div>
         </div>
-        <div class="documentation__block">
-            <div class="documentation-background">
-                <div class="background-1"></div>
-                <div class="background-2">
-                    <div class="background-2-title">Оферта</div>
-                    <div class="rectangle-1"></div>
-                    <div class="rectangle-2"></div>
-                </div>
-            </div>
-            <div class="documentation__text">
-                <div class="documentation__main-title">Оферта доставки</div>
-                <div class="size__and_format">PDF · 10 МБ</div>
-                <button class="documentation-download">Скачать</button>
-            </div>
-        </div>
+        {% empty %}
+        <p>Документы не найдены</p>
+        {% endfor %}
     </div>
 </section>
 

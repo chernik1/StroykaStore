@@ -1,21 +1,3 @@
-// Каталог
-(function() {
-  let catalogLink = document.querySelector(".header__catalog-link");
-  let catalogLogo = document.querySelector(".header__catalog-logo");
-
-  catalogLink.addEventListener("mouseover", function() {
-    catalogLogo.src = "/static/img/svg/catalog-icon-white.svg";
-  });
-
-  catalogLink.addEventListener("mouseout", function() {
-    catalogLogo.src = "/static/img/svg/icon-catalog.svg";
-  });
-
-  catalogLink.addEventListener("click", function() {
-    catalogLogo.src = "/static/img/svg/catalog-icon-grey.svg";
-  });
-})();
-
 // Специальные предложения
 (function() {
     const offerLink = "#offer";
@@ -39,12 +21,12 @@
     }
 
     leftArrow.addEventListener('click', function() {
-        changeBackgroundImage("/static/img/main-tab-1.png", "Специальные предложения", "на строительные материалы и товары для ремонта");
+        changeBackgroundImage("/mysite/static/img/main-tab-1.png", "Специальные предложения", "на строительные материалы и товары для ремонта");
         changeLink(offerLink);
     });
 
     rightArrow.addEventListener('click', function() {
-        changeBackgroundImage("/static/img/main-tab-2.png", "Распродажа инструментов", "«СтройкаСтор» стремится сделать условия покупки максимально выгодными для каждого покупателя, поэтому на сайте регулярно появляются товары со скидкой");
+        changeBackgroundImage("/mysite/static/img/main-tab-2.png", "Распродажа инструментов", "«СтройкаСтор» стремится сделать условия покупки максимально выгодными для каждого покупателя, поэтому на сайте регулярно появляются товары со скидкой");
         changeLink(saleLink);
     });
 })();

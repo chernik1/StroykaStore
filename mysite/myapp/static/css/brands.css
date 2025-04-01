@@ -164,9 +164,11 @@
 }
 
 .popular__questions-item-button img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
 }
+
 
 .popular__questions-item-text {
     color: rgb(47, 50, 58);
@@ -176,6 +178,7 @@
     height: auto;
     margin-left: 16px;
 }
+
 
 .popular__questions-item-unvisible {
   display: none;

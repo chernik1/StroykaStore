@@ -6,15 +6,18 @@
     button.addEventListener('click', () => {
       hiddenContents.forEach((content, i) => {
         if (i !== index) {
-          content.classList.add('hidden');
-          buttons[i].querySelector('img').src = '/static/img/brands/svg/question-icon-close.svg';
+          content.classList.add('popular__questions-item-unvisible');
+          buttons[i].querySelector('img').style.transform = 'rotate(0deg)';
         }
       });
+
       hiddenContents[index].classList.toggle('popular__questions-item-unvisible');
+
+      const img = button.querySelector('img');
       if (hiddenContents[index].classList.contains('popular__questions-item-unvisible')) {
-        button.querySelector('img').src = '/static/img/brands/svg/question-icon-close.svg';
+        img.style.transform = 'rotate(0deg)';
       } else {
-        button.querySelector('img').src = '/static/img/brands/svg/question-icon-open.svg';
+        img.style.transform = 'rotate(180deg)';
       }
     });
   });

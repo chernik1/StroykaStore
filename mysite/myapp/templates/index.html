@@ -25,9 +25,9 @@
                         </h2>
                     </div>
                     <div class="main__tab_more">
-                        <button id="main__tab-details">
-                            <a href="#offer" class="main__tab-link js-scroll">Подробнее</a>
-                        </button>
+                        <a href="#offer" class="main__tab-link js-scroll">
+                            <button id="main__tab-details">Подробнее</button>
+                        </a>
                     </div>
                     <div class="main__tab_arrows">
                         <button id="main__tab-left-arrow" class="main__tab-arrow">
@@ -94,7 +94,6 @@
         <!-- Stocks end -->
 
         <!-- Popular categories start -->
-
         <div class="popular__categories">
             <div class="wrapper popular_categories__wrapper">
                 <div class="popular__categories_block">
@@ -108,105 +107,20 @@
                     </button>
                 </div>
                 <ul class="popular__categories_list">
+                    {% for category in categories %}
                     <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Душевые/" class="popular__categories-link">
+                        <a href="/catalog/{{ category.name }}/" class="popular__categories-link">
                             <h5 class="popular__categories_item_name">
-                                Душевые
+                                {{ category.name }}
                             </h5>
-                            <img src="{% static 'img/popular-categories-1.png' %}" alt="Душевые" class="popular__categories-pic">
+                            <img src="{{ category.photo.url }}" alt="{{ category.name }}" class="popular__categories-pic">
                         </a>
                     </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Пиломатериалы/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Пиломатериалы
-                            </h5>
-                            <img src="{% static 'img/popular-categories-2.png' %}" alt="Пиломатериалы" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Линолеум
-                            </h5>
-                            <img src="{% static 'img/popular-categories-3.png' %}" alt="Линолеум" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Обои
-                            </h5>
-                            <img src="{% static 'img/popular-categories-4.png' %}" alt="Обои" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Инструменты
-                            </h5>
-                            <img src="{% static 'img/popular-categories-5.png' %}" alt="Инструменты" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Товары для дачи
-                            </h5>
-                            <img src="{% static 'img/popular-categories-6.png' %}" alt="Товары для дачи" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Окна
-                            </h5>
-                            <img src="{% static 'img/popular-categories-7.png' %}" alt="Окна" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Двери
-                            </h5>
-                            <img src="{% static 'img/popular-categories-8.png' %}" alt="Двери" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Сантехника
-                            </h5>
-                            <img src="{% static 'img/popular-categories-9.png' %}" alt="Сантехника" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Краски
-                            </h5>
-                            <img src="{% static 'img/popular-categories-10.png' %}" alt="Краски" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Электротовары
-                            </h5>
-                            <img src="{% static 'img/popular-categories-11.png' %}" alt="Электротовары" class="popular__categories-pic">
-                        </a>
-                    </li>
-                    <li class="popular__categories_item">
-                        <a href="/catalog/Сантехника/Линолеум/" class="popular__categories-link">
-                            <h5 class="popular__categories_item_name">
-                                Интерьер
-                            </h5>
-                            <img src="{% static 'img/popular-categories-12.png' %}" alt="Интерьер" class="popular__categories-pic">
-                        </a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
+
         <!-- Popular categories end -->
 
         <!-- Popular items start -->
@@ -371,7 +285,7 @@
                 <ul class="reviews__list">
                     <li class="reviews__item">
                         <div class="reviews__main">
-                            <img src="{% static 'img/avatar-1.png' %}" alt="avatar" class="avatar">
+                            <img src="{% static 'img/comments/avatar-1.png' %}" alt="avatar" class="avatar">
                             <h2 class="reviews__name">Пётр</h2>
                             <img src="{% static 'img/reviews-element.png' %}" alt="element" class="reviews__element">
                         </div>
@@ -382,7 +296,7 @@
                     </li>
                     <li class="reviews__item">
                         <div class="reviews__main">
-                            <img src="{% static 'img/avatar-2.png' %}" alt="avatar" class="avatar">
+                            <img src="{% static 'img/comments/avatar-2.png' %}" alt="avatar" class="avatar">
                             <h2 class="reviews__name">Анна</h2>
                             <img src="{% static 'img/reviews-element.png' %}" alt="element" class="reviews__element">
                         </div>
@@ -393,7 +307,7 @@
                     </li>
                     <li class="reviews__item">
                         <div class="reviews__main">
-                            <img src="{% static 'img/avatar-3.png' %}" alt="avatar" class="avatar">
+                            <img src="{% static 'img/comments/avatar-3.png' %}" alt="avatar" class="avatar">
                             <h2 class="reviews__name">Виктор</h2>
                             <img src="{% static 'img/reviews-element.png' %}" alt="element" class="reviews__element">
                         </div>

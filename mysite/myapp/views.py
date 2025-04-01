@@ -14,9 +14,6 @@ import yookassa as yo
 from django.urls import reverse
 import decimal
 from django.forms.models import model_to_dict
-
-# Create your views here.
-
 from django.template.defaultfilters import stringfilter
 from urllib.parse import unquote, quote
 
@@ -49,6 +46,8 @@ def index(request):
         'user': request.user,
         'popular_products': popular_products,
         'stock_products': stock_products,
+        'categories': Category.objects.all(),
+        'comments': Comment.objects.all(),
     }
 
     return render(request, 'index.html', context=context)
@@ -99,7 +98,8 @@ def return_tab(request):
 def documentation(request):
 
     context = {
-        'user': request.user
+        'user': request.user,
+        'documents': Documentation.objects.all(),
     }
 
     return render(request, 'documentation.html', context=context)
@@ -132,7 +132,7 @@ def account(request):
             'birthday': user.birthday,
             'phone': user.phone,
             'email': user.email,
-            'user': request.user
+            'user': request.user,
         }
 
         return render(request, 'account.html', context=context)
@@ -524,7 +524,7 @@ def basket_payment(request):
             },
             "confirmation": {
                 "type": "redirect",
-                "return_url": f"http://127.0.0.1:8000/basket/payment/success/{id}",
+                "return_url": f"{settings.BASE_URL}/basket/payment/success/{id}",
             },
             "capture": True,
             "description": "Заказ №1"
@@ -532,6 +532,7 @@ def basket_payment(request):
         url = payment.confirmation.confirmation_url
         return JsonResponse({'url': url, 'success': True})
     except Exception as e:
+        print(e)
         buffer.delete()
         buffer.save()
         return JsonResponse({'success': False})

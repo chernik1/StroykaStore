@@ -133,7 +133,6 @@
     position: absolute;
     top: 44px;
     left: 16px;
-    width: 90px;
     height: 24px;
     color: rgb(69, 73, 80);
     font-size: 16px;
@@ -141,29 +140,31 @@
     line-height: 150%;
     text-align: left;
 }
-
 .documentation-download {
     position: absolute;
     top: 84px;
     left: 16px;
     width: 344px;
     height: 49px;
-    color: rgb(69, 73, 80);
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 136%;
+    color: rgb(69, 73, 80) !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    line-height: 136% !important;
     text-align: center;
-    background: rgb(252, 236, 65);
+    background: rgb(252, 236, 65) !important;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    cursor: pointer;
 }
-
 .documentation-download:hover {
-    background: rgb(47, 50, 58);
-    color: white;
+    background: rgb(47, 50, 58) !important;
+    color: white !important;
 }
-
 .documentation-download:active {
-    color: #888888;
+    color: #888888 !important;
 }
 
 /* Documentation main end */
